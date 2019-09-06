@@ -8,6 +8,8 @@ public class PlayerUI : MonoBehaviour {
     [Header("Health:")]
     [SerializeField]
     RectTransform healthFill;
+    [SerializeField]
+    Image redScreen;
 
     [Header("Keys:")]
     [SerializeField]
@@ -27,6 +29,7 @@ public class PlayerUI : MonoBehaviour {
     [SerializeField]
     Image crosshair;
 
+
     private void Update() {
         SetHealthAmount(PlayerManager.health/PlayerManager.maxHealth);
         if (PlayerManager.throwing) {
@@ -37,7 +40,7 @@ public class PlayerUI : MonoBehaviour {
     }
 
     void SetHealthAmount(float amount) {
-        healthFill.localScale = new Vector3(amount, 1, 1);
+        redScreen.color = new Color(1, 1, 1, -(amount - 1));
     }
 
     public void GetKeyImages() {
