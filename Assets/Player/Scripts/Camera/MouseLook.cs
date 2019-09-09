@@ -8,8 +8,7 @@ public class MouseLook : MonoBehaviour {
         playerRoot, 
         lookRoot;
 
-    [SerializeField] bool 
-        invert, 
+    [SerializeField] bool
         can_Unlock = true,
         aimAssist;
 
@@ -58,7 +57,7 @@ public class MouseLook : MonoBehaviour {
 
     void LookAround() {
         currentMouseLook = new Vector2(Input.GetAxis(MouseAxis.MOUSE_Y), Input.GetAxis(MouseAxis.MOUSE_X));
-        lookAngles.x += currentMouseLook.x * sensitivity * (invert ? 1f : -1f);
+        lookAngles.x += currentMouseLook.x * sensitivity * (PlayerManager.invert ? 1f : -1f);
         lookAngles.y += currentMouseLook.y * sensitivity;
 
         lookAngles.x = Mathf.Clamp(lookAngles.x, defaultLookLimits.x, defaultLookLimits.y);

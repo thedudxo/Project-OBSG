@@ -17,6 +17,7 @@ public class PlayerDeath : MonoBehaviour {
     [SerializeField] Text punchEfficancy;
 
     [Header("Health:")]
+    [SerializeField] GameObject hitIndicator;
     [SerializeField] float startHealthDelay = 0;
     [SerializeField] float healDelayTimer = 5;
     [SerializeField] float regenSpeed = 1;
@@ -39,9 +40,9 @@ public class PlayerDeath : MonoBehaviour {
         }
     }
 
-    public void DamagePlayer(float damage) {
+    public void DamagePlayer(float damage, Transform enemy) {
+        hitIndicator.GetComponent<HitIndicator>().target = enemy;
         PlayerManager.health = PlayerManager.health - damage;
-        Debug.Log(PlayerManager.health);
         damaged = true;
         CheckHealth();
     }

@@ -5,15 +5,14 @@ using UnityEngine;
 public class HitIndicator : MonoBehaviour {
 
     [Header("Damage:")]
-    [SerializeField]
-    Transform target;
+    public Transform target;
     [SerializeField]
     Transform arrow;
     [SerializeField]
     Transform player;
     float angle;
-    private void Update()
-    {
+
+    private void Update() {
         Indicator();
     }
     void Indicator() {
