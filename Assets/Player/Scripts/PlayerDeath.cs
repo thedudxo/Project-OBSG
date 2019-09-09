@@ -41,6 +41,7 @@ public class PlayerDeath : MonoBehaviour {
     }
 
     public void DamagePlayer(float damage, Transform enemy) {
+        DamageManager.Instance.SpawnIndicator(enemy);
         hitIndicator.GetComponent<HitIndicator>().target = enemy;
         PlayerManager.health = PlayerManager.health - damage;
         damaged = true;

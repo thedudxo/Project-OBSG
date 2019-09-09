@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HitIndicator : MonoBehaviour {
 
@@ -10,10 +11,24 @@ public class HitIndicator : MonoBehaviour {
     Transform arrow;
     [SerializeField]
     Transform player;
+    [SerializeField]
+    float transitionSpeed;
+    float timer = 1;
+    Image image;
+    Color visible = new Color(1, 1, 1, 1);
+    Color invisible = new Color(1, 1, 1, 0);
+    float startTimer = 0;
     float angle;
+    bool damage = false;
+
+    private void Awake() {
+        image = gameObject.GetComponent<Image>();
+    }
 
     private void Update() {
-        Indicator();
+        if (damage) {
+            Indicator();
+        }
     }
     void Indicator() {
         angle = GetHitAngle(player, (player.position - target.position).normalized);
@@ -25,5 +40,19 @@ public class HitIndicator : MonoBehaviour {
         var playerFwd = Vector3.ProjectOnPlane(player.forward, Vector3.up);
         var angle = Vector3.SignedAngle(playerFwd, otherDir, Vector3.up);
         return angle;
+    }
+
+    public IEnumerator TransitionOut() {
+        damage = true;
+        startTimer = 0;
+        while (startTimer <= timer) {
+            image.color = Color.Lerp(visible, invisible, startTimer);
+            startTimer += Time.deltaTime * transitionSpeed;
+            Debug.Log(startTimer);
+            yield return startTimer;
+        }
+        DamageManager.Instance.Indicator.Push(gameObject);
+        gameObject.SetActive(false);
+        damage = false;
     }
 }
