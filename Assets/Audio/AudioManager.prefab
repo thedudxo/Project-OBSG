@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &188972925917050392
+--- !u!1 &782976707567050757
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 188972925917050398}
-  - component: {fileID: 188972925917050393}
+  - component: {fileID: 782976707567050811}
+  - component: {fileID: 782976707567050810}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -17,30 +17,48 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &188972925917050398
+--- !u!4 &782976707567050811
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 188972925917050392}
+  m_GameObject: {fileID: 782976707567050757}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.336595, y: 6.3558726, z: -70.2863}
+  m_LocalPosition: {x: 967.29364, y: 355.81067, z: 15.180176}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &188972925917050393
+--- !u!114 &782976707567050810
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 188972925917050392}
+  m_GameObject: {fileID: 782976707567050757}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abc0ef9f2117d874eb463b988d100c04, type: 3}
+  m_Script: {fileID: 11500000, guid: 15c7c45b071e2f94084621acc22629a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: Theme
+    clip: {fileID: 8300000, guid: b169cb6937366ab4cb11d0d56eccda2a, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 1
+    mute: 0
+    output: {fileID: -5603533913604194284, guid: a05b8c17c237d064ca287219e861e59a,
+      type: 2}
+    source: {fileID: 0}
+  - name: SoundEffect
+    clip: {fileID: 8300000, guid: 7f7a985deaa5a744c9a42e6c18c5b486, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 1
+    mute: 0
+    output: {fileID: -205476788242197271, guid: a05b8c17c237d064ca287219e861e59a,
+      type: 2}
+    source: {fileID: 0}

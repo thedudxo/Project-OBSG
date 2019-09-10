@@ -48,7 +48,6 @@ public class HitIndicator : MonoBehaviour {
         while (startTimer <= timer) {
             image.color = Color.Lerp(visible, invisible, startTimer);
             startTimer += Time.deltaTime * transitionSpeed;
-            Debug.Log(startTimer);
             yield return startTimer;
         }
         DamageManager.Instance.Indicator.Push(gameObject);

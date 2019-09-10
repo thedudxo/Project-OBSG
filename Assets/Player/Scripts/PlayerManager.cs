@@ -27,6 +27,8 @@ public static class PlayerManager {
     public static bool throwing = false;
     public static float maxHealth = 50;
     public static float health = 50;
+    public static float bloodMeter = 0;
+    public static float maxBloodMeter = 100;
 
     public static List<GameObject> doorKeys = new List<GameObject>();
 
