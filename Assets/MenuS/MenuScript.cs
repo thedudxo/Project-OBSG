@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 
 public class MenuScript : MonoBehaviour {
-
+    
     [Header("Pause:")]
     [SerializeField]
     GameObject pauseCanvas;
@@ -17,7 +17,15 @@ public class MenuScript : MonoBehaviour {
     [SerializeField]
     AudioMixer mixer;
 
-    private void Update() {
+    [SerializeField]
+    bool menu;
+
+    private void Start() {
+    }
+
+    private void Update()
+    {
+        if (menu) { return; }
         if (Input.GetKeyDown(KeyCode.Escape) && !PlayerManager.pause) {
             pauseCanvas.SetActive(true);
             PlayerManager.pause = true;
@@ -25,12 +33,12 @@ public class MenuScript : MonoBehaviour {
         }
     }
     // ----------------------------------------------Pause Menus---------------------------------------------- //
-    public void Back(GameObject currentScreen) {
+    public void BackPause(GameObject currentScreen) {
         pause.SetActive(true);
         currentScreen.SetActive(false);
     }
 
-    public void Options() {
+    public void OptionsPause() {
         pause.SetActive(false);
         options.SetActive(true);
     }
@@ -39,12 +47,19 @@ public class MenuScript : MonoBehaviour {
         PlayerManager.invert = isInvert;
     }
 
-    public void SetVolume(float vol, string group) {
-        mixer.SetFloat(group, vol);
-    }
-
     public void QuitToMenu() {
         //Load main menu here
     }
     // ----------------------------------------------Main Menus---------------------------------------------- //
+    public void StartGame() {
+        //start the game
+    }
+
+    public void TransitionTo(string to) {
+        Camera.main.GetComponent<Animator>().SetTrigger(to);
+    }
+
+    public void QuitGame() {
+
+    }
 }
