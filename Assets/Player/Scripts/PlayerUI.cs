@@ -5,9 +5,13 @@ using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour {
     
+    [Header("Blood Meter:")]
+    [SerializeField]
+    RectTransform bloodFill;
+
     [Header("Health:")]
     [SerializeField]
-    RectTransform healthFill;
+    Image redScreen;
 
     [Header("Keys:")]
     [SerializeField]
@@ -29,6 +33,7 @@ public class PlayerUI : MonoBehaviour {
 
     private void Update() {
         SetHealthAmount(PlayerManager.health/PlayerManager.maxHealth);
+        SetBloodAmount(PlayerManager.bloodMeter/PlayerManager.maxBloodMeter);
         if (PlayerManager.throwing) {
             crosshair.enabled = true;
         } else {
@@ -36,8 +41,12 @@ public class PlayerUI : MonoBehaviour {
         }
     }
 
+    void SetBloodAmount(float amount) {
+        bloodFill.localScale = new Vector3(amount, 1, 1);
+    }
+
     void SetHealthAmount(float amount) {
-        healthFill.localScale = new Vector3(amount, 1, 1);
+        redScreen.color = new Color(1, 1, 1, -(amount - 1));
     }
 
     public void GetKeyImages() {
