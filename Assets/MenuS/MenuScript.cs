@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
 public class MenuScript : MonoBehaviour {
@@ -9,27 +10,34 @@ public class MenuScript : MonoBehaviour {
     [SerializeField]
     GameObject pauseCanvas;
     [SerializeField]
+    GameObject playerCanvas;
+    [SerializeField]
     GameObject pause;
     [SerializeField]
     GameObject options;
-    
-    [Header("Audio:")]
     [SerializeField]
-    AudioMixer mixer;
-
+    GameObject quit;
+    
     [SerializeField]
     bool menu;
 
     private void Start() {
     }
 
-    private void Update()
-    {
+    private void Update() {
         if (menu) { return; }
-        if (Input.GetKeyDown(KeyCode.Escape) && !PlayerManager.pause) {
-            pauseCanvas.SetActive(true);
-            PlayerManager.pause = true;
-            Time.timeScale = 0;
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            if (!PlayerManager.pause) {
+                pauseCanvas.SetActive(true);
+                playerCanvas.SetActive(false);
+                PlayerManager.pause = true;
+                Time.timeScale = 0;
+            } else if (PlayerManager.pause) {
+                pauseCanvas.SetActive(false);
+                playerCanvas.SetActive(true);
+                PlayerManager.pause = false;
+                Time.timeScale = 1;
+            }
         }
     }
     // ----------------------------------------------Pause Menus---------------------------------------------- //
@@ -38,21 +46,23 @@ public class MenuScript : MonoBehaviour {
         currentScreen.SetActive(false);
     }
 
-    public void OptionsPause() {
+    public void ToPause(GameObject newScreen) {
         pause.SetActive(false);
-        options.SetActive(true);
+        newScreen.SetActive(true);
     }
 
     public void SetInvert(bool isInvert) {
         PlayerManager.invert = isInvert;
+        Debug.Log(PlayerManager.invert);
     }
 
     public void QuitToMenu() {
-        //Load main menu here
+        SceneManager.LoadScene(0);
     }
     // ----------------------------------------------Main Menus---------------------------------------------- //
     public void StartGame() {
-        //start the game
+        PlayerManager.pause = false;
+        SceneManager.LoadScene(1);
     }
 
     public void TransitionTo(string to) {
@@ -60,6 +70,6 @@ public class MenuScript : MonoBehaviour {
     }
 
     public void QuitGame() {
-
+        Application.Quit();
     }
 }
