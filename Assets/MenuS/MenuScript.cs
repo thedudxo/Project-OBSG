@@ -46,7 +46,7 @@ public class MenuScript : MonoBehaviour {
         currentScreen.SetActive(false);
     }
 
-    public void ToPause(GameObject newScreen) {
+    public void PauseTo(GameObject newScreen) {
         pause.SetActive(false);
         newScreen.SetActive(true);
     }
