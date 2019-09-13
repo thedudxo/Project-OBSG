@@ -20,6 +20,7 @@ public class Tags {
     public const string PLAYER = "Player";
     public const string ENEMY = "Enemy";
     public const string FINISH = "Finish";
+    public const string MAIN_CAMERA = "MainCamera";
 }
 
 public class Layers {

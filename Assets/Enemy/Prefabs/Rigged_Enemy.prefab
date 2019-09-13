@@ -361,7 +361,7 @@ GameObject:
   m_Layer: 0
   m_Name: Rigged_Enemy
   m_TagString: Enemy
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -395,7 +395,7 @@ MonoBehaviour:
   aiState: 0
   playerTarget: {fileID: 0}
   fist: {fileID: 1380313298}
-  damage: 10
+  damage: 0
 --- !u!114 &8465897356069321946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,6 +411,8 @@ MonoBehaviour:
   player: {fileID: 0}
   ragdoll: {fileID: 5268348362301231212}
   force: 0
+  ragdollForce: 5000
+  bloodMeterAdd: 5
   dead: 0
   health: 50
 --- !u!195 &1203710346860518620
@@ -974,6 +976,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy_PlaceHolderModel_RIGGED
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661571804739166048, guid: 889422de065a5924dbc5a21dc60f456b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 889422de065a5924dbc5a21dc60f456b,
         type: 3}

@@ -197,7 +197,7 @@ public class EnemyAI : MonoBehaviour{
 
     private void OnTriggerEnter(Collider other) {
         if(other.tag == Tags.PLAYER) {
-            other.GetComponent<PlayerDeath>().DamagePlayer(damage);
+            other.GetComponent<PlayerDeath>().DamagePlayer(damage, gameObject.transform);
         }
     }
 }
