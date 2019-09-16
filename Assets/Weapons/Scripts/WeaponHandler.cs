@@ -12,6 +12,7 @@ public class WeaponHandler : MonoBehaviour {
     private Rigidbody rb;
     bool resetting = false;
     bool thrown = false;
+    bool reset = true;
     [SerializeField] Vector3 resetRot;
     [SerializeField] Vector3 resetScale;
     public Vector3 holdPosition;
@@ -30,6 +31,9 @@ public class WeaponHandler : MonoBehaviour {
         if (thrown) {
             if(rb.velocity == Vector3.zero)
                 StartCoroutine(ResetWeapon());
+        }
+        if (reset) {
+            transform.Rotate(0, 60 * Time.deltaTime, 0, Space.World);
         }
     }
 
@@ -54,15 +58,18 @@ public class WeaponHandler : MonoBehaviour {
     IEnumerator ResetWeapon() {
         resetting = true;
         yield return new WaitForSeconds(1);
-        var pos = transform.position;
-        pos.y = 1.4f;
-        transform.position = pos;
-        transform.eulerAngles = resetRot;
-        rb.useGravity = false;
-        GetComponent<Collider>().enabled = true;
-        transform.GetChild(1).GetComponent<Collider>().enabled = false;
-        thrown = false;
-        resetting = false;
+        if (rb.velocity == Vector3.zero) {
+            var pos = transform.position;
+            pos.y = pos.y + 1.3f;
+            transform.position = pos;
+            transform.eulerAngles = resetRot;
+            rb.useGravity = false;
+            GetComponent<Collider>().enabled = true;
+            transform.GetChild(1).GetComponent<Collider>().enabled = false;
+            thrown = false;
+            resetting = false;
+            reset = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -71,11 +78,13 @@ public class WeaponHandler : MonoBehaviour {
                 case WeaponType.ONE_HANDED:
                     if (other.GetComponent<Pickup>().rightHandWeapon == null || other.GetComponent<Pickup>().leftHandWeapon == null) {
                         other.GetComponent<Pickup>().PickUpObject(gameObject);
+                        reset = false;
                     }
                     break;
                 case WeaponType.TWO_HANDED:
                     if (other.GetComponent<Pickup>().rightHandWeapon == null && other.GetComponent<Pickup>().leftHandWeapon == null) {
                         other.GetComponent<Pickup>().PickUpObject(gameObject);
+                        reset = false;
                     }
                     break;
             }
