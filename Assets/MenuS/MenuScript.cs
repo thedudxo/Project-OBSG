@@ -28,8 +28,8 @@ public class MenuScript : MonoBehaviour {
         if (menu) { return; }
         if (Input.GetKeyDown(KeyCode.Escape)) {
             if (!PlayerManager.pause) {
-                pauseCanvas.SetActive(true);
                 playerCanvas.SetActive(false);
+                pauseCanvas.SetActive(true);
                 PlayerManager.pause = true;
                 Time.timeScale = 0;
             } else if (PlayerManager.pause) {
@@ -53,7 +53,6 @@ public class MenuScript : MonoBehaviour {
 
     public void SetInvert(bool isInvert) {
         PlayerManager.invert = isInvert;
-        Debug.Log(PlayerManager.invert);
     }
 
     public void QuitToMenu() {

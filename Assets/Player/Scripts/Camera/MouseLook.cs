@@ -9,16 +9,12 @@ public class MouseLook : MonoBehaviour {
         lookRoot;
 
     [SerializeField] bool
-        can_Unlock = true,
         aimAssist;
 
     [SerializeField] float 
         sensitivity = 5f, 
-        smoothWeight = 0.4f, 
         rollAngle = 10f,
         rollSpeed = 3f;
-
-    [SerializeField] int smoothSteps = 10;
 
     [SerializeField] Vector2 defaultLookLimits = new Vector2(-70f, 80f);
 

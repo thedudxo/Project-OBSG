@@ -10,11 +10,13 @@ public enum WeaponType {
 public class WeaponHandler : MonoBehaviour {
 
     private Rigidbody rb;
-    bool isReset = true;
     bool resetting = false;
     bool thrown = false;
+    [SerializeField] Vector3 resetRot;
+    [SerializeField] Vector3 resetScale;
     public Vector3 holdPosition;
     public Vector3 holdRotation;
+    public Vector3 holdScale;
     public int damage;
     public bool throwable;
     public WeaponType weaponType;
@@ -41,6 +43,7 @@ public class WeaponHandler : MonoBehaviour {
 
     public IEnumerator ThrowWeapon() {
         thrown = true;
+        gameObject.transform.localScale = resetScale;
         rb.constraints = RigidbodyConstraints.None;
         rb.useGravity = true;
         //yield return new WaitForEndOfFrame();
@@ -52,13 +55,12 @@ public class WeaponHandler : MonoBehaviour {
         resetting = true;
         yield return new WaitForSeconds(1);
         var pos = transform.position;
-        pos.y = pos.y + 1.6f;
+        pos.y = 1.4f;
         transform.position = pos;
-        transform.eulerAngles = new Vector3(0, 0, 0);
+        transform.eulerAngles = resetRot;
         rb.useGravity = false;
         GetComponent<Collider>().enabled = true;
         transform.GetChild(1).GetComponent<Collider>().enabled = false;
-        isReset = true;
         thrown = false;
         resetting = false;
     }
@@ -69,13 +71,11 @@ public class WeaponHandler : MonoBehaviour {
                 case WeaponType.ONE_HANDED:
                     if (other.GetComponent<Pickup>().rightHandWeapon == null || other.GetComponent<Pickup>().leftHandWeapon == null) {
                         other.GetComponent<Pickup>().PickUpObject(gameObject);
-                        isReset = false;
                     }
                     break;
                 case WeaponType.TWO_HANDED:
                     if (other.GetComponent<Pickup>().rightHandWeapon == null && other.GetComponent<Pickup>().leftHandWeapon == null) {
                         other.GetComponent<Pickup>().PickUpObject(gameObject);
-                        isReset = false;
                     }
                     break;
             }

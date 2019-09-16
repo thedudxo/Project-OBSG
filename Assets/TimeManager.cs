@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 
 public class TimeManager : MonoBehaviour {
-
-    [SerializeField] float slowdownFactor = 0.05f;
+    
     [SerializeField] float bloodMeterDecrease = 2f;
     public bool inSlowMo = false;
     private static TimeManager instance;
