@@ -45,14 +45,14 @@ public class WeaponHandler : MonoBehaviour {
         }
     }
 
-    public IEnumerator ThrowWeapon() {
+    public void ThrowWeapon() {
         thrown = true;
         gameObject.transform.localScale = resetScale;
         rb.constraints = RigidbodyConstraints.None;
         rb.useGravity = true;
-        //yield return new WaitForEndOfFrame();
+        transform.localEulerAngles = Vector3.zero;
+        rb.angularVelocity = rb.transform.right * 10;
         transform.GetChild(1).GetComponent<Collider>().enabled = true;
-        yield return null;
     }
     
     IEnumerator ResetWeapon() {
@@ -69,6 +69,8 @@ public class WeaponHandler : MonoBehaviour {
             thrown = false;
             resetting = false;
             reset = true;
+        } else {
+            StartCoroutine(ResetWeapon());
         }
     }
 

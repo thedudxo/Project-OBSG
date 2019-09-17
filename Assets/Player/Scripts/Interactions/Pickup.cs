@@ -42,7 +42,7 @@ public class Pickup : MonoBehaviour {
 
     void ThrowObject(GameObject weapon, Transform hand) {
         weapon.transform.parent = null;
-        StartCoroutine(weapon.GetComponent<WeaponHandler>().ThrowWeapon());
+        weapon.GetComponent<WeaponHandler>().ThrowWeapon();
         ChangeLayerRecursively(weapon.transform, Layers.DEFAULT);
         weapon.GetComponent<Rigidbody>().AddForce(hand.forward * throwForce);
     }//throw object

@@ -125,7 +125,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &1601969185434071418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,8 +138,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8acd979598826ce46a70689c8725e76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetRot: {x: 0, y: 0, z: 0}
+  resetScale: {x: 0, y: 0, z: 0}
   holdPosition: {x: 0, y: -0.09, z: 0}
   holdRotation: {x: -90, y: 180, z: 38.2}
+  holdScale: {x: 0, y: 0, z: 0}
   damage: 25
   throwable: 1
   weaponType: 0
