@@ -57,14 +57,15 @@ LightmapSettings:
     serializedVersion: 12
     m_Resolution: 2
     m_BakeResolution: 20
-    m_AtlasSize: 256
-    m_AO: 0
+    m_AtlasSize: 1024
+    m_AO: 1
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
     m_ExtractAmbientOcclusion: 0
     m_Padding: 2
-    m_LightmapParameters: {fileID: 0}
+    m_LightmapParameters: {fileID: 15200, guid: 0000000000000000f000000000000000,
+      type: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
     m_FinalGather: 0
@@ -74,10 +75,10 @@ LightmapSettings:
     m_MixedBakeMode: 2
     m_BakeBackend: 1
     m_PVRSampling: 1
-    m_PVRDirectSampleCount: 16
-    m_PVRSampleCount: 32
-    m_PVRBounces: 1
-    m_PVREnvironmentSampleCount: 32
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 256
+    m_PVRBounces: 3
+    m_PVREnvironmentSampleCount: 356
     m_PVREnvironmentReferencePointCount: 2048
     m_PVRFilteringMode: 1
     m_PVRDenoiserTypeDirect: 1
@@ -17881,6 +17882,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rigged_Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2349698050513974758, guid: 81d1d08919e8b814d8ba30d83606f27f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2349698050513974759, guid: 81d1d08919e8b814d8ba30d83606f27f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17941,6 +17947,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c756ed716b232364ea30d8106a705e4e, type: 2}
+    - target: {fileID: 3694582642490631434, guid: 81d1d08919e8b814d8ba30d83606f27f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81d1d08919e8b814d8ba30d83606f27f, type: 3}
 --- !u!4 &587624519 stripped
@@ -53252,10 +53263,20 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5195696694383107583, guid: 24685e10f306d3648881691faf5a37ba,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 813190174843073876, guid: 24685e10f306d3648881691faf5a37ba,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 813190174843073876, guid: 24685e10f306d3648881691faf5a37ba,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 7789666075309131134, guid: 24685e10f306d3648881691faf5a37ba,
         type: 3}
