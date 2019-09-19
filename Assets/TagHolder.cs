@@ -42,3 +42,9 @@ public class PlayerAnimation {
 public class EnemyAnimation {
     public const string ENEMY_ATTACK = "EnemyAttack";
 }
+
+public class WeaponParticles {
+    public const string ALPHA = "Alpha";
+    public const string PICK_UP = "OnPickUp";
+    public const string RESET = "OnReset";
+}
