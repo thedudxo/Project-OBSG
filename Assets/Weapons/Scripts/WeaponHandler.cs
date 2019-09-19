@@ -11,13 +11,15 @@ public enum WeaponType {
 public class WeaponHandler : MonoBehaviour {
 
     private Rigidbody rb;
+    VisualEffect vfx;
+    Light vfxLight;
     bool resetting = false;
     bool thrown = false;
     bool reset = true;
     float SRParticles = 300;
     float SRRingParticles = 10000;
     float SRRing = 5;
-    [SerializeField] VisualEffect weaponParticles;
+    [SerializeField] GameObject particlesObject;
     [SerializeField] Vector3 resetRot;
     [SerializeField] Vector3 resetScale;
     public Vector3 holdPosition;
@@ -29,6 +31,8 @@ public class WeaponHandler : MonoBehaviour {
 
     private void Start() {
         rb = GetComponent<Rigidbody>();
+        vfx = particlesObject.GetComponent<VisualEffect>();
+        vfxLight = particlesObject.GetComponentInChildren<Light>();
     }
 
     private void Awake() {
@@ -42,26 +46,31 @@ public class WeaponHandler : MonoBehaviour {
         }
         if (reset) {
             transform.Rotate(0, 60 * Time.deltaTime, 0, Space.World);
-            weaponParticles.SendEvent(WeaponParticles.RESET);
-            if (weaponParticles.GetFloat(WeaponParticles.ALPHA) < 1) {
-                float alpha = weaponParticles.GetFloat(WeaponParticles.ALPHA);
+            vfx.SendEvent(WeaponParticles.RESET);
+            vfxLight.intensity = Mathf.PingPong(Time.time * 5, 10);
+            if (vfx.GetFloat(WeaponParticles.ALPHA) < 1) {
+                float alpha = vfx.GetFloat(WeaponParticles.ALPHA);
                 alpha += 0.05f;
-                weaponParticles.SetFloat(WeaponParticles.ALPHA, alpha);
+                vfx.SetFloat(WeaponParticles.ALPHA, alpha);
             } else {
-                weaponParticles.SetFloat(WeaponParticles.ALPHA, 1);
+                vfx.SetFloat(WeaponParticles.ALPHA, 1);
             }
         } else {
-            if (weaponParticles.GetFloat(WeaponParticles.ALPHA) > 0) {
-                float alpha = weaponParticles.GetFloat(WeaponParticles.ALPHA);
-                alpha -= 0.05f;
-                weaponParticles.SetFloat(WeaponParticles.ALPHA, alpha);
+            if(vfxLight.intensity > 0) {
+                float intensity = vfxLight.intensity;
+                intensity -= 1f;
+                vfxLight.intensity = intensity;
             } else {
-                weaponParticles.SetFloat(WeaponParticles.ALPHA, 0);
+                vfxLight.intensity = 0;
             }
-            weaponParticles.SendEvent(WeaponParticles.PICK_UP);
-        }
-        if (Input.GetKeyDown(KeyCode.K)) {
-            weaponParticles.SendEvent(WeaponParticles.RESET);
+            if (vfx.GetFloat(WeaponParticles.ALPHA) > 0) {
+                float alpha = vfx.GetFloat(WeaponParticles.ALPHA);
+                alpha -= 0.05f;
+                vfx.SetFloat(WeaponParticles.ALPHA, alpha);
+            } else {
+                vfx.SetFloat(WeaponParticles.ALPHA, 0);
+            }
+            vfx.SendEvent(WeaponParticles.PICK_UP);
         }
     }
 
@@ -88,7 +97,7 @@ public class WeaponHandler : MonoBehaviour {
         yield return new WaitForSeconds(1);
         if (rb.velocity == Vector3.zero) {
             var pos = transform.position;
-            weaponParticles.transform.position = pos;
+            vfx.transform.position = pos;
             pos.y = pos.y + 1.3f;
             transform.position = pos;
             transform.eulerAngles = resetRot;
@@ -109,7 +118,7 @@ public class WeaponHandler : MonoBehaviour {
                 case WeaponType.ONE_HANDED:
                     if (other.GetComponent<Pickup>().rightHandWeapon == null || other.GetComponent<Pickup>().leftHandWeapon == null) {
                         other.GetComponent<Pickup>().PickUpObject(gameObject);
-                        weaponParticles.SendEvent(WeaponParticles.PICK_UP);
+                        vfx.SendEvent(WeaponParticles.PICK_UP);
                         reset = false;
                     }
                     break;

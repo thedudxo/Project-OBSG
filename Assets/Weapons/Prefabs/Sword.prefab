@@ -103,7 +103,7 @@ Transform:
   m_GameObject: {fileID: 4249878118255195589}
   m_LocalRotation: {x: -0.07097542, y: 0.92696756, z: 0.34839234, w: 0.11965124}
   m_LocalPosition: {x: -218.47289, y: -25.765856, z: 27.134869}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 119606542727986282}
   - {fileID: 7614890044145142037}
@@ -138,8 +138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8acd979598826ce46a70689c8725e76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetRot: {x: 0, y: 0, z: 0}
-  resetScale: {x: 0, y: 0, z: 0}
+  weaponParticles: {fileID: 0}
+  resetRot: {x: -45, y: 0, z: 0}
+  resetScale: {x: 2, y: 2, z: 2}
   holdPosition: {x: 0, y: -0.09, z: 0}
   holdRotation: {x: -90, y: 180, z: 38.2}
   holdScale: {x: 0, y: 0, z: 0}
