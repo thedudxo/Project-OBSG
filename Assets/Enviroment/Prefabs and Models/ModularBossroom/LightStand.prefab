@@ -44,8 +44,8 @@ Light:
   serializedVersion: 9
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.5
-  m_Range: 10
+  m_Intensity: 5
+  m_Range: 15
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -86,8 +86,8 @@ Light:
   m_Lightmapping: 1
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 0.1
-  m_ColorTemperature: 20000
+  m_BounceIntensity: 0
+  m_ColorTemperature: 3412
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 1.0587227e+27, z: 7.54e-43, w: 1.0587227e+27}
   m_UseBoundingSphereOverride: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
   useVolumetric: 1
   featuresFoldout: 1
   showAdditionalSettings: 0
-  displayLightIntensity: 1.5
+  displayLightIntensity: 5
   displayAreaLightEmissiveMesh: 0
   areaLightCookie: {fileID: 0}
   areaLightShadowCone: 120
@@ -345,7 +345,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: e6c9f6b5786b1b7479e8d36ca64a7687, type: 2}
-  - {fileID: 2100000, guid: 9530d8886d81f82459bb39fae3784e93, type: 2}
+  - {fileID: 2100000, guid: 60e4e96e5e628914e99cedb7e66fda9a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -442,7 +442,7 @@ Light:
   serializedVersion: 9
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.2
   m_Range: 20
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -532,7 +532,7 @@ MonoBehaviour:
   useVolumetric: 1
   featuresFoldout: 1
   showAdditionalSettings: 8
-  displayLightIntensity: 1
+  displayLightIntensity: 0.2
   displayAreaLightEmissiveMesh: 0
   areaLightCookie: {fileID: 0}
   areaLightShadowCone: 120
