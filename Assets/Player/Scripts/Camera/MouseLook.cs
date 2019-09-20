@@ -34,7 +34,7 @@ public class MouseLook : MonoBehaviour {
 	
 	void Update () {
         if (!PlayerManager.alive) { return; }
-        LockAndUnlockCursor();
+        //LockAndUnlockCursor();
         if (Cursor.lockState == CursorLockMode.Locked) {
             LookAround();
         }
