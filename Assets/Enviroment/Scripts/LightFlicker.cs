@@ -28,9 +28,9 @@ public class LightFlicker : MonoBehaviour
         Mathf.Clamp(light.intensity, minIntensity, maxIntensity);
 
         if (Random.Range(0, 2) == 1)
-            light.intensity += 0.05f;
+            light.intensity += 0.1f;
         else
-            light.intensity += -0.05f;
+            light.intensity += -0.1f;
 
 
         //range
