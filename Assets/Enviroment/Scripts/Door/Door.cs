@@ -10,7 +10,8 @@ public class Door : MonoBehaviour {
     public void CheckButtons() {
         Debug.Log(buttons.TrueForAll(HasButton));
         if (buttons.TrueForAll(HasButton)) {
-            GetComponent<Animator>().SetBool("DoorOpen", true);
+            //GetComponent<Animator>().SetBool("DoorOpen", true);
+            gameObject.SetActive(false);
         }
     }
 
