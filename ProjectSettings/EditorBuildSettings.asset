@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/_Scenes/Main/MainMenu.unity
+    guid: 5dccc6bc169b8094292f91c8ce577066
+  - enabled: 0
+    path: Assets/_Scenes/Jordan/Sandbox.unity
+    guid: e5fa22d7957b3c7409cbf2a0fb70263d
+  - enabled: 1
+    path: Assets/_Scenes/Isaac/Setup.unity
+    guid: 3e57a289c9c6b3246ba63685b5379039
+  - enabled: 1
+    path: Assets/_Scenes/Isaac/Level merged.unity
+    guid: 26d31cf8ae2fafc4eb5833ba68e322f8
   m_configObjects: {}

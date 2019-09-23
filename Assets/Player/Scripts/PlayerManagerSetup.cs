@@ -17,8 +17,7 @@ public class PlayerManagerSetup : MonoBehaviour {
         PlayerManager.playerDeath = GetComponent<PlayerDeath>();
     }
 
-    private void Update()
-    {
+    private void Update() {
         PlayerManager.SecondsPlayerAlive += Time.deltaTime;
     }
 }

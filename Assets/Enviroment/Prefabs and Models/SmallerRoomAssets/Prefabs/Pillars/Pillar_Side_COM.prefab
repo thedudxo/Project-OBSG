@@ -40,7 +40,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8750827887450010956
 Transform:
@@ -69,6 +69,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Top_Side_Pillar (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 790818ec5c6028b41a9576706186e955,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 790818ec5c6028b41a9576706186e955,
         type: 3}
@@ -155,6 +160,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Room_Pillar (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 1d5864eaafeeee246b4d051dd97a8634,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1d5864eaafeeee246b4d051dd97a8634,
         type: 3}
