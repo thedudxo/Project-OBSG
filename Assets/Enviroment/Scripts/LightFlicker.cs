@@ -25,7 +25,7 @@ public class LightFlicker : MonoBehaviour
     void Update()
     {
         //intensity
-        Mathf.Clamp(light.intensity, minIntensity, maxIntensity);
+        light.intensity = Mathf.Clamp(light.intensity, minIntensity, maxIntensity);
 
         if (Random.Range(0, 2) == 1)
             light.intensity += 0.1f;
@@ -34,7 +34,7 @@ public class LightFlicker : MonoBehaviour
 
 
         //range
-        Mathf.Clamp(light.range, minRange, maxRange);
+        light.range = Mathf.Clamp(light.range, minRange, maxRange);
 
         if (Random.Range(0, 2) == 1)
             light.range += 0.05f;
@@ -43,15 +43,15 @@ public class LightFlicker : MonoBehaviour
 
 
         //height
-        
+        return;
         Vector3 pos = light.gameObject.transform.position;
 
         if (Random.Range(0, 2) == 1)
-            pos.y += 0.001f;
+            pos.y += 0.000001f;
         else
-            pos.y += -0.001f;
+            pos.y += -0.000001f;
 
-        Mathf.Clamp(pos.y, startHeight + heightBobble, startHeight - heightBobble);
+        pos.y = Mathf.Clamp(pos.y, startHeight + heightBobble, startHeight - heightBobble);
 
         light.gameObject.transform.position = pos;
     }
