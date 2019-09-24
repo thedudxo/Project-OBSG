@@ -43,13 +43,13 @@ public class LightFlicker : MonoBehaviour
 
 
         //height
-        
+        return;
         Vector3 pos = light.gameObject.transform.position;
 
         if (Random.Range(0, 2) == 1)
-            pos.y += 0.001f;
+            pos.y += 0.000001f;
         else
-            pos.y += -0.001f;
+            pos.y += -0.000001f;
 
         pos.y = Mathf.Clamp(pos.y, startHeight + heightBobble, startHeight - heightBobble);
 
