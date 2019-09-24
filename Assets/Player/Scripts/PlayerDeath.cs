@@ -29,7 +29,7 @@ public class PlayerDeath : MonoBehaviour {
             SceneManager.LoadScene(0);
         }
         if (Input.GetKeyDown(KeyCode.Escape))
-            Application.Quit();
+            //Application.Quit();
 
         if(startHealthDelay + healDelayTimer <= Time.time && damaged && PlayerManager.alive) {
             PlayerManager.health += regenSpeed * Time.deltaTime;

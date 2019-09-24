@@ -28,11 +28,16 @@ public class MenuScript : MonoBehaviour {
         if (menu) { return; }
         if (Input.GetKeyDown(KeyCode.Escape)) {
             if (!PlayerManager.pause) {
-                pauseCanvas.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 playerCanvas.SetActive(false);
+                pauseCanvas.SetActive(true);
                 PlayerManager.pause = true;
                 Time.timeScale = 0;
-            } else if (PlayerManager.pause) {
+            } else if (PlayerManager.pause)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
                 pauseCanvas.SetActive(false);
                 playerCanvas.SetActive(true);
                 PlayerManager.pause = false;
@@ -46,18 +51,18 @@ public class MenuScript : MonoBehaviour {
         currentScreen.SetActive(false);
     }
 
-    public void ToPause(GameObject newScreen) {
+    public void PauseTo(GameObject newScreen) {
         pause.SetActive(false);
         newScreen.SetActive(true);
     }
 
     public void SetInvert(bool isInvert) {
         PlayerManager.invert = isInvert;
-        Debug.Log(PlayerManager.invert);
     }
 
     public void QuitToMenu() {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1;
     }
     // ----------------------------------------------Main Menus---------------------------------------------- //
     public void StartGame() {
