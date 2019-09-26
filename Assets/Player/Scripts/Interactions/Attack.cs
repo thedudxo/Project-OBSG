@@ -6,7 +6,6 @@ public class Attack : MonoBehaviour {
 
     private Pickup pickupScript;
     private PlayerMovement movementScript;
-    private float attackDist = 3;
     //[SerializeField] private Camera MainCamera;
     public int fistDamage;
     public int rightDamage;

@@ -35,6 +35,7 @@ public class DamageManager : MonoBehaviour {
             indicator.Peek().transform.SetParent(parent);
             indicator.Peek().name = "HitIndicator";
             indicator.Peek().GetComponent<RectTransform>().localPosition = Vector3.zero;
+            indicator.Peek().GetComponent<RectTransform>().localScale = new Vector3(2, 2, 0);
             indicator.Peek().SetActive(false);
         }
     }

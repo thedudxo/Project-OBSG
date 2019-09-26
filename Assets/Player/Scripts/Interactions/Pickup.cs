@@ -41,8 +41,8 @@ public class Pickup : MonoBehaviour {
     }
 
     void ThrowObject(GameObject weapon, Transform hand) {
-        StartCoroutine(weapon.GetComponent<WeaponHandler>().ThrowWeapon());
         weapon.transform.parent = null;
+        weapon.GetComponent<WeaponHandler>().ThrowWeapon();
         ChangeLayerRecursively(weapon.transform, Layers.DEFAULT);
         weapon.GetComponent<Rigidbody>().AddForce(hand.forward * throwForce);
     }//throw object
@@ -114,6 +114,7 @@ public class Pickup : MonoBehaviour {
                 attackScript.rightDamage = attackScript.leftDamage = carriedHandler.damage;
                 weapon.transform.localPosition = carriedHandler.holdPosition;
                 weapon.transform.localEulerAngles = carriedHandler.holdRotation;
+                weapon.transform.localScale = new Vector3(1, 1, 1);
                 weapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
                 ChangeLayerRecursively(weapon.transform, Layers.FPS);
                 break;
@@ -127,9 +128,10 @@ public class Pickup : MonoBehaviour {
                     leftHandWeapon = weapon;
                     attackScript.leftDamage = carriedHandler.damage;
                 }
-                weapon.GetComponent<BoxCollider>().enabled = false;
+                weapon.GetComponent<SphereCollider>().enabled = false;
                 weapon.transform.localPosition = carriedHandler.holdPosition;
                 weapon.transform.localEulerAngles = carriedHandler.holdRotation;
+                weapon.transform.localScale = new Vector3(7, 7, 7);
                 weapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
                 ChangeLayerRecursively(weapon.transform, Layers.FPS);
                 break;

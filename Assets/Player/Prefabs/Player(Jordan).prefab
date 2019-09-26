@@ -251,14 +251,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRoot: {fileID: 4463555671306446}
   lookRoot: {fileID: 4939395343356520}
-  invert: 0
-  can_Unlock: 1
   aimAssist: 0
   sensitivity: 5
-  smoothWeight: 0.4
   rollAngle: 0.8
   rollSpeed: 10
-  smoothSteps: 5
   defaultLookLimits: {x: -70, y: 80}
 --- !u!65 &1761998211
 BoxCollider:
@@ -326,10 +322,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17180c145fe0a91488cd0dd47834ad84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accel: 1000
+  accel: 500
   airAccel: 1
   deccel: 0
-  maxSpeed: 20
+  maxSpeed: 10
   jumpForce: 10000
   maxSlope: 60
   dashSpeed: 2000
@@ -388,6 +384,7 @@ MonoBehaviour:
   kills: {fileID: 0}
   punches: {fileID: 0}
   punchEfficancy: {fileID: 0}
+  hitIndicator: {fileID: 0}
   startHealthDelay: 0
   healDelayTimer: 2
   regenSpeed: 10
@@ -415,7 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97b7e37c33ca3b4cbcf5e3daf28d6f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthFill: {fileID: 0}
+  bloodFill: {fileID: 0}
   redScreen: {fileID: 0}
   stop: 0
   blueKey: {fileID: 0}
