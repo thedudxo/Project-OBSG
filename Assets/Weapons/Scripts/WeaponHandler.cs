@@ -97,7 +97,6 @@ public class WeaponHandler : MonoBehaviour {
         yield return new WaitForSeconds(1);
         if (rb.velocity == Vector3.zero) {
             var pos = transform.position;
-            vfx.transform.position = pos;
             pos.y = pos.y + 1.3f;
             transform.position = pos;
             transform.eulerAngles = resetRot;
