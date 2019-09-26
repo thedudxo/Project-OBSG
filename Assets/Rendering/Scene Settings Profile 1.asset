@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Value: 1
   contrast:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 20
     min: -100
     max: 100
   colorFilter:
@@ -35,7 +35,7 @@ MonoBehaviour:
     max: 180
   saturation:
     m_OverrideState: 1
-    m_Value: -5
+    m_Value: 0
     min: -100
     max: 100
 --- !u!114 &-6433600879255894670
@@ -121,12 +121,12 @@ MonoBehaviour:
   m_AdvancedMode: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.55
+    m_Value: 0.78
     min: 0
     max: 4
   thicknessModifier:
     m_OverrideState: 1
-    m_Value: 1.42
+    m_Value: 5.04
     min: 1
     max: 10
   directLightingStrength:
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   indirectSpecularIntensity:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 10
     min: 0
   indirectDiffuseIntensity:
     m_OverrideState: 1
@@ -186,87 +186,12 @@ MonoBehaviour:
   components:
   - {fileID: -6433600879255894670}
   - {fileID: -4460279083262267910}
-  - {fileID: 992269300816062230}
   - {fileID: -2057050303977152785}
   - {fileID: 5400215957184908360}
   - {fileID: -7979431451488732250}
   - {fileID: 2883948230661473285}
   - {fileID: -1671793135191657386}
   - {fileID: 3746681996126239029}
---- !u!114 &992269300816062230
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29b00527f85bb3346a4d2cb710971587, type: 3}
-  m_Name: VolumetricFog
-  m_EditorClassIdentifier: 
-  active: 0
-  m_AdvancedMode: 0
-  colorMode:
-    m_OverrideState: 1
-    m_Value: 1
-  color:
-    m_OverrideState: 1
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    hdr: 1
-    showAlpha: 0
-    showEyeDropper: 1
-  density:
-    m_OverrideState: 1
-    m_Value: 1
-    min: 0
-    max: 1
-  maxFogDistance:
-    m_OverrideState: 1
-    m_Value: 1000
-    min: 0
-  mipFogMaxMip:
-    m_OverrideState: 1
-    m_Value: 0.5
-    min: 0
-    max: 1
-  mipFogNear:
-    m_OverrideState: 1
-    m_Value: 0
-    min: 0
-  mipFogFar:
-    m_OverrideState: 1
-    m_Value: 1000
-    min: 0
-  albedo:
-    m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
-  meanFreePath:
-    m_OverrideState: 1
-    m_Value: 20
-    min: 1
-  baseHeight:
-    m_OverrideState: 1
-    m_Value: 1
-  meanHeight:
-    m_OverrideState: 1
-    m_Value: 10
-  anisotropy:
-    m_OverrideState: 1
-    m_Value: -0.187
-    min: -1
-    max: 1
-  globalLightProbeDimmer:
-    m_OverrideState: 1
-    m_Value: 0.582
-    min: 0
-    max: 1
-  enableDistantFog:
-    m_OverrideState: 1
-    m_Value: 1
 --- !u!114 &2883948230661473285
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -332,13 +257,13 @@ MonoBehaviour:
   m_AdvancedMode: 0
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 0.802333, y: 0.89501965, z: 1, w: 0.05809135}
+    m_Value: {x: 0.75541276, y: 0.7981589, z: 1, w: -1}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 0.916811, y: 0.8952507, z: 1, w: 0.08298753}
+    m_Value: {x: 0.94797677, y: 0.9133169, z: 1, w: -0.49792534}
   highlights:
-    m_OverrideState: 0
-    m_Value: {x: 1, y: 0.8424968, z: 0.34547728, w: -0.0000000065733476}
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 0.8424968, z: 0.34547728, w: -0.14522819}
   shadowsStart:
     m_OverrideState: 1
     m_Value: 0
@@ -367,12 +292,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bff652df78c97c4f963064ad1f34619, type: 3}
   m_Name: ColorCurves
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   m_AdvancedMode: 0
   master:
     m_OverrideState: 1
     m_Value:
-      <length>k__BackingField: 3
+      <length>k__BackingField: 4
       m_Loop: 0
       m_ZeroValue: 0
       m_Range: 1
@@ -389,8 +314,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.1904762
-          value: 0.3757962
+          time: 0.16666667
+          value: 0.19108278
           inSlope: 1
           outSlope: 1
           tangentMode: 0
@@ -398,10 +323,19 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
+          time: 0.33035713
+          value: 0.611465
+          inSlope: 1.0699768
+          outSlope: 1.0699768
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 1
-          outSlope: 1
+          inSlope: 1.3102825
+          outSlope: 1.3102825
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
