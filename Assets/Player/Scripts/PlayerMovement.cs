@@ -94,4 +94,12 @@ public class PlayerMovement : MonoBehaviour {
     private void OnCollisionExit(Collision collision) {
         grounded = false;
     }
+    //--------------------------------Fist Animations------------------------------------//
+    public void TriggerOn(GameObject trigger) {
+        trigger.GetComponent<Collider>().enabled = true;
+    }
+
+    public void TriggerOff(GameObject trigger) {
+        trigger.GetComponent<Collider>().enabled = false;
+    }
 }

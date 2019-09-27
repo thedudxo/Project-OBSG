@@ -22,6 +22,7 @@ public class WeaponHandler : MonoBehaviour {
     [SerializeField] GameObject particlesObject;
     [SerializeField] Vector3 resetRot;
     [SerializeField] Vector3 resetScale;
+    [SerializeField] float durability;
     public Vector3 holdPosition;
     public Vector3 holdRotation;
     public Vector3 holdScale;

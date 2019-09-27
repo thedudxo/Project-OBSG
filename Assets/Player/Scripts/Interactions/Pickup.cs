@@ -23,7 +23,7 @@ public class Pickup : MonoBehaviour {
     private void Update() {
         if (!PlayerManager.alive) { return; }
         if (rightHandWeapon != null || leftHandWeapon != null) {
-            CheckThrow();
+            //CheckThrow();
         }
         if(rightThrow || leftThrow) {
             HoldThrow();
@@ -63,12 +63,12 @@ public class Pickup : MonoBehaviour {
         weapon.transform.parent = null;
         ChangeLayerRecursively(weapon.transform, Layers.DEFAULT);
         weapon.GetComponent<Rigidbody>().useGravity = true;
-        attackScript.ResetDamage();
+        //attackScript.ResetDamage();
         leftHandWeapon = null;
         rightHandWeapon = null;
     }//Drop
 
-    void CheckThrow() {
+    /*void CheckThrow() {
         //--------------------------LEFT HAND THROW-------------------------------\\
         if (Input.GetKeyDown(KeyCode.Mouse0)) {
             startThrowHold = Time.time;
@@ -101,7 +101,7 @@ public class Pickup : MonoBehaviour {
                 }
             }
         }
-    }//Check throw
+    }//Check throw*/
 
     public void PickUpObject(GameObject weapon) {
         carriedHandler = weapon.GetComponent<WeaponHandler>();
@@ -111,7 +111,7 @@ public class Pickup : MonoBehaviour {
                 rightHandWeapon = weapon;
                 leftHandWeapon = weapon;
                 weapon.transform.parent = rightHand;
-                attackScript.rightDamage = attackScript.leftDamage = carriedHandler.damage;
+                //attackScript.rightDamage = attackScript.leftDamage = carriedHandler.damage;
                 weapon.transform.localPosition = carriedHandler.holdPosition;
                 weapon.transform.localEulerAngles = carriedHandler.holdRotation;
                 weapon.transform.localScale = new Vector3(1, 1, 1);
@@ -122,11 +122,11 @@ public class Pickup : MonoBehaviour {
                 if(rightHandWeapon == null) {
                     weapon.transform.parent = rightHand;
                     rightHandWeapon = weapon;
-                    attackScript.rightDamage = carriedHandler.damage;
+                    //attackScript.rightDamage = carriedHandler.damage;
                 } else {
                     weapon.transform.parent = leftHand;
                     leftHandWeapon = weapon;
-                    attackScript.leftDamage = carriedHandler.damage;
+                    //attackScript.leftDamage = carriedHandler.damage;
                 }
                 weapon.GetComponent<SphereCollider>().enabled = false;
                 weapon.transform.localPosition = carriedHandler.holdPosition;

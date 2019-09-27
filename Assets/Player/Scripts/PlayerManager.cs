@@ -25,6 +25,7 @@ public static class PlayerManager {
     public static bool pause = false;
     public static bool win = true;
     public static bool throwing = false;
+    public static int fistDamage = 10;
     public static float maxHealth = 50;
     public static float health = 50;
     public static float maxBloodMeter = 100;
