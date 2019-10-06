@@ -9,7 +9,7 @@ public class EnemyDeathScript : MonoBehaviour {
     [SerializeField] GameObject ragdoll;
     [SerializeField] float force;
     [SerializeField] float ragdollForce;
-    [SerializeField] float bloodMeterAdd;
+    [SerializeField] int bloodMeterAdd;
     private NavMeshAgent agent;
     private Vector3 direction;
     private float maxSlope = 60;
@@ -50,8 +50,9 @@ public class EnemyDeathScript : MonoBehaviour {
 
     void Ragdoll() {
         PlayerManager.enemiesPlayerKilled++;
-        if (!TimeManager.Instance.inSlowMo) {
+        if (!PlayerManager.isFull) {
             PlayerManager.bloodMeter = PlayerManager.bloodMeter + bloodMeterAdd;
+            CheckMeter();
         }
         dead = true;
         GetComponent<Animator>().SetBool("Dead", true);
@@ -61,6 +62,13 @@ public class EnemyDeathScript : MonoBehaviour {
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         ragdoll.SetActive(true);
         ragdoll.GetComponent<Rigidbody>().AddForce(direction * ragdollForce);
+    }
+
+    void CheckMeter() {
+        if(PlayerManager.bloodMeter >= PlayerManager.maxBloodMeter) {
+            PlayerManager.bloodMeter = PlayerManager.maxBloodMeter;
+            PlayerManager.isFull = true;
+        }
     }
 
     private void OnCollisionExit(Collision collision) {

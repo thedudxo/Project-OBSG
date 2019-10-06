@@ -10,6 +10,8 @@ public class Pickup : MonoBehaviour {
     WeaponHandler carriedHandler;
     [SerializeField] Transform rightHand;
     [SerializeField] Transform leftHand;
+    [SerializeField] DamageTrigger leftFist;
+    [SerializeField] DamageTrigger rightFist;
     [SerializeField] float startThrowHold = 0.0f;
     [SerializeField] float throwHoldTimer = 1.0f;
     [SerializeField] float throwForce;
@@ -111,7 +113,7 @@ public class Pickup : MonoBehaviour {
                 rightHandWeapon = weapon;
                 leftHandWeapon = weapon;
                 weapon.transform.parent = rightHand;
-                //attackScript.rightDamage = attackScript.leftDamage = carriedHandler.damage;
+                leftFist.damage = rightFist.damage = carriedHandler.damage;
                 weapon.transform.localPosition = carriedHandler.holdPosition;
                 weapon.transform.localEulerAngles = carriedHandler.holdRotation;
                 weapon.transform.localScale = new Vector3(1, 1, 1);
@@ -122,11 +124,11 @@ public class Pickup : MonoBehaviour {
                 if(rightHandWeapon == null) {
                     weapon.transform.parent = rightHand;
                     rightHandWeapon = weapon;
-                    //attackScript.rightDamage = carriedHandler.damage;
+                    rightFist.damage = carriedHandler.damage;
                 } else {
                     weapon.transform.parent = leftHand;
                     leftHandWeapon = weapon;
-                    //attackScript.leftDamage = carriedHandler.damage;
+                    leftFist.damage = carriedHandler.damage;
                 }
                 weapon.GetComponent<SphereCollider>().enabled = false;
                 weapon.transform.localPosition = carriedHandler.holdPosition;

@@ -32,6 +32,7 @@ public class WeaponHandler : MonoBehaviour {
 
     private void Start() {
         rb = GetComponent<Rigidbody>();
+        particlesObject.transform.parent = null;
         vfx = particlesObject.GetComponent<VisualEffect>();
         vfxLight = particlesObject.GetComponentInChildren<Light>();
     }
@@ -98,6 +99,7 @@ public class WeaponHandler : MonoBehaviour {
         yield return new WaitForSeconds(1);
         if (rb.velocity == Vector3.zero) {
             var pos = transform.position;
+            particlesObject.transform.position = pos;
             pos.y = pos.y + 1.3f;
             transform.position = pos;
             transform.eulerAngles = resetRot;

@@ -28,6 +28,8 @@ public static class PlayerManager {
     public static int fistDamage = 10;
     public static float maxHealth = 50;
     public static float health = 50;
+    //Blood Meter
+    public static bool isFull = false;
     public static float maxBloodMeter = 100;
     public static float bloodMeter = 0;
 

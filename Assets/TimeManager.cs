@@ -15,6 +15,9 @@ public class TimeManager : MonoBehaviour {
     }
 
     private void Update() {
+
+        /*
+         
         if (Input.GetKeyDown(KeyCode.Q)) {
             if(Time.timeScale == 1.0f && PlayerManager.bloodMeter != 0) {
                 DoSlowmotion();
@@ -29,6 +32,9 @@ public class TimeManager : MonoBehaviour {
                 PlayerManager.bloodMeter = 0;
             }
         }
+
+        */
+
     }
 
     void DoSlowmotion() {
