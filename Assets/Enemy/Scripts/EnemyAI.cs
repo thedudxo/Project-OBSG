@@ -5,19 +5,20 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour{
 
-    [SerializeField] AIState aiState;
-    [SerializeField] Transform playerTarget;
+    public Transform playerTarget;
+    [SerializeField] Transform playerPrefab;
+    public bool isInAngle;
+    public bool isClear;
+    public AIState aiState;
     [SerializeField] BoxCollider fist;
     [SerializeField] float damage = 10;
     Vector3 direction;
     Vector3 rotDirection;
-    bool isInAngle;
-    bool isClear;
     float distance;
     [SerializeField] float viewRadius = 20;
     float maxDistance = 60;
     float viewAngle = 110;
-    int layerMask = 1 << 11;
+    int layerMask = 1 << 10;
     int lFrame = 15;
     int lFrame_counter = 0;
     int llFrame = 35;
@@ -34,14 +35,19 @@ public class EnemyAI : MonoBehaviour{
 
     private void Start() {
         agent = GetComponent<NavMeshAgent>();
+        Respawn.enemies.Add(gameObject);
         aiState = AIState.idle;
         ChangeState(AIState.idle);
+        SetPrefab();
+    }
+
+    public void SetPrefab() {
+        playerTarget = playerPrefab;
     }
 
     private void Update() {
         if (GetComponent<EnemyDeathScript>().dead) { return; }
-        layerMask = ~layerMask;
-        Debug.Log(aiState);
+        //layerMask = ~layerMask;
         Debug.DrawRay(transform.position + Vector3.up, direction * viewRadius, Color.red);
         if (!PlayerManager.alive) {
             agent.isStopped = true;
@@ -137,7 +143,6 @@ public class EnemyAI : MonoBehaviour{
         FindDirection(playerTarget);
         RotateTowardsTarget();
         MoveToPosition(playerTarget.position);
-        Debug.Log(distance);
         AttackTarget();
     }
 

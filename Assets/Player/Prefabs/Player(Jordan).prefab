@@ -112,7 +112,7 @@ MonoBehaviour:
   invertFaceCulling: 0
   probeLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 7735
   m_RenderingPathCustomFrameSettings:
     bitDatas:
       data1: 69284256022301
@@ -265,7 +265,7 @@ BoxCollider:
   m_GameObject: {fileID: 1602176236379858}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1.8, z: 2.3348923}
   m_Center: {x: 0, y: -0.5, z: 1.4174461}
@@ -279,6 +279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4463555671306446}
   - component: {fileID: 6021283012830527155}
+  - component: {fileID: 282843946}
   - component: {fileID: 1902455532400935829}
   - component: {fileID: 988737210653239971}
   - component: {fileID: 319810062804662846}
@@ -330,7 +331,7 @@ MonoBehaviour:
   maxSlope: 60
   dashSpeed: 2000
   frontDash: 0
---- !u!114 &1902455532400935829
+--- !u!114 &282843946
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -339,9 +340,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1623038678746708}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659a939e59e6c0d49bd8c25f3735106e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightTrigger: {fileID: 448387871}
+  rightFist: {fileID: 448387872}
+  leftTrigger: {fileID: 282843944}
+  leftFist: {fileID: 282843957}
+  bloodMeterDecrease: 2
+--- !u!114 &1902455532400935829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623038678746708}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4a898df36bebd34e8b658167222d282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftAttackCol: {fileID: 0}
+  rightAttackCol: {fileID: 0}
   fistDamage: 10
   rightDamage: 0
   leftDamage: 0
@@ -360,6 +380,8 @@ MonoBehaviour:
   rightThrow: 0
   rightHand: {fileID: 2888127028905427023}
   leftHand: {fileID: 672862589402492110}
+  leftFist: {fileID: 282843957}
+  rightFist: {fileID: 448387872}
   startThrowHold: 0
   throwHoldTimer: 0.3
   throwForce: 2000
@@ -509,7 +531,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1668011584549000}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -540,14 +562,14 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 300
   field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 7735
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -670,6 +692,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2735820539823265838}
+  - component: {fileID: 282843944}
+  - component: {fileID: 282843957}
   m_Layer: 8
   m_Name: L_WeaponAnchor
   m_TagString: Untagged
@@ -691,6 +715,32 @@ Transform:
   m_Father: {fileID: 672862589402492110}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &282843944
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970056796646518274}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &282843957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970056796646518274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35f6ce71eaeadd14284a6a5f1b0e1585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
 --- !u!1 &1100607022268917260
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,6 +859,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5950919332615933981}
+  - component: {fileID: 448387871}
+  - component: {fileID: 448387872}
   m_Layer: 8
   m_Name: R_WeaponAnchor
   m_TagString: Untagged
@@ -830,6 +882,32 @@ Transform:
   m_Father: {fileID: 2888127028905427023}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &448387871
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2179527880660682787}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &448387872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2179527880660682787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35f6ce71eaeadd14284a6a5f1b0e1585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
 --- !u!1 &3932291276275733292
 GameObject:
   m_ObjectHideFlags: 0

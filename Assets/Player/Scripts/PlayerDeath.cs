@@ -23,21 +23,43 @@ public class PlayerDeath : MonoBehaviour {
     [SerializeField] float regenSpeed = 1;
     bool damaged = false;
 
+    [Header("Respawn:")]
+    [SerializeField] GameObject currentRespawn;
+    [SerializeField] int respawnObjectsCount = 0;
+    public bool canRespawn = false;
+
     private void Update() {
         if (Input.GetKeyDown(KeyCode.R)) {
-            PlayerManager.alive = true;
-            SceneManager.LoadScene(0);
+            if (canRespawn) {
+                Respawn.StartRespwn();
+            } else {
+                Debug.Log("Can't Respawn");
+            }
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
-            //Application.Quit();
 
-        if(startHealthDelay + healDelayTimer <= Time.time && damaged && PlayerManager.alive) {
+        if (Input.GetKeyDown(KeyCode.F)) {
+            if (respawnObjectsCount != 0 && !canRespawn) {
+                SetRespawn();
+            } else {
+                Debug.Log("You have no respawn objects");
+            }
+        }
+
+        if (startHealthDelay + healDelayTimer <= Time.time && damaged && PlayerManager.alive) {
             PlayerManager.health += regenSpeed * Time.deltaTime;
             if(PlayerManager.health > PlayerManager.maxHealth) {
                 PlayerManager.health = PlayerManager.maxHealth;
                 damaged = false;
             }
         }
+    }
+
+    void SetRespawn() {
+        currentRespawn.SetActive(true);
+        currentRespawn.transform.position = transform.position;
+        Respawn.respawnPosition = transform.position;
+        canRespawn = true;
+        respawnObjectsCount--;
     }
 
     public void DamagePlayer(float damage, Transform enemy) {
@@ -95,6 +117,15 @@ public class PlayerDeath : MonoBehaviour {
         if (collision.gameObject.tag == Tags.FINISH) {
             SetStats();
             PlayerWin();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.tag == Tags.RESPAWN) {
+            respawnObjectsCount++;
+            currentRespawn = other.gameObject;
+            currentRespawn.GetComponent<Collider>().enabled = false;
+            currentRespawn.SetActive(false);
         }
     }
 }
