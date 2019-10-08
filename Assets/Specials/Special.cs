@@ -34,6 +34,10 @@ public class Special : MonoBehaviour
     [SerializeField] int damage = 25;
     public bool active = false;
 
+    private void Start() {
+        gameObject.GetComponentInChildren<VisualEffect>().SendEvent("Hit");
+    }
+
     private void Update() {
         if(active)
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
