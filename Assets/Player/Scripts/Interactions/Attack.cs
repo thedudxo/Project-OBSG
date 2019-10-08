@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.VFX;
 
 public class Attack : MonoBehaviour {
 
@@ -9,7 +10,9 @@ public class Attack : MonoBehaviour {
     [SerializeField] Collider leftTrigger;
     [SerializeField] DamageTrigger leftFist;
     [SerializeField] float bloodMeterDecrease = 2;
-    bool special = false;
+    [SerializeField] GameObject effect;
+    [SerializeField] Transform effectSpawn;
+    [SerializeField] bool special = false;
 
     void Update() {
         CheckAttack();
@@ -18,7 +21,7 @@ public class Attack : MonoBehaviour {
             PlayerManager.bloodMeter -= Time.deltaTime * bloodMeterDecrease;
             if (PlayerManager.bloodMeter <= 0) {
                 PlayerManager.bloodMeter = 0;
-                special = false;
+                //special = false;
             }
         }
     }
@@ -38,6 +41,16 @@ public class Attack : MonoBehaviour {
         }
     }
 
+    void SpecialLeft() {
+        if (special) {
+            effect.transform.position = effectSpawn.position;
+            effect.transform.localRotation = effectSpawn.rotation;
+            effect.GetComponent<MeshRenderer>().enabled = true;
+            effect.GetComponent<Collider>().enabled = true;
+            effect.GetComponent<Special>().active = true;
+            effect.GetComponentInChildren<VisualEffect>().SendEvent("OnPlay");
+        }
+    }
     
     public void TiggerOnLeft() {
         leftTrigger.enabled = true;
