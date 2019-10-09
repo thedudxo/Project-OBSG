@@ -34,8 +34,9 @@ public static class PlayerManager {
     public static float bloodMeter = 0;
 
     public static List<GameObject> doorKeys = new List<GameObject>();
-
+    //Options
     public static bool invert = false;
+    public static int sensitivity = 3;
 
     //interesting stats
     public static int enemiesPlayerKilled = 0;

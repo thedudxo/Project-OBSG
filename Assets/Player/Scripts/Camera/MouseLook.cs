@@ -11,8 +11,7 @@ public class MouseLook : MonoBehaviour {
     [SerializeField] bool
         aimAssist;
 
-    [SerializeField] float 
-        sensitivity = 5f, 
+    [SerializeField] float
         rollAngle = 10f,
         rollSpeed = 3f;
 
@@ -53,8 +52,8 @@ public class MouseLook : MonoBehaviour {
 
     void LookAround() {
         currentMouseLook = new Vector2(Input.GetAxis(MouseAxis.MOUSE_Y), Input.GetAxis(MouseAxis.MOUSE_X));
-        lookAngles.x += currentMouseLook.x * sensitivity * (PlayerManager.invert ? 1f : -1f);
-        lookAngles.y += currentMouseLook.y * sensitivity;
+        lookAngles.x += currentMouseLook.x * PlayerManager.sensitivity * (PlayerManager.invert ? 1f : -1f);
+        lookAngles.y += currentMouseLook.y * PlayerManager.sensitivity;
 
         lookAngles.x = Mathf.Clamp(lookAngles.x, defaultLookLimits.x, defaultLookLimits.y);
 
