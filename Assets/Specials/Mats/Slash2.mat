@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Slash
-  m_Shader: {fileID: -6465566751694194690, guid: e898c20ec49e24b488a6403f03d1f04b,
+  m_Name: Slash2
+  m_Shader: {fileID: -6465566751694194690, guid: 91328b67ea814dd45a936f369a9f5d09,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -35,7 +35,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_B847CB5F:
-        m_Texture: {fileID: 2800000, guid: c2b52a1e8ca79a54e9d5c30ff1c89d85, type: 3}
+        m_Texture: {fileID: 2800000, guid: 47e44e1eea2fffd498e6fdcf124537e3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
@@ -123,9 +123,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_51A77B74: 5
-    - Vector1_7AB66257: 1.41
-    - Vector1_AB706C6E: 2
+    - Vector1_51A77B74: 6
+    - Vector1_7AB66257: 2
+    - Vector1_AB706C6E: 3
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
