@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ddcec8a8eb2d684d833ac8f5d26aebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   m_AdvancedMode: 0
   maxShadowDistance:
     m_OverrideState: 1
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   indirectSpecularIntensity:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 3
     min: 0
   indirectDiffuseIntensity:
     m_OverrideState: 1
