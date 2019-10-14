@@ -7,6 +7,16 @@ public class Locks : MonoBehaviour
 
     [SerializeField] GameObject helpText;
 
+    [SerializeField] GameObject door;
+
+    [SerializeField] GameObject[] keyholes = new GameObject[3];
+    [SerializeField] GameObject[] preparedkeys = new GameObject[3];
+
+    [SerializeField] int keyAmmount = 3;
+
+    int unlocked = 0;
+    
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,13 +36,18 @@ public class Locks : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("workkkkking");
         if (helpText.activeSelf)
         {
-            Debug.Log("working");
+            
             if (Input.GetKeyDown(KeyCode.E))
             {
-
+                keyholes[unlocked].GetComponent<Animator>().SetTrigger("Unlock");
+                preparedkeys[unlocked].SetActive(true);
+                unlocked++;
+                if (unlocked >= keyAmmount)
+                {
+                    door.GetComponent<Animator>().SetTrigger("Open");
+                }
             }
         }
     }
