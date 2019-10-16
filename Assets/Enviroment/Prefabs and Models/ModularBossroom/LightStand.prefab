@@ -684,7 +684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca00d58f4d7fb045856c697993d9a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 15
+  maxDistance: 30
   thingToDisable: {fileID: 4345029977307254392}
   debugText: {fileID: 3886356639173119247}
   showDebugText: 0
@@ -838,6 +838,26 @@ PrefabInstance:
     - target: {fileID: -1668231909930934735, guid: 26cb2aec162c4854baf29efc26f2ef56,
         type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124773836210377745, guid: 26cb2aec162c4854baf29efc26f2ef56,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677907176415013486, guid: 26cb2aec162c4854baf29efc26f2ef56,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7985423855051650817, guid: 26cb2aec162c4854baf29efc26f2ef56,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7412689963440976334, guid: 26cb2aec162c4854baf29efc26f2ef56,
+        type: 3}
+      propertyPath: m_LightProbeUsage
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
