@@ -30,6 +30,7 @@ public class Special : MonoBehaviour
     }
     */
 
+    public Vector3 rotationAdd;
     [SerializeField] float speed = 5f;
     [SerializeField] int damage = 25;
     public bool active = false;
@@ -39,12 +40,15 @@ public class Special : MonoBehaviour
     }
 
     private void Update() {
-        if(active)
+        if (active) {
+            gameObject.GetComponent<ParticleSystem>().Play();
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        }
     }
     private void OnTriggerEnter(Collider other) {
         if(other.tag == Tags.PLAYER) { return; }
-        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        //gameObject.GetComponent<MeshRenderer>().enabled = false;
+        gameObject.GetComponent<ParticleSystem>().Stop();
         gameObject.GetComponent<Collider>().enabled = false;
         gameObject.GetComponentInChildren<VisualEffect>().SendEvent("Hit");
         active = false;

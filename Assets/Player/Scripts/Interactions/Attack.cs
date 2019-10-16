@@ -45,7 +45,7 @@ public class Attack : MonoBehaviour {
         if (special) {
             effect.transform.position = effectSpawn.position;
             effect.transform.localRotation = effectSpawn.rotation;
-            effect.GetComponent<MeshRenderer>().enabled = true;
+            effect.GetComponent<ParticleSystem>().Play();
             effect.GetComponent<Collider>().enabled = true;
             effect.GetComponent<Special>().active = true;
             effect.GetComponentInChildren<VisualEffect>().SendEvent("OnPlay");

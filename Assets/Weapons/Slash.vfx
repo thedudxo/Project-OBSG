@@ -319,7 +319,7 @@ MonoBehaviour:
     x: 708
     y: -190
     width: 379
-    height: 1713
+    height: 1714
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -810,7 +810,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.06877696514129639,"g":1.0,"b":0.0,"a":1.0},"time":0.0},{"color":{"r":0.0,"g":4.0,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.09117265790700913},{"alpha":0.9577465057373047,"time":0.7764706015586853},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.01764705963432789,"g":0.25,"b":0.0,"a":1.0},"time":0.0},{"color":{"r":0.0,"g":1.999999761581421,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.09117265790700913},{"alpha":0.9577465057373047,"time":0.7764706015586853},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: gradient
@@ -1172,7 +1172,7 @@ VisualEffectResource:
       /*inout */lifetime,  /*inout */seed, (float)1, (float)2);\n        }\n        {\n
       \           PositionLine_0( /*inout */position,  /*inout */seed, line_start_b,
       line_end_b, (float)1);\n        }\n        {\n            SetAttribute_3278B22F(
-      /*inout */size, (float)1);\n        }\n        \n\n\n#if VFX_USE_ALIVE_CURRENT\n
+      /*inout */size, (float)0.1);\n        }\n        \n\n\n#if VFX_USE_ALIVE_CURRENT\n
       \       if (alive)\n        {\n\t\t\tuint deadIndex = deadListIn.DecrementCounter();\n
       \           uint index = deadListIn[deadIndex];\n            attributeBuffer.Store((index
       * 0x1 + 0x0) << 2,asuint(lifetime));\n            attributeBuffer.Store((index
@@ -1227,7 +1227,7 @@ VisualEffectResource:
       mass = (float)1;\n\t\t\tfloat age = asfloat(attributeBuffer.Load((index * 0x8
       + 0x18884) << 2));\n\t\t\t\n\n\t\t\t\n#if VFX_USE_OLDPOSITION_CURRENT\n\t\t\toldPosition
       = position;\n#endif\n\t\t\t\n\t\t\t{\n\t\t\t    VelocityRandomize_18D( /*inout
-      */velocity,  /*inout */direction,  /*inout */seed, (float)1, (float)0.1093794);\n\t\t\t}\n\t\t\t{\n\t\t\t
+      */velocity,  /*inout */direction,  /*inout */seed, (float)0.1, (float)0.1);\n\t\t\t}\n\t\t\t{\n\t\t\t
       \   Drag_0( /*inout */velocity, mass, (float)3.2, deltaTime_b);\n\t\t\t}\n\t\t\tEulerIntegration(
       /*inout */position, velocity, deltaTime_b);\n\t\t\tAge( /*inout */age, deltaTime_b);\n\t\t\tReap(age,
       lifetime,  /*inout */alive);\n\t\t\t\n\n\t\t\tif (alive)\n\t\t\t{\n\t\t\t\tattributeBuffer.Store((index
@@ -1248,7 +1248,7 @@ VisualEffectResource:
       * 0x8 + 0x18883) << 2));\n\t\tfloat age = asfloat(attributeBuffer.Load((index
       * 0x8 + 0x18884) << 2));\n\t\t\n\n\t\t\n#if VFX_USE_OLDPOSITION_CURRENT\n\t\toldPosition
       = position;\n#endif\n\t\t\n\t\t{\n\t\t    VelocityRandomize_18D( /*inout */velocity,
-      \ /*inout */direction,  /*inout */seed, (float)1, (float)0.1093794);\n\t\t}\n\t\t{\n\t\t
+      \ /*inout */direction,  /*inout */seed, (float)0.1, (float)0.1);\n\t\t}\n\t\t{\n\t\t
       \   Drag_0( /*inout */velocity, mass, (float)3.2, deltaTime_b);\n\t\t}\n\t\tEulerIntegration(
       /*inout */position, velocity, deltaTime_b);\n\t\tAge( /*inout */age, deltaTime_b);\n\t\tReap(age,
       lifetime,  /*inout */alive);\n\t\t\n\n\t\tattributeBuffer.Store((index * 0x4
@@ -1517,7 +1517,7 @@ VisualEffectResource:
         - m_ExpressionIndex: 8
           m_Value: 2
         - m_ExpressionIndex: 11
-          m_Value: 0.1093794
+          m_Value: 0.1
         - m_ExpressionIndex: 12
           m_Value: 3.2
       m_Vector2f:
@@ -1547,8 +1547,8 @@ VisualEffectResource:
         - m_ExpressionIndex: 3
           m_Value:
             serializedVersion: 2
-            key0: {r: 0.068776965, g: 1, b: 0, a: 0}
-            key1: {r: 0, g: 4, b: 0, a: 1}
+            key0: {r: 0.01764706, g: 0.25, b: 0, a: 0}
+            key1: {r: 0, g: 1.9999998, b: 0, a: 1}
             key2: {r: 0, g: 0, b: 0, a: 0.9577465}
             key3: {r: 0, g: 0, b: 0, a: 0}
             key4: {r: 0, g: 0, b: 0, a: 0}
@@ -2481,7 +2481,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1
+      m_SerializableObject: 0.1
     m_Space: 2147483647
   m_Property:
     name: Size
@@ -2539,7 +2539,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1
+      m_SerializableObject: 0.1
     m_Space: 2147483647
   m_Property:
     name: Speed
@@ -2579,7 +2579,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.1093794
+      m_SerializableObject: 0.1
     m_Space: 2147483647
   m_Property:
     name: DirectionBlend
