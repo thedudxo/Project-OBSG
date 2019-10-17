@@ -18,7 +18,9 @@ public static class PlayerManager {
     public static PlayerAnimations playerAnimations;
     public static PlayerDeath playerDeath;
     public static MouseLook mouseLook;
-    
+
+    //Animator
+    public static Animator[] animators;
 
     public static Vector3 respawnPoint;
     public static bool alive = true;

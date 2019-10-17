@@ -13,6 +13,7 @@ public class Attack : MonoBehaviour {
     [SerializeField] GameObject effect;
     [SerializeField] Transform effectSpawn;
     [SerializeField] bool special = false;
+    public bool initialAttack = false;
 
     void Update() {
         CheckAttack();
@@ -27,11 +28,11 @@ public class Attack : MonoBehaviour {
     }
 
     void CheckAttack() {
-        if (Input.GetKeyDown(KeyCode.Mouse0)) {
-            GetComponent<Animator>().SetTrigger(PlayerAnimation.LEFT_PUNCH);
-        }
-        if (Input.GetKeyDown(KeyCode.Mouse1)) {
-            GetComponent<Animator>().SetTrigger(PlayerAnimation.RIGHT_PUNCH);
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !initialAttack) {
+            foreach(Animator anim in PlayerManager.animators) {
+                anim.SetTrigger("Attack");
+            }
+            initialAttack = true;
         }
     }
 
@@ -50,21 +51,5 @@ public class Attack : MonoBehaviour {
             effect.GetComponent<Special>().active = true;
             effect.GetComponentInChildren<VisualEffect>().SendEvent("OnPlay");
         }
-    }
-    
-    public void TiggerOnLeft() {
-        leftTrigger.enabled = true;
-    }
-    
-    public void TiggerOffLeft() {
-        leftTrigger.enabled = false;
-    }
-
-    public void TiggerOnRight() {
-        rightTrigger.enabled = true;
-    }
-    
-    public void TiggerOffRight() {
-        rightTrigger.enabled = false;
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pickup : MonoBehaviour {
-    
+    /*
     private Attack attackScript;
     [SerializeField] private bool rightThrow = false;
     private bool leftThrow = false;
@@ -70,7 +70,7 @@ public class Pickup : MonoBehaviour {
         rightHandWeapon = null;
     }//Drop
 
-    /*void CheckThrow() {
+    void CheckThrow() {
         //--------------------------LEFT HAND THROW-------------------------------\\
         if (Input.GetKeyDown(KeyCode.Mouse0)) {
             startThrowHold = Time.time;
@@ -103,7 +103,7 @@ public class Pickup : MonoBehaviour {
                 }
             }
         }
-    }//Check throw*/
+    }//Check throw
 
     public void PickUpObject(GameObject weapon) {
         carriedHandler = weapon.GetComponent<WeaponHandler>();
@@ -113,7 +113,7 @@ public class Pickup : MonoBehaviour {
                 rightHandWeapon = weapon;
                 leftHandWeapon = weapon;
                 weapon.transform.parent = rightHand;
-                leftFist.damage = rightFist.damage = carriedHandler.damage;
+                leftFist.damage = rightFist.damage = carriedHandler.damage;                leftFist.damage = rightFist.damage = carriedHandler.damage;
                 weapon.transform.localPosition = carriedHandler.holdPosition;
                 weapon.transform.localEulerAngles = carriedHandler.holdRotation;
                 weapon.transform.localScale = new Vector3(1, 1, 1);
@@ -146,4 +146,5 @@ public class Pickup : MonoBehaviour {
         foreach (Transform child in trans)
             ChangeLayerRecursively(child, layerName);
     }//Change Layer
+    */
 }//class

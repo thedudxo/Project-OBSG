@@ -53,12 +53,6 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.LeftShift) && grounded && !stopDash) {
             StartCoroutine(Dash(new Vector3(Input.GetAxis(Axis.HORIZONTAL), 0, Input.GetAxis(Axis.VERTICAL))));
         }
-        //Animation
-        //if(horizontalMovement.magnitude >= 5f) {
-        //    GetComponent<Animator>().SetFloat(PlayerAnimation.WALK_BLEND, horizontalMovement.magnitude);
-        //} else {
-        //    GetComponent<Animator>().SetFloat(PlayerAnimation.WALK_BLEND, false);
-        //}
     }
 
     private IEnumerator Dash(Vector3 direction) {
@@ -76,7 +70,11 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Update() {
         if (dashing || !PlayerManager.alive) { return; }
-        GetComponent<Animator>().SetFloat(PlayerAnimation.WALK_BLEND, horizontalMovement.magnitude);
+        //Animation
+        foreach (Animator anim in PlayerManager.animators) {
+            anim.SetFloat(PlayerAnimation.WALK_BLEND, horizontalMovement.magnitude);
+        }
+        //GetComponentInChildren<Animator>().SetFloat(PlayerAnimation.WALK_BLEND, horizontalMovement.magnitude);
         //Jump
         if (Input.GetButtonDown(Axis.JUMP) && grounded) {
             rb.AddForce(0, jumpForce, 0);
