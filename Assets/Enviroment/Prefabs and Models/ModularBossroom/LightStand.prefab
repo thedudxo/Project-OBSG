@@ -725,6 +725,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: -5600627580850778894, guid: 26cb2aec162c4854baf29efc26f2ef56,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 26cb2aec162c4854baf29efc26f2ef56,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -843,12 +848,12 @@ PrefabInstance:
     - target: {fileID: 1124773836210377745, guid: 26cb2aec162c4854baf29efc26f2ef56,
         type: 3}
       propertyPath: m_LightProbeUsage
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1677907176415013486, guid: 26cb2aec162c4854baf29efc26f2ef56,
         type: 3}
       propertyPath: m_LightProbeUsage
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7985423855051650817, guid: 26cb2aec162c4854baf29efc26f2ef56,
         type: 3}
@@ -858,7 +863,7 @@ PrefabInstance:
     - target: {fileID: 7412689963440976334, guid: 26cb2aec162c4854baf29efc26f2ef56,
         type: 3}
       propertyPath: m_LightProbeUsage
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26cb2aec162c4854baf29efc26f2ef56, type: 3}
