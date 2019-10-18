@@ -14,6 +14,7 @@ public class Locks : MonoBehaviour
 
     [SerializeField] int keyAmmount = 3;
 
+
     int unlocked = 0;
     
 
@@ -41,6 +42,10 @@ public class Locks : MonoBehaviour
             
             if (Input.GetKeyDown(KeyCode.E))
             {
+                if(!(PlayerManager.keys > 0)) { return; }
+
+                PlayerManager.keys--;
+
                 keyholes[unlocked].GetComponent<Animator>().SetTrigger("Unlock");
                 preparedkeys[unlocked].SetActive(true);
                 unlocked++;
