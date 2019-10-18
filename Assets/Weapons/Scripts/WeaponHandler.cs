@@ -7,8 +7,8 @@ public class WeaponHandler : MonoBehaviour {
     
     VisualEffect vfx;
     Light vfxLight;
-    [SerializeField] bool pickup;
     [SerializeField] GameObject particlesObject;
+    [SerializeField] bool pickup;
     [SerializeField] int weaponHoldIndex;
     public GameObject special;
 

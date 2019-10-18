@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float airAccel = 0.1f;
     [SerializeField] private float deccel = 5;
     [SerializeField] private float maxSpeed = 20;
-    [SerializeField] private float jumpForce = 800;
+    //[SerializeField] private float jumpForce = 800;
     [SerializeField] private float maxSlope = 60;
     [SerializeField] private float dashSpeed = 6000;
     bool dashing = false;
@@ -76,9 +76,9 @@ public class PlayerMovement : MonoBehaviour {
         }
         //GetComponentInChildren<Animator>().SetFloat(PlayerAnimation.WALK_BLEND, horizontalMovement.magnitude);
         //Jump
-        if (Input.GetButtonDown(Axis.JUMP) && grounded) {
-            rb.AddForce(0, jumpForce, 0);
-        }
+        //if (Input.GetButtonDown(Axis.JUMP) && grounded) {
+        //    rb.AddForce(0, jumpForce, 0);
+        //}
     }
 
     private void OnCollisionStay(Collision collision) {

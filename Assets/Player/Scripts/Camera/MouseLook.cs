@@ -51,15 +51,35 @@ public class MouseLook : MonoBehaviour {
     }
 
     void LookAround() {
+        float mouseX = Input.GetAxis(MouseAxis.MOUSE_X);
+        float mouseY = Input.GetAxis(MouseAxis.MOUSE_Y);
+
+        float rotAmountX = mouseX * PlayerManager.sensitivity;
+        float rotAmountY = mouseY * PlayerManager.sensitivity;
+
+        lookAngles.x = Mathf.Clamp(lookAngles.x, defaultLookLimits.x, defaultLookLimits.y);
+
+        Vector3 targetRotCam = transform.rotation.eulerAngles;
+        Vector3 targetRotBody = playerRoot.rotation.eulerAngles;
+
+        currentRollAngle = Mathf.Lerp(currentRollAngle, Input.GetAxisRaw(MouseAxis.MOUSE_X) * rollAngle, Time.deltaTime * rollSpeed);
+
+        targetRotCam.x -= rotAmountY;
+        targetRotCam.z = currentRollAngle;
+        targetRotBody.y += rotAmountX;
+
+        transform.rotation = Quaternion.Euler(targetRotCam);
+        playerRoot.rotation = Quaternion.Euler(targetRotBody);
+    }
+}
+/*
         currentMouseLook = new Vector2(Input.GetAxis(MouseAxis.MOUSE_Y), Input.GetAxis(MouseAxis.MOUSE_X));
         lookAngles.x += currentMouseLook.x * PlayerManager.sensitivity * (PlayerManager.invert ? 1f : -1f);
         lookAngles.y += currentMouseLook.y * PlayerManager.sensitivity;
 
         lookAngles.x = Mathf.Clamp(lookAngles.x, defaultLookLimits.x, defaultLookLimits.y);
 
-        currentRollAngle = Mathf.Lerp(currentRollAngle, Input.GetAxisRaw(MouseAxis.MOUSE_X) * rollAngle, Time.deltaTime * rollSpeed);
 
         lookRoot.localRotation = Quaternion.Euler(lookAngles.x, 0f, currentRollAngle);
         playerRoot.localRotation = Quaternion.Euler(0f, lookAngles.y, 0f);
-    }
-}
+        */
