@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour {
 
-    [SerializeField] WeaponHold[] weapons;
+    [SerializeField] Attack[] weapons;
     int currentWeaponIndex;
 
     private void Start() {

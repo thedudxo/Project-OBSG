@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.VFX;
 
-public class Attack : MonoBehaviour {
+public class AttackOld : MonoBehaviour {
 
     [SerializeField] Collider rightTrigger;
     [SerializeField] DamageTrigger rightFist;
