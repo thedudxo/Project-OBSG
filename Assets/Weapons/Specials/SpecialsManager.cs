@@ -50,21 +50,17 @@ public class SpecialsManager : MonoBehaviour {
             GameObject tmp = fistSpecial.Pop();
             tmp.SetActive(true);
             tmp.transform.position = specialSpawn.position;
+            tmp.GetComponent<Special>().active = true;
         }
         if (specialIndex == 1) {
-            var localRot = specialSpawn.localRotation;
+            Vector3 localRot = specialSpawn.localRotation.eulerAngles;
             localRot.z = addRot;
-            specialSpawn.localRotation = localRot;
+            specialSpawn.localRotation = Quaternion.Euler(localRot);
             GameObject tmp = swordSpecial.Pop();
             tmp.SetActive(true);
             tmp.transform.position = specialSpawn.position;
             tmp.transform.localRotation = specialSpawn.rotation;
             tmp.GetComponent<Special>().active = true;
-            Debug.Log(specialSpawn.localRotation.z);
-            Debug.Log(addRot);
-//            Quaternion localRot = tmp.transform.localRotation;
-//            localRot.z += addRot;
-//            tmp.transform.localRotation = localRot;
         }
     }
 }

@@ -64,7 +64,7 @@ public class MenuScript : MonoBehaviour {
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
     }
-    // ----------------------------------------------Options Menus---------------------------------------------- //
+    // --------------------Options Menus---------------------- //
     public void OptionsMenu(GameObject to) {
         currentOption.SetActive(false);
         to.SetActive(true);
@@ -79,7 +79,7 @@ public class MenuScript : MonoBehaviour {
         PlayerManager.sensitivity = (int)sens;
         Debug.Log(PlayerManager.sensitivity);
     }
-    // ----------------------------------------------Main Menus---------------------------------------------- //
+    // --------------------Main Menus------------------------- //
     public void StartGame() {
         PlayerManager.pause = false;
         SceneManager.LoadScene(1);

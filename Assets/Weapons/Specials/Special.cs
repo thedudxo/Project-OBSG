@@ -33,16 +33,13 @@ public class Special : MonoBehaviour
     //---------------------------Gameplay------------------------------//
     
     [SerializeField] float speed = 5f;
-    [SerializeField] int damage = 25;
     public bool active = false;
 
     private void Start() {
-        gameObject.GetComponentInChildren<VisualEffect>().SendEvent("Hit");
     }
 
     private void Update() {
         if (active) {
-            gameObject.GetComponent<ParticleSystem>().Play();
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
         }
     }

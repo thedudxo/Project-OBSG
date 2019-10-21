@@ -8,11 +8,19 @@ public class Attack : MonoBehaviour {
     public int damage;
     public bool canUse = false;
     [SerializeField] int specialIndex;
+    float samples = 45;
+    float fps;
     bool clickWait = false;
     bool clicked = false;
     bool initialAttack = true;
 
     private void Update() {
+//        fps = 1 / Time.deltaTime;
+//        if(fps < samples) {
+//            GetComponent<Animator>().speed = fps / samples;
+//        } else {
+//            GetComponent<Animator>().speed = 1;
+//        }
         if (clickWait) {
             if (Input.GetKeyDown(KeyCode.Mouse0)) {
                 clicked = true;
@@ -41,6 +49,10 @@ public class Attack : MonoBehaviour {
     public void CheckMouse() {
         clickWait = true;
         clicked = false;
+    }
+
+    public void Unequip() {
+        GetComponentInParent<WeaponManager>().Unequip();
     }
 
     public void HasClicked() {
