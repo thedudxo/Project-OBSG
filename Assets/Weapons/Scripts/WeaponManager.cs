@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour {
 
     [SerializeField] Attack[] weapons;
+    [SerializeField] BoxCollider AttackCollider;
     int currentWeaponIndex;
     int newWeaponIndex;
 
@@ -38,6 +39,7 @@ public class WeaponManager : MonoBehaviour {
         if (weapons[weaponIndex].canUse) {
             newWeaponIndex = weaponIndex;
             weapons[currentWeaponIndex].gameObject.GetComponent<Animator>().SetTrigger(PlayerAnimation.UNEQUIP);
+            AttackCollider.size = weapons[weaponIndex].colliderSize;
             //Debug.Log("Equip " + s);
         } else {
             //Debug.Log("Player does not have " + s);
@@ -46,5 +48,6 @@ public class WeaponManager : MonoBehaviour {
 
     public void UnlockWeapon(int i) {
         weapons[i].canUse = true;
+        SelectWeapon(i);
     }
 }

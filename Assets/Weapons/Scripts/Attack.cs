@@ -7,7 +7,9 @@ public class Attack : MonoBehaviour {
     public GameObject special;
     public int damage;
     public bool canUse = false;
+    public Vector3 colliderSize;
     [SerializeField] int specialIndex;
+    [SerializeField] Collider AttackCollider;
     float samples = 45;
     float fps;
     bool clickWait = false;
@@ -61,5 +63,13 @@ public class Attack : MonoBehaviour {
             initialAttack = true;
         }
         clickWait = false;
+    }
+
+    public void ColliderOn() {
+        AttackCollider.enabled = true;
+    }
+
+    public void ColliderOff() {
+        AttackCollider.enabled = false;
     }
 }

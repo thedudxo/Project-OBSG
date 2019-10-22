@@ -55,7 +55,7 @@ public class MouseLook : MonoBehaviour {
         float mouseY = Input.GetAxis(MouseAxis.MOUSE_Y);
 
         float rotAmountX = mouseX * PlayerManager.sensitivity;
-        float rotAmountY = mouseY * PlayerManager.sensitivity;
+        float rotAmountY = mouseY * PlayerManager.sensitivity * (PlayerManager.invert ? -1f : 1f);
 
         lookAngles.x = Mathf.Clamp(lookAngles.x, defaultLookLimits.x, defaultLookLimits.y);
 
