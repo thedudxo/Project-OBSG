@@ -135,6 +135,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.85370594
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 790818ec5c6028b41a9576706186e955,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 790818ec5c6028b41a9576706186e955, type: 3}
 --- !u!1 &743307861618706182 stripped
@@ -225,6 +230,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.3922352
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 1d5864eaafeeee246b4d051dd97a8634,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d5864eaafeeee246b4d051dd97a8634, type: 3}
