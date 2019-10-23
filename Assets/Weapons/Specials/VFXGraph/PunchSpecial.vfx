@@ -195,7 +195,7 @@ MonoBehaviour:
     x: -89
     y: -616
     width: 1823
-    height: 2701
+    height: 2700
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4c867f6b72b714dbb5fd1780afe208, type: 3}
-  m_Name: Special
+  m_Name: PunchSpecial
   m_EditorClassIdentifier: 
   m_Parent: {fileID: 0}
   m_Children:
@@ -767,7 +767,7 @@ VisualEffectResource:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Special
+  m_Name: PunchSpecial
   m_Graph: {fileID: 114350483966674976}
   m_ShaderSources:
   - compute: 1
@@ -2423,10 +2423,10 @@ VisualEffectResource:
       stopSystems: 
     - name: OnStop
       playSystems: 
-      stopSystems: 01000000
+      stopSystems: 0000000001000000
     - name: Hit
-      playSystems: 
-      stopSystems: 0200000000000000
+      playSystems: 00000000
+      stopSystems: 02000000
     m_RuntimeVersion: 8
     m_RendererSettings:
       motionVectorGenerationMode: 0
@@ -4592,9 +4592,9 @@ MonoBehaviour:
   - link:
     - context: {fileID: 8926484042661615138}
       slotIndex: 0
-  - link:
     - context: {fileID: 8926484042661615558}
       slotIndex: 0
+  - link: []
   m_OutputFlowSlot:
   - link:
     - context: {fileID: 8926484042661615102}
@@ -6571,7 +6571,7 @@ MonoBehaviour:
     - context: {fileID: 114023846229194376}
       slotIndex: 1
     - context: {fileID: 8926484042661615099}
-      slotIndex: 1
+      slotIndex: 0
   eventName: Hit
 --- !u!114 &8926484042661615559
 MonoBehaviour:

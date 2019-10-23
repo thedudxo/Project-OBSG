@@ -51,6 +51,7 @@ public class SpecialsManager : MonoBehaviour {
             tmp.SetActive(true);
             tmp.transform.position = specialSpawn.position;
             tmp.GetComponent<Special>().active = true;
+            tmp.transform.localRotation = specialSpawn.rotation;
         }
         if (specialIndex == 1) {
             Vector3 localRot = specialSpawn.localRotation.eulerAngles;

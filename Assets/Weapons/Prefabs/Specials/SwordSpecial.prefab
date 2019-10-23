@@ -116,6 +116,8 @@ GameObject:
   - component: {fileID: 6787300148509990876}
   - component: {fileID: 6787300148509990850}
   - component: {fileID: 6787300148509990849}
+  - component: {fileID: 7844767926216281162}
+  - component: {fileID: 2323571405658262084}
   m_Layer: 0
   m_Name: SwordSpecial
   m_TagString: Untagged
@@ -130,7 +132,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6787300148509990878}
-  m_LocalRotation: {x: -0, y: -0, z: -0.6579427, w: 0.75306803}
+  m_LocalRotation: {x: 0, y: 0, z: -0.6579406, w: 0.7530699}
   m_LocalPosition: {x: 13.650907, y: 2.7965782, z: 38.723}
   m_LocalScale: {x: 0.10000009, y: 0.10000012, z: 0.10000012}
   m_Children:
@@ -4930,9 +4932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6b8ba5e3da3a9409e401d05e46d1f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationAdd: {x: -90, y: 0, z: 0}
   speed: 25
-  damage: 25
   active: 0
 --- !u!65 &6787300148509990849
 BoxCollider:
@@ -4945,8 +4945,37 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 20.867207, y: 1.2, z: 14.79}
-  m_Center: {x: 0, y: 0, z: 3.88}
+  m_Size: {x: 15.429998, y: 1.2000002, z: 5.240044}
+  m_Center: {x: 0, y: 0, z: 2.150022}
+--- !u!114 &7844767926216281162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6787300148509990878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 862f211fbe3b2514f85f9f7f125295a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 25
+--- !u!54 &2323571405658262084
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6787300148509990878}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6787300148799709125
 GameObject:
   m_ObjectHideFlags: 0

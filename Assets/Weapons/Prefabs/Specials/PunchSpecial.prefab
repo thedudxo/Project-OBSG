@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1151042325682341756}
   - component: {fileID: 1151042325682341744}
   - component: {fileID: 1151042325682341745}
+  - component: {fileID: 9213354611744890707}
   m_Layer: 0
   m_Name: PunchSpecial
   m_TagString: Untagged
@@ -91,7 +92,7 @@ SphereCollider:
   m_GameObject: {fileID: 1151042325682341755}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -107,9 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6b8ba5e3da3a9409e401d05e46d1f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationAdd: {x: 0, y: 0, z: 0}
   speed: 20
-  damage: 25
   active: 0
 --- !u!54 &1151042325682341745
 Rigidbody:
@@ -127,6 +126,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &9213354611744890707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151042325682341755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4525cf5b5c120c46b72fdf59c603104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 25
 --- !u!1 &1151042325832598967
 GameObject:
   m_ObjectHideFlags: 0
