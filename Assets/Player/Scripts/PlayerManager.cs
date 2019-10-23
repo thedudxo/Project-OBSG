@@ -31,6 +31,7 @@ public static class PlayerManager {
     public static float bloodMeter = 0;
 
     public static List<GameObject> doorKeys = new List<GameObject>();
+    public static int keys = 0;
 
     public static bool invert = false;
 

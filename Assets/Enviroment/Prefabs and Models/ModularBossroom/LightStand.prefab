@@ -383,7 +383,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 3.3
-  m_Range: 7
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -424,7 +424,7 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 3
   m_ColorTemperature: 6672
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: -1.7680824e+9, z: 6.73e-43, w: -1.9160013e+9}
@@ -684,7 +684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca00d58f4d7fb045856c697993d9a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 15
+  maxDistance: 30
   thingToDisable: {fileID: 4345029977307254392}
   debugText: {fileID: 3886356639173119247}
   showDebugText: 0
@@ -724,6 +724,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -5600627580850778894, guid: 26cb2aec162c4854baf29efc26f2ef56,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 26cb2aec162c4854baf29efc26f2ef56,
         type: 3}
@@ -839,6 +844,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124773836210377745, guid: 26cb2aec162c4854baf29efc26f2ef56,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677907176415013486, guid: 26cb2aec162c4854baf29efc26f2ef56,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7985423855051650817, guid: 26cb2aec162c4854baf29efc26f2ef56,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7412689963440976334, guid: 26cb2aec162c4854baf29efc26f2ef56,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26cb2aec162c4854baf29efc26f2ef56, type: 3}
