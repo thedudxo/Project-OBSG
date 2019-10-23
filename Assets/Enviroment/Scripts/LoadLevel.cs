@@ -18,6 +18,7 @@ public class LoadLevel : MonoBehaviour
     {
         turnon.SetActive(true);
         StartCoroutine(Loadlevel(sceneIndex));
+        PlayerManager.keys = 0;
     }
 
     IEnumerator Loadlevel(int sceneIndex)
