@@ -41,7 +41,7 @@ public class WeaponHandler : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.tag == Tags.PLAYER) {
+        if (other.gameObject.layer == 10) {
             other.GetComponent<WeaponManager>().UnlockWeapon(weaponHoldIndex);
             gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
             vfx.SendEvent(WeaponParticles.PICK_UP);

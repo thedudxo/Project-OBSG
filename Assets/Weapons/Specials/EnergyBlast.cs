@@ -12,7 +12,8 @@ public class EnergyBlast : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        Debug.Log("Disable");
+        if(other.tag == Tags.PLAYER) { return; }
+        Debug.Log(other.gameObject);
         GetComponentInChildren<VisualEffect>().SendEvent("Hit");
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
