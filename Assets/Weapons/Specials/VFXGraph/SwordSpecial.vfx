@@ -255,7 +255,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.AABox, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"center":{"x":0.0,"y":1.0,"z":0.0},"size":{"x":100.0,"y":100.0,"z":100.0}}'
+      m_SerializableObject: '{"center":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":10000.0,"y":10000.0,"z":10000.0}}'
     m_Space: 0
   m_Property:
     name: bounds
@@ -319,7 +319,7 @@ MonoBehaviour:
     x: 708
     y: -190
     width: 379
-    height: 1713
+    height: 1714
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -810,7 +810,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.01764705963432789,"g":0.25,"b":0.0,"a":1.0},"time":0.0},{"color":{"r":0.0,"g":1.999999761581421,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.09117265790700913},{"alpha":0.9577465057373047,"time":0.7764706015586853},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.01764705963432789,"g":0.25,"b":0.0,"a":1.0},"time":0.10882734507322312},{"color":{"r":0.0,"g":4.237094879150391,"b":0.0,"a":1.0},"time":0.8117647171020508},{"color":{"r":11.98431396484375,"g":11.733333587646485,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.09117265790700913},{"alpha":0.9577465057373047,"time":0.7764706015586853},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: gradient
@@ -1524,9 +1524,9 @@ VisualEffectResource:
         - m_ExpressionIndex: 2
           m_Value: {x: 10, y: 0, z: 0}
         - m_ExpressionIndex: 5
-          m_Value: {x: 0, y: 1, z: 0}
+          m_Value: {x: 0, y: 0, z: 0}
         - m_ExpressionIndex: 6
-          m_Value: {x: 100, y: 100, z: 100}
+          m_Value: {x: 10000, y: 10000, z: 10000}
       m_Vector4f:
         m_Array: []
       m_Uint:
@@ -1543,16 +1543,16 @@ VisualEffectResource:
           m_Value:
             serializedVersion: 2
             key0: {r: 0.01764706, g: 0.25, b: 0, a: 0}
-            key1: {r: 0, g: 1.9999998, b: 0, a: 1}
-            key2: {r: 0, g: 0, b: 0, a: 0.9577465}
+            key1: {r: 0, g: 4.237095, b: 0, a: 1}
+            key2: {r: 11.984314, g: 11.733334, b: 0, a: 0.9577465}
             key3: {r: 0, g: 0, b: 0, a: 0}
             key4: {r: 0, g: 0, b: 0, a: 0}
             key5: {r: 0, g: 0, b: 0, a: 0}
             key6: {r: 0, g: 0, b: 0, a: 0}
             key7: {r: 0, g: 0, b: 0, a: 0}
-            ctime0: 0
-            ctime1: 65535
-            ctime2: 0
+            ctime0: 7132
+            ctime1: 53199
+            ctime2: 65535
             ctime3: 0
             ctime4: 0
             ctime5: 0
@@ -1567,7 +1567,7 @@ VisualEffectResource:
             atime6: 0
             atime7: 0
             m_Mode: 0
-            m_NumColorKeys: 2
+            m_NumColorKeys: 3
             m_NumAlphaKeys: 4
       m_NamedObject:
         m_Array:
@@ -1756,7 +1756,7 @@ VisualEffectResource:
       receiveShadows: 0
       reflectionProbeUsage: 0
       lightProbeUsage: 0
-    m_CullingFlags: 3
+    m_CullingFlags: 0
     m_UpdateMode: 0
     m_PreWarmDeltaTime: 0.05
     m_PreWarmStepCount: 0

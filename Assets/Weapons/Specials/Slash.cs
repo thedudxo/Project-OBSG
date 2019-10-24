@@ -6,8 +6,7 @@ public class Slash : MonoBehaviour {
 
     [SerializeField] int damage;
 
-    private void OnTriggerStay(Collider other) {
-        Debug.Log(other.gameObject.layer);
+    private void OnTriggerEnter(Collider other) {
         if (other.tag == Tags.ENEMY) {
             other.GetComponent<EnemyDeathScript>().DealDamage(damage);
         }

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Attack : MonoBehaviour {
-
-    public GameObject special;
+    
     public int damage;
     public bool canUse = false;
     public Vector3 colliderSize;
@@ -15,14 +14,9 @@ public class Attack : MonoBehaviour {
     bool clickWait = false;
     bool clicked = false;
     bool initialAttack = true;
+    List<GameObject> enemies = new List<GameObject>();
 
     private void Update() {
-//        fps = 1 / Time.deltaTime;
-//        if(fps < samples) {
-//            GetComponent<Animator>().speed = fps / samples;
-//        } else {
-//            GetComponent<Animator>().speed = 1;
-//        }
         if (clickWait) {
             if (Input.GetKeyDown(KeyCode.Mouse0)) {
                 clicked = true;
@@ -45,12 +39,18 @@ public class Attack : MonoBehaviour {
     public void Special(float addRot) {
         if (PlayerManager.special) {
             SpecialsManager.Instance.SpawnSpecial(specialIndex, addRot);
+        } else {
+            foreach (GameObject e in enemies) {
+                e.GetComponent<EnemyDeathScript>().DealDamage(damage);
+            }
         }
     }
 
     public void CheckMouse() {
         clickWait = true;
         clicked = false;
+        if(!PlayerManager.special)
+            AttackCollider.enabled = true;
     }
 
     public void Unequip() {
@@ -65,11 +65,15 @@ public class Attack : MonoBehaviour {
         clickWait = false;
     }
 
-    public void ColliderOn() {
-        AttackCollider.enabled = true;
+    private void OnTriggerEnter(Collider other) {
+        if(other.tag == Tags.ENEMY) {
+            enemies.Add(other.gameObject);
+        }
     }
 
-    public void ColliderOff() {
-        AttackCollider.enabled = false;
+    private void OnTriggerExit(Collider other) {
+        if(other.tag == Tags.ENEMY) {
+            enemies.Remove(other.gameObject);
+        }
     }
 }

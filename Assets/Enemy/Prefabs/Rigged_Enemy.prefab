@@ -392,8 +392,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb13d672918b91d41b72eb089130ce31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aiState: 0
   playerTarget: {fileID: 0}
+  playerPrefab: {fileID: 0}
+  isInAngle: 0
+  isClear: 0
+  aiState: 0
   fist: {fileID: 1380313298}
   damage: 5
   viewRadius: 20
@@ -1068,6 +1071,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 1520399011917162168, guid: 889422de065a5924dbc5a21dc60f456b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bc9912ef6213d2643b18d3bb33f95f62, type: 2}
     - target: {fileID: -7988218232545425130, guid: 889422de065a5924dbc5a21dc60f456b,
         type: 3}
       propertyPath: m_Layer
