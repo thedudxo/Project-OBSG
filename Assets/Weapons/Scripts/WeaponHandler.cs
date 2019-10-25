@@ -38,6 +38,7 @@ public class WeaponHandler : MonoBehaviour {
                 gameObject.SetActive(false);
             }
         }
+        transform.Rotate(0, 90 * Time.deltaTime, 0);
     }
 
     private void OnTriggerEnter(Collider other) {

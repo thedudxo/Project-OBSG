@@ -6,6 +6,7 @@ public class Respawn {
 
     public static List<GameObject> enemies = new List<GameObject>();
     public static Vector3 respawnPosition;
+    public static Quaternion respawnRotation;
 
     public static void StartRespwn() {
         Enemies();
@@ -25,6 +26,7 @@ public class Respawn {
 
     static void Player() {
         PlayerManager.player.transform.position = respawnPosition;
+        PlayerManager.player.transform.rotation = respawnRotation;
         PlayerManager.playerDeath.canRespawn = false;
         ResetEnemyAI();
     }

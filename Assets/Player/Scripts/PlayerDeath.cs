@@ -28,13 +28,22 @@ public class PlayerDeath : MonoBehaviour {
     [SerializeField] int respawnObjectsCount = 0;
     public bool canRespawn = false;
 
+    private void Start() {
+        Respawn.respawnPosition = transform.position;
+        Respawn.respawnRotation = transform.rotation;
+    }
+
+            //          if (canRespawn) {
+            //              Respawn.StartRespwn();
+            //          } else {
+            //              Debug.Log("Can't Respawn");
+            //          }
     private void Update() {
         if (Input.GetKeyDown(KeyCode.R)) {
-            if (canRespawn) {
-                Respawn.StartRespwn();
-            } else {
-                Debug.Log("Can't Respawn");
-            }
+            PlayerManager.alive = true;
+            PlayerManager.health = PlayerManager.maxHealth;
+            PlayerManager.keys = 0;
+            SceneManager.LoadScene(1);
         }
 
         if (Input.GetKeyDown(KeyCode.F)) {
@@ -57,14 +66,13 @@ public class PlayerDeath : MonoBehaviour {
     void SetRespawn() {
         currentRespawn.SetActive(true);
         currentRespawn.transform.position = transform.position;
-        Respawn.respawnPosition = transform.position;
         canRespawn = true;
         respawnObjectsCount--;
     }
 
     public void DamagePlayer(float damage, Transform enemy) {
         DamageManager.Instance.SpawnIndicator(enemy);
-        hitIndicator.GetComponent<HitIndicator>().target = enemy;
+        //hitIndicator.GetComponent<HitIndicator>().target = enemy;
         PlayerManager.health = PlayerManager.health - damage;
         damaged = true;
         CheckHealth();

@@ -92,12 +92,22 @@ public class PlayerMovement : MonoBehaviour {
     private void OnCollisionExit(Collision collision) {
         grounded = false;
     }
-    //--------------------------------Fist Animations------------------------------------//
-    public void TriggerOn(GameObject trigger) {
-        trigger.GetComponent<Collider>().enabled = true;
-    }
 
-    public void TriggerOff(GameObject trigger) {
-        trigger.GetComponent<Collider>().enabled = false;
+    private void OnTriggerEnter(Collider other) {
+        var vel = rb.velocity;
+        if(other.tag == Tags.UP_STAIR) {
+            if (grounded && Vector3.Angle(rb.velocity, other.transform.forward) < 90) {
+                if (rb.velocity.y > 0) {
+                    Debug.Log("Trigger");
+                    vel.y = 0;
+                    rb.velocity = vel;
+                }
+            }
+        }
+        if (other.transform.tag == "DownStair") {
+            if (grounded && Vector3.Angle(rb.velocity, other.transform.forward) < 90) {
+                rb.AddForce(0, -1000, 0);
+            }
+        }
     }
 }

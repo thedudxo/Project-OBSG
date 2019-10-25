@@ -39,7 +39,7 @@ public class WeaponManager : MonoBehaviour {
         if (weapons[weaponIndex].canUse) {
             newWeaponIndex = weaponIndex;
             weapons[currentWeaponIndex].gameObject.GetComponent<Animator>().SetTrigger(PlayerAnimation.UNEQUIP);
-            AttackCollider.size = weapons[weaponIndex].colliderSize;
+            //AttackCollider.size = weapons[weaponIndex].colliderSize;
             //Debug.Log("Equip " + s);
         } else {
             //Debug.Log("Player does not have " + s);
