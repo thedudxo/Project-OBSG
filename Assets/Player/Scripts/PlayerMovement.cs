@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour {
     private bool stopDash = false;
     private Rigidbody rb;
     private Vector2 horizontalMovement;
-    private bool grounded = false;
+    public bool grounded = false;
     private float deccelX = 0;
     private float deccelZ = 0;
 
@@ -98,14 +98,15 @@ public class PlayerMovement : MonoBehaviour {
         if(other.tag == Tags.UP_STAIR) {
             if (grounded && Vector3.Angle(rb.velocity, other.transform.forward) < 90) {
                 if (rb.velocity.y > 0) {
-                    Debug.Log("Trigger");
+                    Debug.Log("UpTrigger");
                     vel.y = 0;
                     rb.velocity = vel;
                 }
             }
         }
-        if (other.transform.tag == "DownStair") {
+        if (other.transform.tag == Tags.DOWN_STAIR) {
             if (grounded && Vector3.Angle(rb.velocity, other.transform.forward) < 90) {
+                Debug.Log("DownTrigger");
                 rb.AddForce(0, -1000, 0);
             }
         }
