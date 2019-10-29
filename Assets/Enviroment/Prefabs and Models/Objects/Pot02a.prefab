@@ -244,6 +244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6639500163861324534}
   - component: {fileID: 6077502895053354034}
+  - component: {fileID: 3798144094154055820}
   m_Layer: 0
   m_Name: Pot02a
   m_TagString: Untagged
@@ -295,3 +296,17 @@ LODGroup:
     renderers:
     - renderer: {fileID: 1352902109236597518}
   m_Enabled: 1
+--- !u!136 &3798144094154055820
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7673966503419236581}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.3194895
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5957205, z: 0}
