@@ -532,13 +532,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17180c145fe0a91488cd0dd47834ad84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accel: 500
-  airAccel: 1
+  accel: 700
+  airAccel: 10
   deccel: 0
-  maxSpeed: 10
+  maxSpeed: 20
   maxSlope: 60
-  dashSpeed: 2000
+  dashSpeed: 1400
   frontDash: 0
+  grounded: 0
 --- !u!114 &988737210653239971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,7 +706,7 @@ MonoBehaviour:
   - {fileID: 1276396078}
   - {fileID: 1535440365}
   - {fileID: 1198512919}
-  AttackCollider: {fileID: 1761998211, guid: 20194d581c43af240b16502e72751cc4, type: 3}
+  AttackCollider: {fileID: 0}
 --- !u!1 &1668011584549000
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,6 +1344,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &139869545
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296172668189720576}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.8, z: 2.3}
+  m_Center: {x: 0, y: -0.5, z: 1.4174461}
 --- !u!114 &1276396078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1359,14 +1373,14 @@ MonoBehaviour:
   canUse: 0
   colliderSize: {x: 1, y: 5, z: 2.3}
   specialIndex: 1
-  AttackCollider: {fileID: 1761998211, guid: 20194d581c43af240b16502e72751cc4, type: 3}
---- !u!65 &139869545
+  AttackCollider: {fileID: 0}
+--- !u!65 &1663709200
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8296172668189720576}
+  m_GameObject: {fileID: 8296172669317418271}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -1389,20 +1403,7 @@ MonoBehaviour:
   canUse: 1
   colliderSize: {x: 1, y: 1.8, z: 2.3}
   specialIndex: 0
-  AttackCollider: {fileID: 1761998211, guid: 20194d581c43af240b16502e72751cc4, type: 3}
---- !u!65 &1663709200
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8296172669317418271}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.8, z: 2.3}
-  m_Center: {x: 0, y: -0.5, z: 1.4174461}
+  AttackCollider: {fileID: 0}
 --- !u!1001 &469193750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1419,11 +1420,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 5de86b86aff963848b11003c296809ce,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: -7241819807300388121, guid: 5de86b86aff963848b11003c296809ce,
         type: 3}
@@ -2365,11 +2361,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 9d506853c38e34b4ea7f4bf263d6e655,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 9d506853c38e34b4ea7f4bf263d6e655,
         type: 3}

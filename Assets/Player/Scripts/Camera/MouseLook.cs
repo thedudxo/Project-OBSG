@@ -54,7 +54,6 @@ public class MouseLook : MonoBehaviour {
     }
 
     void LookAround() {
-        Debug.Log(PlayerManager.invert);
         lookAngles.x = Input.GetAxis(MouseAxis.MOUSE_Y) * PlayerManager.sensitivity * 50 * Time.deltaTime * (PlayerManager.invert ? -1f : 1f);
         lookAngles.y = Input.GetAxis(MouseAxis.MOUSE_X) * PlayerManager.sensitivity * 50 * Time.deltaTime;
 
