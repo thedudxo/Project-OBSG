@@ -8,6 +8,7 @@ public class LockDoorOnTriggerEnter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.tag== Tags.PLAYER)
         doorToLock.SetActive(true);
     }
 }
