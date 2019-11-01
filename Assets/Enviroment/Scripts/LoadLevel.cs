@@ -11,7 +11,7 @@ public class LoadLevel : MonoBehaviour
 
     private void Start()
     {
-        Load(1);
+        Load(2);
     }
 
     public void Load(int sceneIndex)

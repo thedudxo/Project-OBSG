@@ -20,23 +20,31 @@ public class Tags {
     public const string PLAYER = "Player";
     public const string ENEMY = "Enemy";
     public const string FINISH = "Finish";
+    public const string RESPAWN = "Respawn";
     public const string MAIN_CAMERA = "MainCamera";
 }
 
 public class Layers {
     public const string FPS = "FPS";
     public const string DEFAULT = "Default";
+    public const string ENVIRONMENT = "Environment";
 }
 
 public class PlayerAnimation {
+    //Original Animator
     public const string WALKING = "Walking";
     public const string RIGHT_PUNCH = "RightAttack";
     public const string LEFT_PUNCH = "LeftAttack";
-    public const string WALK_BLEND = "WalkBlend";
     public const string LEFT_THROW = "LeftThrow";
     public const string RIGHT_THROW = "RightThrow";
     public const string END_RIGHT = "EndRight";
     public const string END_LEFT = "EndLeft";
+    //New Animator
+    public const string WALK_BLEND = "WalkBlend";
+    public const string UNEQUIP = "Unequip";
+    public const string ATTACK = "Attack";
+    public const string STOP_ATTACK = "StopAttack";
+
 }
 
 public class EnemyAnimation {
