@@ -31,6 +31,7 @@ public static class PlayerManager {
     public static float maxHealth = 50;
     public static float health = 50;
     //Blood Meter
+    public static List<GameObject> enemies = new List<GameObject>();
     public static bool isFull = false;
     public static bool special = false;
     public static float maxBloodMeter = 100;

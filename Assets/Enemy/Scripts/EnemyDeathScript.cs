@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class EnemyDeathScript : MonoBehaviour {
 
     [SerializeField] Transform player;
+    [SerializeField] Collider attackCol;
     [SerializeField] GameObject ragdoll;
     [SerializeField] float force;
     [SerializeField] float ragdollForce;
@@ -44,19 +45,21 @@ public class EnemyDeathScript : MonoBehaviour {
     private void CheckHealth() {
         if (health <= 0) {
             Ragdoll();
+            PlayerManager.enemies.Remove(gameObject);
             //Destroy(gameObject);
         }
     }
 
     void Ragdoll() {
         PlayerManager.enemiesPlayerKilled++;
-        if (!PlayerManager.isFull) {
+        if (!PlayerManager.isFull && !PlayerManager.special) {
             PlayerManager.bloodMeter = PlayerManager.bloodMeter + bloodMeterAdd;
             CheckMeter();
         }
         dead = true;
-        GetComponent<Animator>().SetBool("Dead", true);
+        GetComponent<Animator>().enabled = false;
         agent.enabled = true;
+        attackCol.enabled = false;
         GetComponent<CapsuleCollider>().enabled = false;
         GetComponent<EnemyAI>().enabled = false;
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
