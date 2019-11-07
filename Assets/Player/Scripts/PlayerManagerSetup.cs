@@ -15,6 +15,8 @@ public class PlayerManagerSetup : MonoBehaviour {
         PlayerManager.player = gameObject;
         PlayerManager.respawnPoint = transform.position;
         PlayerManager.playerDeath = GetComponent<PlayerDeath>();
+        Respawn.respawnPosition = transform.position;
+        PlayerManager.animators = GetComponentsInChildren<Animator>();
     }
 
     private void Update() {

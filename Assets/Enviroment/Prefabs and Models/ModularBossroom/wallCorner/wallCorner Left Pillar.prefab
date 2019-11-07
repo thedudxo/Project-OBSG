@@ -52,7 +52,7 @@ MeshRenderer:
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
-  m_LightProbeUsage: 1
+  m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -85,6 +85,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8387481559983970994, guid: 46a8004a309946d4e83fddf9dc8758c9,
+        type: 3}
+      propertyPath: m_Name
+      value: wallCorner Left Pillar
+      objectReference: {fileID: 0}
     - target: {fileID: 4772984180167223457, guid: 46a8004a309946d4e83fddf9dc8758c9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -140,15 +145,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8387481559983970994, guid: 46a8004a309946d4e83fddf9dc8758c9,
-        type: 3}
-      propertyPath: m_Name
-      value: wallCorner Left Pillar
-      objectReference: {fileID: 0}
     - target: {fileID: 8103131880787506428, guid: 46a8004a309946d4e83fddf9dc8758c9,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186792451118522921, guid: 46a8004a309946d4e83fddf9dc8758c9,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46a8004a309946d4e83fddf9dc8758c9, type: 3}

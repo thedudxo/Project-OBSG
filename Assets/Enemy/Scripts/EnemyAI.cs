@@ -5,18 +5,20 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour{
 
-    [SerializeField] AIState aiState;
-    [SerializeField] Transform playerTarget;
+    public Transform playerTarget;
+    [SerializeField] Transform playerPrefab;
+    public bool isInAngle;
+    public bool isClear;
+    public AIState aiState;
     [SerializeField] BoxCollider fist;
     [SerializeField] float damage = 10;
     Vector3 direction;
     Vector3 rotDirection;
-    bool isInAngle;
-    bool isClear;
     float distance;
-    float viewRadius = 20;
+    [SerializeField] float viewRadius = 20;
     float maxDistance = 60;
     float viewAngle = 110;
+    int layerMask = 1 << 10;
     int lFrame = 15;
     int lFrame_counter = 0;
     int llFrame = 35;
@@ -33,12 +35,20 @@ public class EnemyAI : MonoBehaviour{
 
     private void Start() {
         agent = GetComponent<NavMeshAgent>();
+        Respawn.enemies.Add(gameObject);
         aiState = AIState.idle;
         ChangeState(AIState.idle);
+        SetPrefab();
+    }
+
+    public void SetPrefab() {
+        playerTarget = playerPrefab;
     }
 
     private void Update() {
         if (GetComponent<EnemyDeathScript>().dead) { return; }
+        //layerMask = ~layerMask;
+        Debug.DrawRay(transform.position + Vector3.up, direction * viewRadius, Color.red);
         if (!PlayerManager.alive) {
             agent.isStopped = true;
             return;
@@ -144,10 +154,8 @@ public class EnemyAI : MonoBehaviour{
         isClear = false;
         RaycastHit hit;
         Vector3 origin = transform.position + Vector3.up;
-        if (Physics.Raycast(origin, direction, out hit, viewRadius)) {
-            if (hit.transform.CompareTag(Tags.PLAYER)) {
-                isClear = true;
-            }
+        if (Physics.Raycast(origin, direction, out hit, viewRadius, layerMask)) {
+            isClear = true;
         }
     }
 
@@ -163,6 +171,8 @@ public class EnemyAI : MonoBehaviour{
 
     void RotateTowardsTarget() {
         Quaternion targetRotation = Quaternion.LookRotation(direction);
+        targetRotation.x = 0;
+        targetRotation.z = 0;
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 20);
     }
 
@@ -177,10 +187,14 @@ public class EnemyAI : MonoBehaviour{
     }
 
     void AttackTarget() {
-        if(agent.remainingDistance <= 1.7f) {
-            Debug.Log(agent.remainingDistance);
+        if(distance <= 2f) {
             GetComponent<Animator>().SetTrigger(EnemyAnimation.ENEMY_ATTACK);
+            agent.isStopped = true;
         }
+    }
+
+    void AgentContinue() {
+        agent.isStopped = false;
     }
 
     void ActivateFist() {

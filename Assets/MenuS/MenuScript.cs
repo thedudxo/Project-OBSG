@@ -8,35 +8,44 @@ public class MenuScript : MonoBehaviour {
     
     [Header("Pause:")]
     [SerializeField]
-    GameObject pauseCanvas;
-    [SerializeField]
-    GameObject playerCanvas;
-    [SerializeField]
-    GameObject pause;
-    [SerializeField]
-    GameObject options;
-    [SerializeField]
-    GameObject quit;
-    
-    [SerializeField]
     bool menu;
+    [SerializeField]
+    GameObject 
+        pauseCanvas,
+        playerCanvas,
+        pause,
+        options,
+        GPOptions,
+        AudioOptions,
+        quit,
+        sceneSettings;
+    GameObject currentOption;
+    
 
     private void Start() {
+        currentOption = GPOptions;
     }
 
     private void Update() {
         if (menu) { return; }
         if (Input.GetKeyDown(KeyCode.Escape)) {
             if (!PlayerManager.pause) {
-                pauseCanvas.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 playerCanvas.SetActive(false);
+                pauseCanvas.SetActive(true);
                 PlayerManager.pause = true;
                 Time.timeScale = 0;
-            } else if (PlayerManager.pause) {
+                sceneSettings.SetActive(false);
+            } else if (PlayerManager.pause)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
                 pauseCanvas.SetActive(false);
                 playerCanvas.SetActive(true);
                 PlayerManager.pause = false;
                 Time.timeScale = 1;
+                sceneSettings.SetActive(true);
             }
         }
     }
@@ -46,20 +55,31 @@ public class MenuScript : MonoBehaviour {
         currentScreen.SetActive(false);
     }
 
-    public void ToPause(GameObject newScreen) {
+    public void PauseTo(GameObject newScreen) {
         pause.SetActive(false);
         newScreen.SetActive(true);
     }
 
-    public void SetInvert(bool isInvert) {
-        PlayerManager.invert = isInvert;
-        Debug.Log(PlayerManager.invert);
-    }
-
     public void QuitToMenu() {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1;
     }
-    // ----------------------------------------------Main Menus---------------------------------------------- //
+    // --------------------Options Menus---------------------- //
+    public void OptionsMenu(GameObject to) {
+        currentOption.SetActive(false);
+        to.SetActive(true);
+        currentOption = to;
+    }
+
+    public void SetInvert(bool isInvert) {
+        PlayerManager.invert = isInvert;
+    }
+
+    public void SetSens(float sens) {
+        PlayerManager.sensitivity = (int)sens;
+        Debug.Log(PlayerManager.sensitivity);
+    }
+    // --------------------Main Menus------------------------- //
     public void StartGame() {
         PlayerManager.pause = false;
         SceneManager.LoadScene(1);

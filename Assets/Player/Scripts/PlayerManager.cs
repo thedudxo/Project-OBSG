@@ -18,21 +18,29 @@ public static class PlayerManager {
     public static PlayerAnimations playerAnimations;
     public static PlayerDeath playerDeath;
     public static MouseLook mouseLook;
-    
+
+    //Animator
+    public static Animator[] animators;
 
     public static Vector3 respawnPoint;
     public static bool alive = true;
     public static bool pause = false;
     public static bool win = true;
     public static bool throwing = false;
+    public static int fistDamage = 10;
     public static float maxHealth = 50;
     public static float health = 50;
+    //Blood Meter
+    public static bool isFull = false;
+    public static bool special = false;
     public static float maxBloodMeter = 100;
     public static float bloodMeter = 0;
 
     public static List<GameObject> doorKeys = new List<GameObject>();
-
+    public static int keys = 0;
+    //Options
     public static bool invert = false;
+    public static int sensitivity = 3;
 
     //interesting stats
     public static int enemiesPlayerKilled = 0;

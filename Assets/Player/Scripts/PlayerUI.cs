@@ -34,11 +34,11 @@ public class PlayerUI : MonoBehaviour {
     private void Update() {
         SetHealthAmount(PlayerManager.health/PlayerManager.maxHealth);
         SetBloodAmount(PlayerManager.bloodMeter/PlayerManager.maxBloodMeter);
-        if (PlayerManager.throwing) {
-            crosshair.enabled = true;
-        } else {
-            crosshair.enabled = false;
-        }
+//        if (PlayerManager.throwing) {
+//            crosshair.enabled = true;
+//        } else {
+//            crosshair.enabled = false;
+//        }
     }
 
     void SetBloodAmount(float amount) {
