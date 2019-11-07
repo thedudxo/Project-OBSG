@@ -64,11 +64,17 @@ public class Attack : MonoBehaviour {
         GetComponentInParent<WeaponManager>().Unequip();
     }
 
-    public void HasClicked() {
-        if (!clicked) {
+    public void HasClicked()
+    {
+        if (!clicked)
+        {
             GetComponent<Animator>().SetTrigger(PlayerAnimation.STOP_ATTACK);
             initialAttack = true;
         }
+        clickWait = false;
+    }
+
+    public void BugFix() {
         clickWait = false;
     }
 

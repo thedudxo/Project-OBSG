@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour {
     //[SerializeField] private float jumpForce = 800;
     [SerializeField] private float maxSlope = 60;
     [SerializeField] private float dashSpeed = 6000;
+    [SerializeField] private List<Animator> animator = new List<Animator>();
     bool dashing = false;
     public bool frontDash = false;
     private bool stopDash = false;
@@ -71,7 +72,7 @@ public class PlayerMovement : MonoBehaviour {
     private void Update() {
         if (dashing || !PlayerManager.alive) { return; }
         //Animation
-        foreach (Animator anim in PlayerManager.animators) {
+        foreach (Animator anim in animator) {
             anim.SetFloat(PlayerAnimation.WALK_BLEND, horizontalMovement.magnitude);
         }
         //GetComponentInChildren<Animator>().SetFloat(PlayerAnimation.WALK_BLEND, horizontalMovement.magnitude);

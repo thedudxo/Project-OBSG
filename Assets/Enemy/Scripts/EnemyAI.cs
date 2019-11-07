@@ -17,7 +17,7 @@ public class EnemyAI : MonoBehaviour{
     float distance;
     [SerializeField] float viewRadius = 20;
     float maxDistance = 60;
-    float viewAngle = 110;
+    float viewAngle = 210;
     int layerMask = 1 << 10;
     int lFrame = 15;
     int lFrame_counter = 0;
