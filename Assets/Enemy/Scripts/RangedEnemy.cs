@@ -14,8 +14,12 @@ public class RangedEnemy : MonoBehaviour{
     [SerializeField] float damage = 10;
     Vector3 direction;
     Vector3 rotDirection;
+    Vector3 moveVec;
+    Vector3 newMoveVec;
     float distance;
+    [SerializeField] float strafeSpeed;
     [SerializeField] float viewRadius = 20;
+    [SerializeField] float attackRadius = 6;
     float maxDistance = 60;
     float viewAngle = 210;
     bool attacking = false;
@@ -59,6 +63,7 @@ public class RangedEnemy : MonoBehaviour{
             agent.isStopped = true;
             return;
         }
+        Debug.Log(aiState);
         MonitorStates();
         if (everyFrame != null)
             everyFrame();
@@ -104,6 +109,12 @@ public class RangedEnemy : MonoBehaviour{
             case AIState.inView:
                 if (distance > viewRadius)
                     ChangeState(AIState.inRadius);
+                if (distance < attackRadius)
+                    ChangeState(AIState.inAttackRange);
+                break;
+            case AIState.inAttackRange:
+                if (distance > attackRadius)
+                    ChangeState(AIState.inView);
                 break;
             default:
                 break;
@@ -130,6 +141,7 @@ public class RangedEnemy : MonoBehaviour{
                 everyFrame = InViewBehaviours;
                 break;
             case AIState.inAttackRange:
+                lateFrame = InRadiusBehaviours;
                 everyFrame = InAttackRangeBehaviours;
                 break;
             default:
@@ -157,11 +169,12 @@ public class RangedEnemy : MonoBehaviour{
             return;
         FindDirection(playerTarget);
         RotateTowardsTarget();
-        MoveToPosition(playerTarget.position);
+        //MoveToPosition(playerTarget.position);
     }
 
     void InAttackRangeBehaviours() {
         RotateTowardsTarget();
+        FindDirection(playerTarget);
         Strafe();
     }
 
@@ -213,7 +226,12 @@ public class RangedEnemy : MonoBehaviour{
     }
 
     void Strafe() {
-
+        var perpendicularVec = Vector3.Cross(Vector3.up, playerTarget.position);
+        moveVec = perpendicularVec.normalized;
+        moveVec.y = 0;
+        Debug.Log(moveVec);
+        newMoveVec = moveVec * strafeSpeed;
+        transform.Translate(newMoveVec * Time.fixedDeltaTime);
     }
 
     void AgentContinue() {
