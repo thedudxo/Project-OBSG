@@ -20,9 +20,11 @@ public class RangedEnemy : MonoBehaviour{
     [SerializeField] float strafeSpeed;
     [SerializeField] float viewRadius = 20;
     [SerializeField] float attackRadius = 6;
+    [SerializeField] float minAttackRadius = 4;
     float maxDistance = 60;
     float viewAngle = 210;
     bool attacking = false;
+    bool preperedAttack = false;
     int layerMask = 1 << 10;
     int lFrame = 15;
     int lFrame_counter = 0;
@@ -48,7 +50,7 @@ public class RangedEnemy : MonoBehaviour{
         aiState = AIState.idle;
         ChangeState(AIState.idle);
         SetPrefab();
-        attackFrame = Random.Range(180, 300);
+        attackFrame = Random.Range(0, 180);
     }
 
     public void SetPrefab() {
@@ -83,6 +85,7 @@ public class RangedEnemy : MonoBehaviour{
         if(attackFrame_counter > attackFrame) {
             if (aFrame != null)
                 aFrame();
+            attackFrame = Random.Range(0, 180);
             attackFrame_counter = 0;
         }
     }
@@ -142,6 +145,10 @@ public class RangedEnemy : MonoBehaviour{
             case AIState.inAttackRange:
                 lateFrame = InRadiusBehaviours;
                 everyFrame = InAttackRangeBehaviours;
+                aFrame = AttackTarget;
+                break;
+            case AIState.attacking:
+                everyFrame = AttackingBehaviours;
                 break;
             default:
                 break;
@@ -168,13 +175,27 @@ public class RangedEnemy : MonoBehaviour{
             return;
         FindDirection(playerTarget);
         RotateTowardsTarget();
-        //MoveToPosition(playerTarget.position);
+        MoveToPosition(playerTarget.position);
     }
 
     void InAttackRangeBehaviours() {
         RotateTowardsTarget();
         FindDirection(playerTarget);
+        StopDestination();
         Strafe();
+        Retreat();
+    }
+
+    void AttackingBehaviours() {
+        MoveToPosition(playerTarget.position);
+        RotateTowardsTarget();
+        FindDirection(playerTarget);
+        DistanceCheck(playerTarget);
+        AttackAnimation();
+    }
+
+    void StopDestination() {
+        agent.destination = transform.position;
     }
 
     void DistanceCheck(Transform target) {
@@ -218,23 +239,40 @@ public class RangedEnemy : MonoBehaviour{
     }
 
     void AttackTarget() {
-        if(distance <= 2f) {
-            GetComponent<Animator>().SetTrigger(EnemyAnimation.ENEMY_ATTACK);
-            agent.isStopped = true;
+        if (preperedAttack) {
+            ChangeState(AIState.attacking);
+        }
+    }
+
+    void AttackAnimation() {
+        Debug.Log(distance);
+        if (distance <= 2f) {
+            Debug.Log("Attack");
+            GetComponent<Animator>().SetBool(EnemyAnimation.ENEMY_ATTACK, true);
+            agent.destination = transform.position;
         }
     }
 
     void Strafe() {
-        var perpendicularVec = Vector3.Cross(Vector3.up, playerTarget.position);
-        moveVec = perpendicularVec.normalized;
-        moveVec.y = 0;
-        Debug.Log(moveVec);
-        newMoveVec = moveVec * strafeSpeed;
-        transform.Translate(newMoveVec * Time.fixedDeltaTime);
+        if (distance < attackRadius && distance > minAttackRadius) {
+            preperedAttack = true;
+            agent.Move(transform.right * strafeSpeed * Time.fixedDeltaTime);
+        }
+    }
+
+    void Retreat() {
+        if(distance < minAttackRadius) {
+            Debug.Log("Move Back");
+            agent.Move(-transform.forward * strafeSpeed * Time.fixedDeltaTime);
+            preperedAttack = false;
+        }
     }
 
     void AgentContinue() {
         agent.isStopped = false;
+        ChangeState(AIState.inAttackRange);
+        attacking = false;
+        GetComponent<Animator>().SetBool(EnemyAnimation.ENEMY_ATTACK, false);
     }
 
     void ActivateFist() {
@@ -246,7 +284,7 @@ public class RangedEnemy : MonoBehaviour{
     }
 
     public enum AIState {
-        idle, lateIdle, inRadius, inView, inAttackRange
+        idle, lateIdle, inRadius, inView, inAttackRange, attacking
     }
 
     private void OnTriggerEnter(Collider other) {

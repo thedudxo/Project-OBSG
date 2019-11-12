@@ -73,7 +73,6 @@ public class EnemyAI : MonoBehaviour{
             llFrame_counter = 0;
         }
         GetComponent<Animator>().SetFloat(EnemyAnimation.IDLE_BLEND, agent.velocity.magnitude);
-        Debug.Log(agent.velocity.magnitude);
     }
 
     void MonitorStates() {
