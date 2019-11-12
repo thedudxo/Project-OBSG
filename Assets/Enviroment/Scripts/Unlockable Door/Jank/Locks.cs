@@ -12,11 +12,15 @@ public class Locks : MonoBehaviour
     [SerializeField] GameObject[] keyholes = new GameObject[3];
     [SerializeField] GameObject[] preparedkeys = new GameObject[3];
 
-    [SerializeField] int keyAmmount = 3;
+    [SerializeField] int keyAmmount;
 
 
     int unlocked = 0;
-    
+
+    private void Start()
+    {
+        keyAmmount = keyholes.Length;
+    }
 
 
     private void OnTriggerEnter(Collider other)
