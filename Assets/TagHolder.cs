@@ -48,7 +48,8 @@ public class PlayerAnimation {
 }
 
 public class EnemyAnimation {
-    public const string ENEMY_ATTACK = "EnemyAttack";
+    public const string ENEMY_ATTACK = "Attack";
+    public const string IDLE_BLEND = "IdleBlend";
 }
 
 public class WeaponParticles {

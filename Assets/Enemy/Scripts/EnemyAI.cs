@@ -39,6 +39,9 @@ public class EnemyAI : MonoBehaviour{
         aiState = AIState.idle;
         ChangeState(AIState.idle);
         SetPrefab();
+        foreach(Rigidbody r in GetComponentsInChildren<Rigidbody>()) {
+            r.isKinematic = true;
+        }
     }
 
     public void SetPrefab() {
@@ -69,6 +72,8 @@ public class EnemyAI : MonoBehaviour{
                 llateFrame();
             llFrame_counter = 0;
         }
+        GetComponent<Animator>().SetFloat(EnemyAnimation.IDLE_BLEND, agent.velocity.magnitude);
+        Debug.Log(agent.velocity.magnitude);
     }
 
     void MonitorStates() {
@@ -188,12 +193,13 @@ public class EnemyAI : MonoBehaviour{
 
     void AttackTarget() {
         if(distance <= 2f) {
-            GetComponent<Animator>().SetTrigger(EnemyAnimation.ENEMY_ATTACK);
+            GetComponent<Animator>().SetBool(EnemyAnimation.ENEMY_ATTACK, true);
             agent.isStopped = true;
         }
     }
 
     void AgentContinue() {
+        GetComponent<Animator>().SetBool(EnemyAnimation.ENEMY_ATTACK, false);
         agent.isStopped = false;
     }
 

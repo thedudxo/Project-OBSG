@@ -38,7 +38,7 @@ public class StrafeTest : MonoBehaviour {
         var perpendicularVec = Vector3.Cross(Vector3.up, player.transform.position);
         moveVec = perpendicularVec.normalized;
         moveVec.y = 0;
-        Debug.Log(moveVec);
+        //Debug.Log(moveVec);
         newMoveVec = moveVec * speed;
         transform.Translate(newMoveVec * Time.fixedDeltaTime);
     }

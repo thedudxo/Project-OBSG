@@ -63,7 +63,6 @@ public class RangedEnemy : MonoBehaviour{
             agent.isStopped = true;
             return;
         }
-        Debug.Log(aiState);
         MonitorStates();
         if (everyFrame != null)
             everyFrame();
