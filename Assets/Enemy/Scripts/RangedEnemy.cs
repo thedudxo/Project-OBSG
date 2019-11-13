@@ -50,7 +50,7 @@ public class RangedEnemy : MonoBehaviour{
         aiState = AIState.idle;
         ChangeState(AIState.idle);
         SetPrefab();
-        attackFrame = Random.Range(0, 180);
+        attackFrame = Random.Range(0, 300);
     }
 
     public void SetPrefab() {
@@ -245,7 +245,6 @@ public class RangedEnemy : MonoBehaviour{
     }
 
     void AttackAnimation() {
-        Debug.Log(distance);
         if (distance <= 2f) {
             Debug.Log("Attack");
             GetComponent<Animator>().SetBool(EnemyAnimation.ENEMY_ATTACK, true);
