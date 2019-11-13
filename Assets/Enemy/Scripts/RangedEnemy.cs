@@ -14,8 +14,6 @@ public class RangedEnemy : MonoBehaviour{
     [SerializeField] float damage = 10;
     Vector3 direction;
     Vector3 rotDirection;
-    Vector3 moveVec;
-    Vector3 newMoveVec;
     float distance;
     [SerializeField] float strafeSpeed;
     [SerializeField] float viewRadius = 20;
@@ -51,6 +49,9 @@ public class RangedEnemy : MonoBehaviour{
         ChangeState(AIState.idle);
         SetPrefab();
         attackFrame = Random.Range(0, 300);
+        foreach (Rigidbody r in GetComponentsInChildren<Rigidbody>()) {
+            r.isKinematic = true;
+        }
     }
 
     public void SetPrefab() {
@@ -128,6 +129,7 @@ public class RangedEnemy : MonoBehaviour{
         everyFrame = null;
         lateFrame = null;
         llateFrame = null;
+        aFrame = null;
         switch (targetState) {
             case AIState.lateIdle:
                 llateFrame = IdleBehaviours;
@@ -240,7 +242,7 @@ public class RangedEnemy : MonoBehaviour{
 
     void AttackTarget() {
         if (preperedAttack) {
-            ChangeState(AIState.attacking);
+            //ChangeState(AIState.attacking);
         }
     }
 
