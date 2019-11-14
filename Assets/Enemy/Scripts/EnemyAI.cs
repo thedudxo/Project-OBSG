@@ -62,7 +62,7 @@ public class EnemyAI : MonoBehaviour {
         if (GetComponent<EnemyDeathScript>().dead) { return; }
         //layerMask = ~layerMask;
         Debug.DrawRay(transform.position + Vector3.up, direction * viewRadius, Color.red);
-        if (!PlayerManager.alive) {
+        if (!PlayerManager.alive){
             agent.isStopped = true;
             return;
         }
@@ -87,6 +87,10 @@ public class EnemyAI : MonoBehaviour {
                 aFrame();
             attackFrame = Random.Range(0, 180);
             attackFrame_counter = 0;
+        }
+        if (aiState != AIState.inAttackRange) {
+            Debug.Log("Animate");
+            GetComponent<Animator>().SetFloat(EnemyAnimation.IDLE_BLEND, agent.velocity.magnitude);
         }
     }
 
@@ -193,13 +197,16 @@ public class EnemyAI : MonoBehaviour {
         FindDirection(playerTarget);
         DistanceCheck(playerTarget);
         AttackAnimation();
+        if (attacking) {
+            StopDestination();
+        }
     }
 
     void StopDestination() {
-        agent.destination = transform.position;
+        agent.isStopped = true;
     }
 
-    void DistanceCheck(Transform target) {
+    void DistanceCheck(Transform target){
         distance = Vector3.Distance(transform.position, target.position);
     }
 
@@ -237,6 +244,7 @@ public class EnemyAI : MonoBehaviour {
 
     void MoveToPosition(Vector3 playerPosition) {
         agent.SetDestination(playerPosition);
+        agent.isStopped = false;
     }
 
     void AttackTarget() {
@@ -246,10 +254,10 @@ public class EnemyAI : MonoBehaviour {
     }
 
     void AttackAnimation() {
-        if (distance <= 2f) {
-            Debug.Log("Attack");
+        if (distance <= 2f && !attacking) {
             GetComponent<Animator>().SetBool(EnemyAnimation.ENEMY_ATTACK, true);
             agent.destination = transform.position;
+            attacking = true;
         }
     }
 
@@ -257,14 +265,18 @@ public class EnemyAI : MonoBehaviour {
         if (distance < attackRadius && distance > minAttackRadius) {
             preperedAttack = true;
             agent.Move(transform.right * strafeSpeed * Time.fixedDeltaTime);
+            GetComponent<Animator>().SetFloat(EnemyAnimation.IDLE_BLEND, 5);
         }
     }
 
     void Retreat() {
         if (distance < minAttackRadius) {
-            Debug.Log("Move Back");
             agent.Move(-transform.forward * strafeSpeed * Time.fixedDeltaTime);
+            GetComponent<Animator>().SetFloat(EnemyAnimation.IDLE_BLEND, -5);
             preperedAttack = false;
+            if(distance <= 2) {
+                ChangeState(AIState.attacking);
+            }
         }
     }
 
@@ -281,6 +293,7 @@ public class EnemyAI : MonoBehaviour {
 
     void DeactivateFist() {
         fist.enabled = false;
+        agent.isStopped = true;
     }
 
     public enum AIState {

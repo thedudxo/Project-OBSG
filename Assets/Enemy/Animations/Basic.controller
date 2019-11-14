@@ -68,13 +68,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Attack
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -97,6 +97,14 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 1d1dbde870a71ee4ebacc924e932b917, type: 2}
+    m_Threshold: -10
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: IdleBlend
+    m_Mirror: 0
+  - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 150b0dbc649e77940bcef4d8131c6f4d, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
@@ -114,7 +122,7 @@ BlendTree:
     m_Mirror: 0
   m_BlendParameter: IdleBlend
   m_BlendParameterY: Blend
-  m_MinThreshold: 0
+  m_MinThreshold: -10
   m_MaxThreshold: 10
   m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0

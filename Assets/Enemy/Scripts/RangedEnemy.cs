@@ -197,7 +197,7 @@ public class RangedEnemy : MonoBehaviour{
     }
 
     void StopDestination() {
-        agent.destination = transform.position;
+        agent.isStopped = true;
     }
 
     void DistanceCheck(Transform target) {
@@ -238,6 +238,7 @@ public class RangedEnemy : MonoBehaviour{
 
     void MoveToPosition(Vector3 playerPosition) {
         agent.SetDestination(playerPosition);
+        agent.isStopped = false;
     }
 
     void AttackTarget() {

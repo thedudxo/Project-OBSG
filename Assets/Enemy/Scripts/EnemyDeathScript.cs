@@ -7,10 +7,11 @@ public class EnemyDeathScript : MonoBehaviour {
 
     [SerializeField] Transform player;
     [SerializeField] Collider attackCol;
-    [SerializeField] GameObject ragdoll;
+    [SerializeField] Rigidbody ragdoll;
     [SerializeField] float force;
     [SerializeField] float ragdollForce;
     [SerializeField] int bloodMeterAdd;
+    [SerializeField] Material hitMat;
     private NavMeshAgent agent;
     private Vector3 direction;
     private float maxSlope = 60;
@@ -35,10 +36,9 @@ public class EnemyDeathScript : MonoBehaviour {
 
     IEnumerator Force() {
         hit = true;
-        agent.enabled = false;
-        GetComponent<Rigidbody>().AddForce(direction.x * force, force / 2, direction.z * force);
-        yield return new WaitUntil(() => grounded == false);
-        yield return new WaitUntil(() => grounded == true);
+        hitMat.color = new Color(255, 255, 255);
+        yield return new WaitForSeconds(1);
+        hitMat.color = new Color(173, 133, 97);
         hit = false;
     }
 
@@ -63,8 +63,10 @@ public class EnemyDeathScript : MonoBehaviour {
         GetComponent<CapsuleCollider>().enabled = false;
         GetComponent<EnemyAI>().enabled = false;
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-        ragdoll.SetActive(true);
-        ragdoll.GetComponent<Rigidbody>().AddForce(direction * ragdollForce);
+        foreach(Rigidbody r in GetComponentsInChildren<Rigidbody>()) {
+            r.isKinematic = false;
+        }
+        ragdoll.AddForce(direction * ragdollForce);
     }
 
     void CheckMeter() {

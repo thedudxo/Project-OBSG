@@ -73,7 +73,9 @@ public class PlayerMovement : MonoBehaviour {
         if (dashing || !PlayerManager.alive) { return; }
         //Animation
         foreach (Animator anim in animator) {
-            anim.SetFloat(PlayerAnimation.WALK_BLEND, horizontalMovement.magnitude);
+            if (anim.enabled) {
+                anim.SetFloat(PlayerAnimation.WALK_BLEND, horizontalMovement.magnitude);
+            }
         }
         //GetComponentInChildren<Animator>().SetFloat(PlayerAnimation.WALK_BLEND, horizontalMovement.magnitude);
         //Jump
