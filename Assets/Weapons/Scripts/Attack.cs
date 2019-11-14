@@ -15,16 +15,26 @@ public class Attack : MonoBehaviour {
     [SerializeField] bool clickWait = false;
     [SerializeField]bool clicked = false;
     [SerializeField]bool initialAttack = true;
+    bool leftClick = false;
 
     private void Update() {
         if (clickWait) {
             if (Input.GetKeyDown(KeyCode.Mouse0)) {
                 clicked = true;
+                leftClick = true;
+            } else if (Input.GetKeyDown(KeyCode.Mouse1)) {
+                clicked = true;
+                leftClick = false;
             }
         }
-        if (initialAttack && Input.GetKeyDown(KeyCode.Mouse0)) {
-            GetComponent<Animator>().SetTrigger(PlayerAnimation.ATTACK);
-            initialAttack = false;
+        if (initialAttack && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Mouse1))) {
+                GetComponent<Animator>().SetTrigger(PlayerAnimation.ATTACK);
+                initialAttack = false;
+            if (Input.GetKeyDown(KeyCode.Mouse0)) {
+                leftClick = true;
+            } else if (Input.GetKeyDown(KeyCode.Mouse1)) {
+                leftClick = false;
+            }
         }
         if (Input.GetKeyDown(KeyCode.Q)) {
             if (PlayerManager.special) {
@@ -33,24 +43,34 @@ public class Attack : MonoBehaviour {
                 PlayerManager.special = true;
             }
         }
-        if (PlayerManager.special) {
-            PlayerManager.bloodMeter -= Time.deltaTime * bloodMeterDecrease;
-            if (PlayerManager.bloodMeter <= 0) {
-                PlayerManager.bloodMeter = 0;
-                PlayerManager.special = false;
-            }
-        }
+//        if (PlayerManager.special) {
+//            PlayerManager.bloodMeter -= Time.deltaTime * bloodMeterDecrease;
+//            if (PlayerManager.bloodMeter <= 0) {
+//                PlayerManager.bloodMeter = 0;
+//                PlayerManager.special = false;
+//            }
+//        }
     }
 
     //Animation Events
     public void Special(float addRot) {
+        foreach (GameObject e in PlayerManager.enemies) {
+            e.GetComponent<EnemyDeathScript>().DealDamage(damage);
+        }
         if (PlayerManager.special) {
-            SpecialsManager.Instance.SpawnSpecial(specialIndex, addRot);
-        } else {
-            foreach (GameObject e in PlayerManager.enemies) {
-                e.GetComponent<EnemyDeathScript>().DealDamage(damage);
+            if (leftClick) {
+                Debug.Log("Special Melee");
+            } else {
+                Debug.Log("Special Range");
             }
         }
+//        if (PlayerManager.special) {
+//            SpecialsManager.Instance.SpawnSpecial(specialIndex, addRot);
+//        } else {
+//            foreach (GameObject e in PlayerManager.enemies) {
+//                e.GetComponent<EnemyDeathScript>().DealDamage(damage);
+//            }
+//        }
     }
 
     public void CheckMouse() {
