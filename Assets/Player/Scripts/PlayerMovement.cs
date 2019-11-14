@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.VFX;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -11,6 +12,8 @@ public class PlayerMovement : MonoBehaviour {
     //[SerializeField] private float jumpForce = 800;
     [SerializeField] private float maxSlope = 60;
     [SerializeField] private float dashSpeed = 6000;
+    [SerializeField] private List<Animator> animator = new List<Animator>();
+    [SerializeField] private VisualEffect dust;
     bool dashing = false;
     public bool frontDash = false;
     private bool stopDash = false;
@@ -70,9 +73,13 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Update() {
         if (dashing || !PlayerManager.alive) { return; }
+        //Dust
+        dust.SetFloat("SpawnRate", 750 + ((horizontalMovement.magnitude * 1375) / 2));
         //Animation
-        foreach (Animator anim in PlayerManager.animators) {
-            anim.SetFloat(PlayerAnimation.WALK_BLEND, horizontalMovement.magnitude);
+        foreach (Animator anim in animator) {
+            if (anim.enabled) {
+                anim.SetFloat(PlayerAnimation.WALK_BLEND, horizontalMovement.magnitude);
+            }
         }
         //GetComponentInChildren<Animator>().SetFloat(PlayerAnimation.WALK_BLEND, horizontalMovement.magnitude);
         //Jump
