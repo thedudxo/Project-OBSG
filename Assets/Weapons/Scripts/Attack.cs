@@ -15,11 +15,14 @@ public class Attack : MonoBehaviour {
     bool clicked = false;
     bool initialAttack = true;
     List<GameObject> enemies = new List<GameObject>();
+    
 
     private void Update() {
         if (clickWait) {
             if (Input.GetKeyDown(KeyCode.Mouse0)) {
                 clicked = true;
+                int e = Random.Range(0, 2);
+                AudioManager.instance.Play("SwordWhoosh" + e);
             }
         }
         if (initialAttack && Input.GetKeyDown(KeyCode.Mouse0)) {

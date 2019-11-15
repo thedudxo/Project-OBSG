@@ -12,6 +12,9 @@ public class Slash : MonoBehaviour {
         }
         if (other.gameObject.layer == 12) {
             StartCoroutine(Disable());
+            int i = Random.Range(0, 2);
+            AudioManager.instance.Play("EnergyHit" + i);
+           
         }
     }
 

@@ -76,6 +76,11 @@ public class PlayerDeath : MonoBehaviour {
         PlayerManager.health = PlayerManager.health - damage;
         damaged = true;
         CheckHealth();
+        int i = Random.Range(0, 3);
+        AudioManager.instance.Play("Grunt" + i);
+        int e = Random.Range(0, 2);
+        AudioManager.instance.Play("PlayerHit" + e);
+       
     }
 
     void CheckHealth() { 

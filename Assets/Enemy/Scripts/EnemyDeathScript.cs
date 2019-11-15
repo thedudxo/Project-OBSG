@@ -27,8 +27,11 @@ public class EnemyDeathScript : MonoBehaviour {
         direction = -direction.normalized;
         health = health - damage;
         CheckHealth();
+        int i = Random.Range(0, 2);
+        EnemyAudioManager.instance.Play("EnemyHitFist" + i);
         if (!hit) {
             StartCoroutine(Force());
+           
         }
     }
 
@@ -39,6 +42,7 @@ public class EnemyDeathScript : MonoBehaviour {
         yield return new WaitUntil(() => grounded == false);
         yield return new WaitUntil(() => grounded == true);
         hit = false;
+        
     }
 
     private void CheckHealth() {
