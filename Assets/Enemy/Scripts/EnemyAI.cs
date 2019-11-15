@@ -16,10 +16,10 @@ public class EnemyAI : MonoBehaviour {
     Vector3 rotDirection;
     float distance;
     [SerializeField] float strafeSpeed;
-    [SerializeField] float viewRadius = 20;
+    [SerializeField] float viewRadius = 50;
     [SerializeField] float attackRadius = 6;
     [SerializeField] float minAttackRadius = 4;
-    float maxDistance = 60;
+    float maxDistance = 120;
     float viewAngle = 210;
     bool attacking = false;
     bool preperedAttack = false;
@@ -294,6 +294,12 @@ public class EnemyAI : MonoBehaviour {
     void DeactivateFist() {
         fist.enabled = false;
         agent.isStopped = true;
+    }
+
+    public void AISpawn() {
+        Debug.Log("Reset AI");
+        SetPrefab();
+        ChangeState(AIState.inView);
     }
 
     public enum AIState {
