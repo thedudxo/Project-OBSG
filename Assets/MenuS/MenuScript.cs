@@ -82,7 +82,7 @@ public class MenuScript : MonoBehaviour {
     // --------------------Main Menus------------------------- //
     public void StartGame() {
         PlayerManager.pause = false;
-        SceneManager.LoadScene(1);
+        LoadManager.loadScene(LoadManager.TUTORIAL);
     }
 
     public void TransitionTo(string to) {

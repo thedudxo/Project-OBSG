@@ -43,7 +43,7 @@ public class PlayerDeath : MonoBehaviour {
             PlayerManager.alive = true;
             PlayerManager.health = PlayerManager.maxHealth;
             PlayerManager.keys = 0;
-            SceneManager.LoadScene(1);
+            LoadManager.loadScene(LoadManager.LoadedScene);
         }
 
         if (Input.GetKeyDown(KeyCode.F)) {

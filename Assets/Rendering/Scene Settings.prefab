@@ -48,7 +48,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: f49e972dd43270c4c95b0ecd259e23a2, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 4a2f47af2806efa4aafd9405f78040b6, type: 2}
 --- !u!114 &2065751805213747658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,5 +61,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441482e8936e35048a1dffac814e3ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Profile: {fileID: 0}
+  m_Profile: {fileID: 11400000, guid: 4a2f47af2806efa4aafd9405f78040b6, type: 2}
   m_StaticLightingSkyUniqueID: 0

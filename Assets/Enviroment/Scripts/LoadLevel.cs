@@ -9,9 +9,11 @@ public class LoadLevel : MonoBehaviour
 
     public GameObject turnon;
 
+
     private void Start()
     {
-        Load(2);
+        Load(LoadManager.sceneToLoad);
+        Debug.Log(LoadManager.sceneToLoad);
     }
 
     public void Load(int sceneIndex)
