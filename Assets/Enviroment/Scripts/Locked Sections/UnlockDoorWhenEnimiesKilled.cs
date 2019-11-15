@@ -6,7 +6,8 @@ public class UnlockDoorWhenEnimiesKilled : MonoBehaviour
 {
 
     [SerializeField] GameObject[] enemiesToKill;
-    [SerializeField] GameObject thingToDisable;
+    [SerializeField] GameObject thingToActivate;
+    [SerializeField] bool enableThing = false;
 
     // Update is called once per frame
     void Update()
@@ -21,7 +22,7 @@ public class UnlockDoorWhenEnimiesKilled : MonoBehaviour
 
         if(deadEnemies >= enemiesToKill.Length)
         {
-            thingToDisable.SetActive(false);
+            thingToActivate.SetActive(enableThing);
         }
     }
 }

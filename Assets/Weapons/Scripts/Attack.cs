@@ -96,6 +96,8 @@ public class Attack : MonoBehaviour {
 
     public void BugFix() {
         clickWait = false;
+        initialAttack = true;
+        clicked = false;
     }
 
     private void OnTriggerEnter(Collider other) {
