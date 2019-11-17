@@ -9,15 +9,18 @@ public class LoadLevel : MonoBehaviour
 
     public GameObject turnon;
 
+
     private void Start()
     {
-        Load(1);
+        Load(LoadManager.sceneToLoad);
+        Debug.Log(LoadManager.sceneToLoad);
     }
 
     public void Load(int sceneIndex)
     {
         turnon.SetActive(true);
         StartCoroutine(Loadlevel(sceneIndex));
+        PlayerManager.keys = 0;
     }
 
     IEnumerator Loadlevel(int sceneIndex)

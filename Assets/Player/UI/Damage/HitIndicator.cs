@@ -32,7 +32,7 @@ public class HitIndicator : MonoBehaviour {
     }
     void Indicator() {
         angle = GetHitAngle(player, (player.position - target.position).normalized);
-        arrow.rotation = Quaternion.Euler(0, 0, -angle);
+        arrow.localRotation = Quaternion.Euler(0, 0, -angle);
     }
 
     float GetHitAngle(Transform player, Vector3 incomingDir) {
