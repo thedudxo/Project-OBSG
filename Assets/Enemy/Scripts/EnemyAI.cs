@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour {
 
     public Transform playerTarget;
-    [SerializeField] Transform playerPrefab;
     public bool isInAngle;
     public bool isClear;
     public AIState aiState;
@@ -55,7 +54,7 @@ public class EnemyAI : MonoBehaviour {
     }
 
     public void SetPrefab() {
-        playerTarget = playerPrefab;
+        playerTarget = GameObject.FindGameObjectWithTag(Tags.PLAYER).transform;
     }
 
     private void Update() {
@@ -299,6 +298,9 @@ public class EnemyAI : MonoBehaviour {
     public void AISpawn() {
         Debug.Log("Reset AI");
         SetPrefab();
+        FindDirection(playerTarget);
+        transform.rotation = Quaternion.LookRotation(direction);
+        MoveToPosition(playerTarget.position);
         ChangeState(AIState.inView);
     }
 

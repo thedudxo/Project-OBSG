@@ -18,13 +18,14 @@ public class LockDoorOnTriggerEnter : MonoBehaviour
     }
 
     IEnumerator SpawnEnemies() {
-        yield return new WaitForSeconds(0.5f);
-        int i = Random.Range(0, spawners.Count);
-        GameObject tmp = Instantiate(enemy, spawners[i]);
-        Debug.Log(enemiesSpawned);
         enemiesSpawned++;
-        tmp.GetComponent<EnemyAI>().AISpawn();
-        if(enemiesSpawned <= enemiesToSpawn) {
+        yield return new WaitForSeconds(0.5f);
+        if(enemiesSpawned < enemiesToSpawn) {
+            int i = Random.Range(0, spawners.Count);
+            GameObject tmp = Instantiate(enemy, spawners[i]);
+            tmp.transform.parent = null;
+            tmp.GetComponent<EnemyAI>().AISpawn();
+            Debug.Log(enemiesSpawned);
             StartCoroutine(SpawnEnemies());
         }
     }
