@@ -88,7 +88,6 @@ public class EnemyAI : MonoBehaviour {
             attackFrame_counter = 0;
         }
         if (aiState != AIState.inAttackRange) {
-            Debug.Log("Animate");
             GetComponent<Animator>().SetFloat(EnemyAnimation.IDLE_BLEND, agent.velocity.magnitude);
         }
     }

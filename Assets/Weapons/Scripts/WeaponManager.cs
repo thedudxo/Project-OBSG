@@ -6,6 +6,7 @@ public class WeaponManager : MonoBehaviour {
 
     [SerializeField] Attack[] weapons;
     [SerializeField] BoxCollider AttackCollider;
+    [SerializeField] Camera cam;
     int currentWeaponIndex;
     int newWeaponIndex;
 
@@ -26,6 +27,31 @@ public class WeaponManager : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.Alpha4)) {
             SelectWeapon(3);
+        }
+        if (Input.GetKeyDown(KeyCode.Q)) {
+            if (PlayerManager.special) {
+                PlayerManager.special = false;
+            } else {
+                PlayerManager.special = true;
+            }
+        }
+        if (PlayerManager.special) {
+            if (cam.fieldOfView < 65) {
+                cam.fieldOfView += 0.05f;
+            } else {
+                cam.fieldOfView = 65;
+            }
+//            PlayerManager.bloodMeter -= Time.deltaTime * bloodMeterDecrease;
+//            if (PlayerManager.bloodMeter <= 0) {
+//                PlayerManager.bloodMeter = 0;
+//                PlayerManager.special = false;
+//            }
+        } else {
+            if (cam.fieldOfView > 60) {
+                cam.fieldOfView -= 0.05f;
+            } else {
+                cam.fieldOfView = 60;
+            }
         }
     }
 

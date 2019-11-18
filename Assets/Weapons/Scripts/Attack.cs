@@ -36,20 +36,6 @@ public class Attack : MonoBehaviour {
                 leftClick = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Q)) {
-            if (PlayerManager.special) {
-                PlayerManager.special = false;
-            } else {
-                PlayerManager.special = true;
-            }
-        }
-//        if (PlayerManager.special) {
-//            PlayerManager.bloodMeter -= Time.deltaTime * bloodMeterDecrease;
-//            if (PlayerManager.bloodMeter <= 0) {
-//                PlayerManager.bloodMeter = 0;
-//                PlayerManager.special = false;
-//            }
-//        }
     }
 
     //Animation Events
