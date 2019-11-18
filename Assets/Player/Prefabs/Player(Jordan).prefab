@@ -169,8 +169,12 @@ MonoBehaviour:
   damage: 0
   canUse: 0
   colliderSize: {x: 0, y: 0, z: 0}
-  specialIndex: 4
   AttackCollider: {fileID: 0}
+  specialIndex: 4
+  bloodMeterDecrease: 5
+  clickWait: 0
+  clicked: 0
+  initialAttack: 1
 --- !u!1 &1535440363
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,8 +221,12 @@ MonoBehaviour:
   damage: 0
   canUse: 0
   colliderSize: {x: 0, y: 0, z: 0}
-  specialIndex: 3
   AttackCollider: {fileID: 0}
+  specialIndex: 3
+  bloodMeterDecrease: 5
+  clickWait: 0
+  clicked: 0
+  initialAttack: 1
 --- !u!1 &1445967986061468
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,6 +546,8 @@ MonoBehaviour:
   maxSpeed: 20
   maxSlope: 60
   dashSpeed: 1400
+  animator: []
+  dust: {fileID: 0}
   frontDash: 0
   grounded: 0
 --- !u!114 &988737210653239971
@@ -1372,8 +1382,12 @@ MonoBehaviour:
   damage: 25
   canUse: 0
   colliderSize: {x: 1, y: 5, z: 2.3}
-  specialIndex: 1
   AttackCollider: {fileID: 0}
+  specialIndex: 1
+  bloodMeterDecrease: 5
+  clickWait: 0
+  clicked: 0
+  initialAttack: 1
 --- !u!65 &1663709200
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1402,8 +1416,12 @@ MonoBehaviour:
   damage: 10
   canUse: 1
   colliderSize: {x: 1, y: 1.8, z: 2.3}
-  specialIndex: 0
   AttackCollider: {fileID: 0}
+  specialIndex: 0
+  bloodMeterDecrease: 5
+  clickWait: 0
+  clicked: 0
+  initialAttack: 1
 --- !u!1001 &469193750
 PrefabInstance:
   m_ObjectHideFlags: 0
