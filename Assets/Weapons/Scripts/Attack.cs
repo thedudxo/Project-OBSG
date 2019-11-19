@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class Attack : MonoBehaviour {
     
@@ -19,6 +20,8 @@ public class Attack : MonoBehaviour {
     [SerializeField]bool initialAttack = true;
     bool leftClick = false;
 
+    [SerializeField] PlayableDirector test;
+
     private void Update() {
         if (clickWait) {
             if (Input.GetKeyDown(KeyCode.Mouse0)) {
@@ -30,8 +33,9 @@ public class Attack : MonoBehaviour {
             }
         }
         if (initialAttack && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Mouse1))) {
-                GetComponent<Animator>().SetTrigger(PlayerAnimation.ATTACK);
-                initialAttack = false;
+            test.Play();
+            //GetComponent<Animator>().SetTrigger(PlayerAnimation.ATTACK);
+            initialAttack = false;
             if (Input.GetKeyDown(KeyCode.Mouse0)) {
                 leftClick = true;
             } else if (Input.GetKeyDown(KeyCode.Mouse1)) {
@@ -76,11 +80,10 @@ public class Attack : MonoBehaviour {
         GetComponentInParent<WeaponManager>().Unequip();
     }
 
-    public void HasClicked()
-    {
-        if (!clicked)
-        {
-            GetComponent<Animator>().SetTrigger(PlayerAnimation.STOP_ATTACK);
+    public void HasClicked() {
+        if (!clicked) {
+            test.Stop();
+            //GetComponent<Animator>().SetTrigger(PlayerAnimation.STOP_ATTACK);
             initialAttack = true;
         }
         clickWait = false;
