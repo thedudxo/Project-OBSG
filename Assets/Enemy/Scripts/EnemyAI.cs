@@ -111,8 +111,6 @@ public class EnemyAI : MonoBehaviour {
                     ChangeState(AIState.inView);
                 break;
             case AIState.inView:
-                if (distance > viewRadius)
-                    ChangeState(AIState.inRadius);
                 if (distance < attackRadius)
                     ChangeState(AIState.inAttackRange);
                 break;
@@ -296,11 +294,10 @@ public class EnemyAI : MonoBehaviour {
 
     public void AISpawn() {
         Debug.Log("Reset AI");
+        ChangeState(AIState.inView);
         SetPrefab();
         FindDirection(playerTarget);
         transform.rotation = Quaternion.LookRotation(direction);
-        MoveToPosition(playerTarget.position);
-        ChangeState(AIState.inView);
     }
 
     public enum AIState {

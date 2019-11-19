@@ -5,6 +5,8 @@ using UnityEngine;
 public class Attack : MonoBehaviour {
     
     public int damage;
+    public int baseDamage;
+    public int specialDamage;
     public bool canUse = false;
     public Vector3 colliderSize;
     [SerializeField] Collider AttackCollider;
@@ -40,15 +42,19 @@ public class Attack : MonoBehaviour {
 
     //Animation Events
     public void Special(float addRot) {
-        foreach (GameObject e in PlayerManager.enemies) {
-            e.GetComponent<EnemyDeathScript>().DealDamage(damage);
-        }
         if (PlayerManager.special) {
             if (leftClick) {
-                Debug.Log("Special Melee");
+                damage = specialDamage;
             } else {
-                Debug.Log("Special Range");
+                SpecialsManager.Instance.SpawnSpecial(specialIndex, addRot);
+                Debug.Log("Spawn Special");
             }
+        } else {
+            damage = baseDamage;
+        }
+        Debug.Log(damage);
+        foreach (GameObject e in PlayerManager.enemies) {
+            e.GetComponent<EnemyDeathScript>().DealDamage(damage);
         }
 //        if (PlayerManager.special) {
 //            SpecialsManager.Instance.SpawnSpecial(specialIndex, addRot);
