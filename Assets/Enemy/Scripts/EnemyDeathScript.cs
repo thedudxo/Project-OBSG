@@ -50,7 +50,7 @@ public class EnemyDeathScript : MonoBehaviour {
         agent.enabled = true;
         attackCol.enabled = false;
         GetComponent<CapsuleCollider>().enabled = false;
-        GetComponent<EnemyAI>().enabled = false;
+        //GetComponent<EnemyAI>().enabled = false;
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         foreach(Rigidbody r in GetComponentsInChildren<Rigidbody>()) {
             r.isKinematic = false;
