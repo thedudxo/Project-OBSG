@@ -37,7 +37,7 @@ public class EnemyAI : MonoBehaviour {
     delegate void LateLateFrame();
     LateLateFrame llateFrame;
     delegate void AttackFrame();
-    LateLateFrame aFrame;
+    AttackFrame aFrame;
 
     NavMeshAgent agent;
 
