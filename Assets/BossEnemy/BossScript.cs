@@ -42,7 +42,7 @@ public class BossScript : MonoBehaviour {
             if (attackFrame_counter > attackFrame) {
                 if (aFrame != null)
                     aFrame();
-                attackFrame = Random.Range(200, 400);
+                attackFrame = Random.Range(100, 250);
                 attackFrame_counter = 0;
             }
         }
