@@ -6,6 +6,10 @@ public class Slash : MonoBehaviour {
 
     [SerializeField] int damage;
 
+    private void Start() {
+        
+    }
+
     private void OnTriggerEnter(Collider other) {
         if (other.tag == Tags.ENEMY) {
             other.GetComponent<EnemyDeathScript>().DealDamage(damage);
@@ -13,8 +17,8 @@ public class Slash : MonoBehaviour {
         if (other.gameObject.layer == 12) {
             StartCoroutine(Disable());
             int i = Random.Range(0, 2);
-            AudioManager.instance.Play("EnergyHit" + i);
-           
+            GetComponent<EnemyAudioManager>().Play("EnergyHit" + i);
+
         }
     }
 

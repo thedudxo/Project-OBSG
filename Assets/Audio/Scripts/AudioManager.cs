@@ -35,7 +35,8 @@ public class AudioManager : MonoBehaviour {
 	}
 
     void Start () {
-        Play("Theme");
+        Play("Music");
+        
         //Play("SoundEffect");
 
     }

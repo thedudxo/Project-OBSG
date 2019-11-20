@@ -30,7 +30,8 @@ public class EnemyDeathScript : MonoBehaviour {
         health = health - damage;
         CheckHealth();
         int i = Random.Range(0, 2);
-        EnemyAudioManager.instance.Play("EnemyHitFist" + i);
+        GetComponent<EnemyAudioManager>().Play("EnemyHitFist" + i);
+        GetComponent<EnemyAudioManager>().Play("EnemyHit" + i);
         if (!hit) {
             StartCoroutine(Force());
            
@@ -67,8 +68,10 @@ public class EnemyDeathScript : MonoBehaviour {
         GetComponent<CapsuleCollider>().enabled = false;
         GetComponent<EnemyAI>().enabled = false;
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-        foreach(Rigidbody r in GetComponentsInChildren<Rigidbody>()) {
-            r.isKinematic = false;
+        foreach(Rigidbody r in GetComponentsInChildren<Rigidbody>()) {
+
+            r.isKinematic = false;
+
         }
         ragdoll.AddForce(direction * ragdollForce);
     }

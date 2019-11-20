@@ -7,18 +7,8 @@ using System.Collections;
 public class EnemyAudioManager : MonoBehaviour {
 
     public Sound[] sounds;
-    public static EnemyAudioManager instance;
     
 	void Awake () {
-
-        if(instance == null) {
-            instance = this;
-        } else {
-            Destroy(gameObject);
-            return;
-        }
-
-        DontDestroyOnLoad(gameObject);
 		
         foreach(Sound s in sounds) {
 

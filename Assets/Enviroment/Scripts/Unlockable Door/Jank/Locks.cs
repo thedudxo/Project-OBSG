@@ -56,6 +56,10 @@ public class Locks : MonoBehaviour
                 if (unlocked >= keyAmmount)
                 {
                     door.GetComponent<Animator>().SetTrigger("Open");
+                    foreach(AudioSource s in door.GetComponentsInChildren<AudioSource>()) {
+                        s.Play();
+                       
+                    }
                 }
             }
         }

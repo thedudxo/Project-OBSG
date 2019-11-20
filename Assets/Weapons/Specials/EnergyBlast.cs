@@ -9,6 +9,7 @@ public class EnergyBlast : MonoBehaviour {
 
     private void Start() {
         GetComponentInChildren<VisualEffect>().SendEvent("OnPlay");
+
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -19,8 +20,8 @@ public class EnergyBlast : MonoBehaviour {
         GetComponent<Special>().active = false;
         GetComponentInChildren<Light>().intensity = 0;
         int i = Random.Range(0, 2);
-        AudioManager.instance.Play("EnergyHit" + i);
-       
+        GetComponent<EnemyAudioManager>().Play("EnergyHit" + i);
+
         if (other.tag == Tags.ENEMY) {
             other.GetComponent<EnemyDeathScript>().DealDamage(damage);
         }

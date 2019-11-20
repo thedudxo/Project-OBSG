@@ -24,9 +24,7 @@ public class Attack : MonoBehaviour {
                 leftClick = true;
             } else if (Input.GetKeyDown(KeyCode.Mouse1)) {
                 clicked = true;
-                leftClick = false;
-                int e = Random.Range(0, 2);
-                AudioManager.instance.Play("SwordWhoosh" + e);
+                leftClick = false;
             }
         }
         if (initialAttack && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Mouse1))) {
@@ -55,7 +53,10 @@ public class Attack : MonoBehaviour {
     }
 
     //Animation Events
-    public void Special(float addRot) {
+    public void Special(float addRot)
+    {
+        int i = Random.Range(0, 2);
+        AudioManager.instance.Play("SwordWhoosh" + i);
         foreach (GameObject e in PlayerManager.enemies) {
             e.GetComponent<EnemyDeathScript>().DealDamage(damage);
         }
@@ -64,7 +65,7 @@ public class Attack : MonoBehaviour {
                 Debug.Log("Special Melee");
             } else {
                 Debug.Log("Special Range");
-            }
+            }
         }
 //        if (PlayerManager.special) {
 //            SpecialsManager.Instance.SpawnSpecial(specialIndex, addRot);
@@ -112,11 +113,5 @@ public class Attack : MonoBehaviour {
         if(other.tag == Tags.ENEMY) {
             PlayerManager.enemies.Remove(other.gameObject);
         }
-    }
-
-    private void OnTriggerExit(Collider other) {
-        if(other.tag == Tags.ENEMY) {
-            enemies.Remove(other.gameObject);
-        }
     }
 }

@@ -115,6 +115,9 @@ public class PlayerDeath : MonoBehaviour {
         Cursor.lockState = CursorLockMode.None;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         PlayerManager.ResetStats();
+        int e = Random.Range(0, 2);
+        AudioManager.instance.Play("Death" + e);
+
     }
 
     public void respawnPlayer()
