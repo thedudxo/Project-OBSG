@@ -19,6 +19,7 @@ public class Attack : MonoBehaviour {
     [SerializeField]bool clicked = false;
     [SerializeField]bool initialAttack = true;
     bool leftClick = false;
+    [SerializeField] string attackSound;
 
     [SerializeField] PlayableDirector test;
 
