@@ -319,7 +319,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 512
     y: -381
-    width: 573
+    width: 384
     height: 1502
 --- !u!114 &114350483966674976
 MonoBehaviour:
@@ -823,7 +823,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":2.9960784912109377,"g":1.9607843160629273,"b":1.1921569108963013,"a":1.0},"time":0.0},{"color":{"r":2.9960784912109377,"g":2.5098040103912355,"b":0.8941176533699036,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":0.03921568766236305,"time":0.029419394209980966},{"alpha":0.03921568766236305,"time":0.844113826751709},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":3.309295654296875,"g":2.1505887508392336,"b":1.2956204414367676,"a":1.0},"time":0.0},{"color":{"r":0.8113207817077637,"g":0.6793873906135559,"b":0.24110004305839539,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":0.007843137718737126,"time":0.04411383345723152},{"alpha":0.003921568859368563,"time":0.8382391333580017},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: gradient
@@ -1579,9 +1579,9 @@ VisualEffectResource:
         - m_ExpressionIndex: 4
           m_Value:
             serializedVersion: 2
-            key0: {r: 2.9960785, g: 1.9607843, b: 1.1921569, a: 0}
-            key1: {r: 2.9960785, g: 2.509804, b: 0.89411765, a: 0.039215688}
-            key2: {r: 0, g: 0, b: 0, a: 0.039215688}
+            key0: {r: 3.3092957, g: 2.1505888, b: 1.2956204, a: 0}
+            key1: {r: 0.8113208, g: 0.6793874, b: 0.24110004, a: 0.007843138}
+            key2: {r: 0, g: 0, b: 0, a: 0.003921569}
             key3: {r: 0, g: 0, b: 0, a: 0}
             key4: {r: 0, g: 0, b: 0, a: 0}
             key5: {r: 0, g: 0, b: 0, a: 0}
@@ -1596,8 +1596,8 @@ VisualEffectResource:
             ctime6: 0
             ctime7: 0
             atime0: 0
-            atime1: 1928
-            atime2: 55319
+            atime1: 2891
+            atime2: 54934
             atime3: 65535
             atime4: 0
             atime5: 0

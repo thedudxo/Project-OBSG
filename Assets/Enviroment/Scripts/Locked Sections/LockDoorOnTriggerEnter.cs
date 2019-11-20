@@ -10,11 +10,14 @@ public class LockDoorOnTriggerEnter : MonoBehaviour
     int enemiesToSpawn = 20;
     int enemiesSpawned = 0;
 
-    private void OnTriggerEnter(Collider other) {
-        if (other.tag == Tags.PLAYER) {
-            doorToLock.SetActive(true);
+    [SerializeField] GameObject disableProbes;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag== Tags.PLAYER)
+        doorToLock.SetActive(true);
+        disableProbes.SetActive(false);
             StartCoroutine(SpawnEnemies());
-        }
     }
 
     IEnumerator SpawnEnemies() {
