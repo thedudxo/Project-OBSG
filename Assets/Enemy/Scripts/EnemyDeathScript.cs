@@ -11,7 +11,7 @@ public class EnemyDeathScript : MonoBehaviour {
     [SerializeField] float force;
     [SerializeField] float ragdollForce;
     [SerializeField] int bloodMeterAdd;
-    [SerializeField] Material hitMat;
+    [SerializeField] Shader hitMat;
     private NavMeshAgent agent;
     private Vector3 direction;
     private float maxSlope = 60;
@@ -25,22 +25,11 @@ public class EnemyDeathScript : MonoBehaviour {
     }
 
     public void DealDamage(int damage) {
-        direction = player.position - transform.position;
-        direction = -direction.normalized;
         health = health - damage;
         CheckHealth();
-        if (!hit) {
-            StartCoroutine(Force());
-        }
+        GetComponent<Animator>().SetTrigger("Damage");
     }
-
-    IEnumerator Force() {
-        hit = true;
-        hitMat.color = new Color(255, 255, 255);
-        yield return new WaitForSeconds(1);
-        hitMat.color = new Color(173, 133, 97);
-        hit = false;
-    }
+    
 
     private void CheckHealth() {
         if (health <= 0) {
