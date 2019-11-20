@@ -23,6 +23,7 @@ public class UnlockDoorWhenEnimiesKilled : MonoBehaviour
         if(deadEnemies >= enemiesToKill.Length)
         {
             thingToActivate.SetActive(enableThing);
+            Debug.Log("unlocking");
         }
     }
 }

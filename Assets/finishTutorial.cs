@@ -27,6 +27,7 @@ public class finishTutorial : MonoBehaviour
 
             if (color.a >= 1f)
             {
+                PlayerManager.keys = 0;
                 LoadManager.loadScene(LoadManager.LEVEL1);
             }
         }
