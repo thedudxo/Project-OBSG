@@ -10,6 +10,9 @@ public class Slash : MonoBehaviour {
         if (other.tag == Tags.ENEMY) {
             other.GetComponent<EnemyDeathScript>().DealDamage(damage);
         }
+        if (other.tag == Tags.BOSS) {
+            other.GetComponent<BossScript>().DealDamage(damage);
+        }
         if (other.gameObject.layer == 12) {
             StartCoroutine(Disable());
         }

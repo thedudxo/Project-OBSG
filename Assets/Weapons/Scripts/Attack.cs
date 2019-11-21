@@ -34,8 +34,8 @@ public class Attack : MonoBehaviour {
             }
         }
         if (initialAttack && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Mouse1))) {
-            test.Play();
-            //GetComponent<Animator>().SetTrigger(PlayerAnimation.ATTACK);
+            //test.Play();
+            GetComponent<Animator>().SetTrigger(PlayerAnimation.ATTACK);
             initialAttack = false;
             if (Input.GetKeyDown(KeyCode.Mouse0)) {
                 leftClick = true;
@@ -83,8 +83,8 @@ public class Attack : MonoBehaviour {
 
     public void HasClicked() {
         if (!clicked) {
-            test.Stop();
-            //GetComponent<Animator>().SetTrigger(PlayerAnimation.STOP_ATTACK);
+            //test.Stop();
+            GetComponent<Animator>().SetTrigger(PlayerAnimation.STOP_ATTACK);
             initialAttack = true;
         }
         clickWait = false;
@@ -104,7 +104,8 @@ public class Attack : MonoBehaviour {
 
     private void OnTriggerExit(Collider other) {
         if(other.tag == Tags.ENEMY) {
-            PlayerManager.enemies.Remove(other.gameObject);
+            if(PlayerManager.enemies.Contains(other.gameObject))
+                PlayerManager.enemies.Remove(other.gameObject);
         }
     }
 }
