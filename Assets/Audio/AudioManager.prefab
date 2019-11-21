@@ -53,8 +53,44 @@ MonoBehaviour:
     output: {fileID: -5603533913604194284, guid: a05b8c17c237d064ca287219e861e59a,
       type: 2}
     source: {fileID: 0}
-  - name: SoundEffect
+  - name: Grunt0
+    clip: {fileID: 8300000, guid: e0e4ee6f3e5ab804f900b4eb9438bb16, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    mute: 0
+    output: {fileID: -205476788242197271, guid: a05b8c17c237d064ca287219e861e59a,
+      type: 2}
+    source: {fileID: 0}
+  - name: PlayerHit0
     clip: {fileID: 8300000, guid: 7f7a985deaa5a744c9a42e6c18c5b486, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    mute: 0
+    output: {fileID: -205476788242197271, guid: a05b8c17c237d064ca287219e861e59a,
+      type: 2}
+    source: {fileID: 0}
+  - name: Grunt1
+    clip: {fileID: 8300000, guid: e32ceafbe67c43646b3474d50a888d81, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    mute: 0
+    output: {fileID: -205476788242197271, guid: a05b8c17c237d064ca287219e861e59a,
+      type: 2}
+    source: {fileID: 0}
+  - name: PlayerHit1
+    clip: {fileID: 8300000, guid: 7f7a985deaa5a744c9a42e6c18c5b486, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 1
+    mute: 0
+    output: {fileID: -205476788242197271, guid: a05b8c17c237d064ca287219e861e59a,
+      type: 2}
+    source: {fileID: 0}
+  - name: Grunt2
+    clip: {fileID: 8300000, guid: 365a9af404d6b914294286970243326f, type: 3}
     volume: 0.8
     pitch: 1
     loop: 1

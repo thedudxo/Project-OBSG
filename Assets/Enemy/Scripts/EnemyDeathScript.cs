@@ -27,9 +27,23 @@ public class EnemyDeathScript : MonoBehaviour {
     public void DealDamage(int damage) {
         health = health - damage;
         CheckHealth();
+        int i = Random.Range(0, 2);
+        GetComponent<EnemyAudioManager>().Play("EnemyHitFist" + i);
+        GetComponent<EnemyAudioManager>().Play("EnemyHit" + i);
+        if (!hit) {
+            StartCoroutine(Force());
+        }
         GetComponent<Animator>().SetTrigger("Damage");
     }
     
+
+    IEnumerator Force() {
+        hit = true;
+        hitMat.color = new Color(255, 255, 255);
+        yield return new WaitForSeconds(1);
+        hitMat.color = new Color(173, 133, 97);
+        hit = false;
+    }
 
     private void CheckHealth() {
         if (health <= 0) {
@@ -53,7 +67,9 @@ public class EnemyDeathScript : MonoBehaviour {
         GetComponent<EnemyAI>().enabled = false;
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         foreach(Rigidbody r in GetComponentsInChildren<Rigidbody>()) {
+
             r.isKinematic = false;
+
         }
         ragdoll.AddForce(direction * ragdollForce);
     }

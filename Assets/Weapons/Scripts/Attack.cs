@@ -28,46 +28,48 @@ public class Attack : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.Mouse0)) {
                 clicked = true;
                 leftClick = true;
-            } else if (Input.GetKeyDown(KeyCode.Mouse1)) {
-                clicked = true;
+            } else if (Input.GetKeyDown(KeyCode.Mouse1)) {
+                clicked = true;
                 leftClick = false;
             }
         }
-        if (initialAttack && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Mouse1))) {
-            test.Play();
-            //GetComponent<Animator>().SetTrigger(PlayerAnimation.ATTACK);
-            initialAttack = false;
-            if (Input.GetKeyDown(KeyCode.Mouse0)) {
-                leftClick = true;
-            } else if (Input.GetKeyDown(KeyCode.Mouse1)) {
-                leftClick = false;
-            }
+        if (initialAttack && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Mouse1))) {
+            test.Play();
+            //GetComponent<Animator>().SetTrigger(PlayerAnimation.ATTACK);
+            initialAttack = false;
+            if (Input.GetKeyDown(KeyCode.Mouse0)) {
+                leftClick = true;
+            } else if (Input.GetKeyDown(KeyCode.Mouse1)) {
+                leftClick = false;
+            }
         }
     }
 
     //Animation Events
-    public void Special(float addRot) {
-        if (PlayerManager.special) {
-            if (leftClick) {
-                damage = specialDamage;
-            } else {
-                SpecialsManager.Instance.SpawnSpecial(specialIndex, addRot);
-                Debug.Log("Spawn Special");
-            }
-        } else {
-            damage = baseDamage;
-        }
-        Debug.Log(damage);
-        foreach (GameObject e in PlayerManager.enemies) {
-            e.GetComponent<EnemyDeathScript>().DealDamage(damage);
-        }
-//        if (PlayerManager.special) {
-//            SpecialsManager.Instance.SpawnSpecial(specialIndex, addRot);
-//        } else {
-//            foreach (GameObject e in PlayerManager.enemies) {
-//                e.GetComponent<EnemyDeathScript>().DealDamage(damage);
-//            }
-//        }
+    public void Special(float addRot) {
+        int i = Random.Range(0, 2);
+        AudioManager.instance.Play("SwordWhoosh" + i);
+        if (PlayerManager.special) {
+            if (leftClick) {
+                damage = specialDamage;
+            } else {
+                SpecialsManager.Instance.SpawnSpecial(specialIndex, addRot);
+                Debug.Log("Spawn Special");
+            }
+        } else {
+            damage = baseDamage;
+        }
+        Debug.Log(damage);
+        foreach (GameObject e in PlayerManager.enemies) {
+            e.GetComponent<EnemyDeathScript>().DealDamage(damage);
+        }
+//        if (PlayerManager.special) {
+//            SpecialsManager.Instance.SpawnSpecial(specialIndex, addRot);
+//        } else {
+//            foreach (GameObject e in PlayerManager.enemies) {
+//                e.GetComponent<EnemyDeathScript>().DealDamage(damage);
+//            }
+//        }
     }
 
     public void CheckMouse() {
@@ -90,21 +92,21 @@ public class Attack : MonoBehaviour {
         clickWait = false;
     }
 
-    public void BugFix() {
-        clickWait = false;
-        initialAttack = true;
-        clicked = false;
+    public void BugFix() {
+        clickWait = false;
+        initialAttack = true;
+        clicked = false;
     }
 
-    private void OnTriggerEnter(Collider other) {
-        if(other.tag == Tags.ENEMY) {
-            PlayerManager.enemies.Add(other.gameObject);
-        }
-    }
-
-    private void OnTriggerExit(Collider other) {
-        if(other.tag == Tags.ENEMY) {
-            PlayerManager.enemies.Remove(other.gameObject);
-        }
+    private void OnTriggerEnter(Collider other) {
+        if(other.tag == Tags.ENEMY) {
+            PlayerManager.enemies.Add(other.gameObject);
+        }
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if(other.tag == Tags.ENEMY) {
+            PlayerManager.enemies.Remove(other.gameObject);
+        }
     }
 }

@@ -6,12 +6,19 @@ public class Slash : MonoBehaviour {
 
     [SerializeField] int damage;
 
+    private void Start() {
+        
+    }
+
     private void OnTriggerEnter(Collider other) {
         if (other.tag == Tags.ENEMY) {
             other.GetComponent<EnemyDeathScript>().DealDamage(damage);
         }
         if (other.gameObject.layer == 12) {
             StartCoroutine(Disable());
+            int i = Random.Range(0, 2);
+            GetComponent<EnemyAudioManager>().Play("EnergyHit" + i);
+
         }
     }
 
