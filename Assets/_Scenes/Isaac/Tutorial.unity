@@ -2396,7 +2396,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 38864e4bc9c00004bb254a48da4adb76, type: 3}
-    m_FontSize: 125
+    m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2407,7 +2407,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 0.68
-  m_Text: "Shift\nto \nDash"
+  m_Text: "Shift to \nDash\nWhile \nMoving"
 --- !u!222 &137391818
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3766,6 +3766,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3da2e593350c5442a3e94ccedfecf15, type: 3}
+--- !u!20 &226232071 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 20880887254426694, guid: 20194d581c43af240b16502e72751cc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1925491503}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &227442620
 GameObject:
   m_ObjectHideFlags: 0
@@ -4880,6 +4886,11 @@ PrefabInstance:
         type: 3}
       propertyPath: health
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782646621848809081, guid: 707f7607db061c94f83182c16d8195b6,
+        type: 3}
+      propertyPath: bloodMeterAdd
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4782646621848809080, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
@@ -24073,7 +24084,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -136, y: 25}
+  m_AnchoredPosition: {x: -136, y: 1}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1641073369
@@ -24143,7 +24154,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 38864e4bc9c00004bb254a48da4adb76, type: 3}
-    m_FontSize: 125
+    m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -24153,10 +24164,10 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
-    m_LineSpacing: 0.68
-  m_Text: 'Right Click
+    m_LineSpacing: 0.93
+  m_Text: 'Press Q then
 
-    Special'
+    Right Click'
 --- !u!222 &1641073373
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28682,10 +28693,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1623038678746708, guid: 20194d581c43af240b16502e72751cc4, type: 3}
-      propertyPath: m_Name
-      value: Player(Jordan)
-      objectReference: {fileID: 0}
     - target: {fileID: 4463555671306446, guid: 20194d581c43af240b16502e72751cc4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -29.65
@@ -28730,6 +28737,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1623038678746708, guid: 20194d581c43af240b16502e72751cc4, type: 3}
+      propertyPath: m_Name
+      value: Player(Jordan)
+      objectReference: {fileID: 0}
     - target: {fileID: 6021283012830527155, guid: 20194d581c43af240b16502e72751cc4,
         type: 3}
       propertyPath: jumpForce
@@ -28760,22 +28771,6 @@ PrefabInstance:
       propertyPath: dust
       value: 
       objectReference: {fileID: 2035234363}
-    - target: {fileID: 49823719, guid: 20194d581c43af240b16502e72751cc4, type: 3}
-      propertyPath: m_Mass
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2055334280, guid: 20194d581c43af240b16502e72751cc4, type: 3}
-      propertyPath: backgroundColorHDR.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2055334280, guid: 20194d581c43af240b16502e72751cc4, type: 3}
-      propertyPath: backgroundColorHDR.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2055334280, guid: 20194d581c43af240b16502e72751cc4, type: 3}
-      propertyPath: backgroundColorHDR.b
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 319810062804662846, guid: 20194d581c43af240b16502e72751cc4,
         type: 3}
       propertyPath: m_Enabled
@@ -28831,15 +28826,26 @@ PrefabInstance:
       propertyPath: redScreen
       value: 
       objectReference: {fileID: 1406520021}
-    - target: {fileID: 20880887254426694, guid: 20194d581c43af240b16502e72751cc4,
-        type: 3}
-      propertyPath: near clip plane
-      value: 0.1
+    - target: {fileID: 49823719, guid: 20194d581c43af240b16502e72751cc4, type: 3}
+      propertyPath: m_Mass
+      value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 1805485791, guid: 20194d581c43af240b16502e72751cc4, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 226232071}
     - target: {fileID: 274942394, guid: 20194d581c43af240b16502e72751cc4, type: 3}
       propertyPath: AttackCollider
       value: 
       objectReference: {fileID: 967211936}
+    - target: {fileID: 274942394, guid: 20194d581c43af240b16502e72751cc4, type: 3}
+      propertyPath: baseDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 274942394, guid: 20194d581c43af240b16502e72751cc4, type: 3}
+      propertyPath: specialDamage
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1276396078, guid: 20194d581c43af240b16502e72751cc4, type: 3}
       propertyPath: AttackCollider
       value: 
@@ -28848,6 +28854,23 @@ PrefabInstance:
         type: 3}
       propertyPath: sensitivity
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 20880887254426694, guid: 20194d581c43af240b16502e72751cc4,
+        type: 3}
+      propertyPath: near clip plane
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055334280, guid: 20194d581c43af240b16502e72751cc4, type: 3}
+      propertyPath: backgroundColorHDR.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055334280, guid: 20194d581c43af240b16502e72751cc4, type: 3}
+      propertyPath: backgroundColorHDR.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055334280, guid: 20194d581c43af240b16502e72751cc4, type: 3}
+      propertyPath: backgroundColorHDR.b
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6669928464826350366, guid: 20194d581c43af240b16502e72751cc4,
         type: 3}
@@ -30663,6 +30686,11 @@ PrefabInstance:
         type: 3}
       propertyPath: health
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782646621848809081, guid: 707f7607db061c94f83182c16d8195b6,
+        type: 3}
+      propertyPath: bloodMeterAdd
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4782646621848809080, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
