@@ -29,7 +29,7 @@ public class Locks : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == Tags.PLAYER)
+        if (other.tag == Tags.PLAYER && PlayerManager.keys > 0)
         {
             helpText.SetActive(true);
         }

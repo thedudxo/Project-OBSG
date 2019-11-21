@@ -23,6 +23,7 @@ public class DoorKey : MonoBehaviour {
             PlayerManager.doorKeys.Add(gameObject);
             //other.GetComponent<PlayerUI>().GetKeyImages();
             gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+            gameObject.GetComponentInChildren<Collider>().enabled = false;
             vfx.SendEvent(WeaponParticles.PICK_UP);
             pickedup = true;
 
