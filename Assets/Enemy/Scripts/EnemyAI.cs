@@ -10,7 +10,6 @@ public class EnemyAI : MonoBehaviour {
     public bool isClear;
     public AIState aiState;
     [SerializeField] BoxCollider fist;
-    [SerializeField] float damage = 10;
     Vector3 direction;
     Vector3 rotDirection;
     float distance;
@@ -302,11 +301,5 @@ public class EnemyAI : MonoBehaviour {
 
     public enum AIState {
         idle, lateIdle, inRadius, inView, inAttackRange, attacking
-    }
-
-    private void OnTriggerEnter(Collider other) {
-        if (other.tag == Tags.PLAYER) {
-            other.GetComponent<PlayerDeath>().DamagePlayer(damage, gameObject.transform);
-        }
     }
 }
