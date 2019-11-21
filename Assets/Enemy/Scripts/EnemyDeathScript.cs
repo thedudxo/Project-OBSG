@@ -25,6 +25,10 @@ public class EnemyDeathScript : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag(Tags.PLAYER).transform;
     }
 
+    private void Update() {
+        if (dead) { attackCol.enabled = false; }
+    }
+
     public void DealDamage(int damage) {
         health = health - damage;
         CheckHealth();
@@ -34,8 +38,8 @@ public class EnemyDeathScript : MonoBehaviour {
 
     private void CheckHealth() {
         if (health <= 0) {
-            Ragdoll();
             PlayerManager.enemies.Remove(gameObject);
+            Ragdoll();
             //Destroy(gameObject);
         }
     }
