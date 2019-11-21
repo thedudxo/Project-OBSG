@@ -104,7 +104,8 @@ public class Attack : MonoBehaviour {
 
     private void OnTriggerExit(Collider other) {
         if(other.tag == Tags.ENEMY) {
-            PlayerManager.enemies.Remove(other.gameObject);
+            if(PlayerManager.enemies.Contains(other.gameObject))
+                PlayerManager.enemies.Remove(other.gameObject);
         }
     }
 }

@@ -23,6 +23,7 @@ public class HitIndicator : MonoBehaviour {
 
     private void Awake() {
         image = gameObject.GetComponent<Image>();
+        player = GameObject.FindGameObjectWithTag(Tags.PLAYER).transform;
     }
 
     private void Update() {
