@@ -9,7 +9,7 @@ public class BossScript : MonoBehaviour {
     Vector3 direction;
     bool attacking = true;
     bool beam = false;
-    bool dead = false;
+    public bool dead = false;
     float rangeRadius = 20;
     float distance;
     int attackFrame;

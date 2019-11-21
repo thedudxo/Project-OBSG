@@ -23,11 +23,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 365083098}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.2, z: 1.5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.19999993, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4159357880839074}
+  m_Father: {fileID: 4939395343356520}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &983858595
@@ -60,7 +60,7 @@ Transform:
   m_LocalScale: {x: 0.024374971, y: 0.024374971, z: 0.024374971}
   m_Children: []
   m_Father: {fileID: 4939395343356520}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &983858597
 MeshRenderer:
@@ -167,10 +167,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  baseDamage: 0
+  specialDamage: 0
   canUse: 0
   colliderSize: {x: 0, y: 0, z: 0}
-  specialIndex: 4
   AttackCollider: {fileID: 0}
+  specialIndex: 4
+  bloodMeterDecrease: 5
+  clickWait: 0
+  clicked: 0
+  initialAttack: 1
+  attackSound: 
+  test: {fileID: 0}
 --- !u!1 &1535440363
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,10 +223,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  baseDamage: 0
+  specialDamage: 0
   canUse: 0
   colliderSize: {x: 0, y: 0, z: 0}
-  specialIndex: 3
   AttackCollider: {fileID: 0}
+  specialIndex: 3
+  bloodMeterDecrease: 5
+  clickWait: 0
+  clicked: 0
+  initialAttack: 1
+  attackSound: 
+  test: {fileID: 0}
 --- !u!1 &1445967986061468
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +265,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4939395343356520}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &20149992209005154
 Camera:
@@ -423,7 +439,7 @@ Transform:
   - {fileID: 1535440364}
   - {fileID: 1198512918}
   m_Father: {fileID: 4939395343356520}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1602176236379858
 GameObject:
@@ -453,6 +469,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 365083099}
   - {fileID: 4159357880839074}
   - {fileID: 4196742287942002}
   - {fileID: 4092379764203490}
@@ -538,6 +555,8 @@ MonoBehaviour:
   maxSpeed: 20
   maxSlope: 60
   dashSpeed: 1400
+  animator: []
+  dust: {fileID: 0}
   frontDash: 0
   grounded: 0
 --- !u!114 &988737210653239971
@@ -707,6 +726,8 @@ MonoBehaviour:
   - {fileID: 1535440365}
   - {fileID: 1198512919}
   AttackCollider: {fileID: 0}
+  cam: {fileID: 0}
+  specialEffect: {fileID: 0}
 --- !u!1 &1668011584549000
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,10 +757,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 365083099}
+  m_Children: []
   m_Father: {fileID: 4939395343356520}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &20880887254426694
 Camera:
@@ -1370,10 +1390,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 25
+  baseDamage: 0
+  specialDamage: 0
   canUse: 0
   colliderSize: {x: 1, y: 5, z: 2.3}
-  specialIndex: 1
   AttackCollider: {fileID: 0}
+  specialIndex: 1
+  bloodMeterDecrease: 5
+  clickWait: 0
+  clicked: 0
+  initialAttack: 1
+  attackSound: 
+  test: {fileID: 0}
 --- !u!65 &1663709200
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1400,10 +1428,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  baseDamage: 0
+  specialDamage: 0
   canUse: 1
   colliderSize: {x: 1, y: 1.8, z: 2.3}
-  specialIndex: 0
   AttackCollider: {fileID: 0}
+  specialIndex: 0
+  bloodMeterDecrease: 5
+  clickWait: 0
+  clicked: 0
+  initialAttack: 1
+  attackSound: 
+  test: {fileID: 0}
 --- !u!1001 &469193750
 PrefabInstance:
   m_ObjectHideFlags: 0

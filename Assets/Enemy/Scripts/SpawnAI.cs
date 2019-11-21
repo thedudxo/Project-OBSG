@@ -16,9 +16,9 @@ public class SpawnAI : MonoBehaviour {
     [SerializeField] float viewRadius = 50;
     [SerializeField] float attackRadius = 6;
     [SerializeField] float minAttackRadius = 4;
-    float maxDistance = 120;
     bool attacking = false;
     bool preperedAttack = false;
+    public bool dead = false;
     int layerMask = 1 << 10;
     int lFrame = 15;
     int lFrame_counter = 0;
@@ -227,10 +227,15 @@ public class SpawnAI : MonoBehaviour {
 
     public void AISpawn() {
         Debug.Log("Reset AI");
+        agent = GetComponent<NavMeshAgent>();
+        attackFrame = Random.Range(0, 300);
+        aiState = AIState.inView;
         ChangeState(AIState.inView);
         SetPrefab();
+        AgentContinue();
         FindDirection(playerTarget);
         transform.rotation = Quaternion.LookRotation(direction);
+        dead = false;
     }
 
     public enum AIState {
