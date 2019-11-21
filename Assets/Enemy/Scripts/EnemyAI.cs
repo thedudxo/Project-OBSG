@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour {
 
     public Transform playerTarget;
-    [SerializeField] Transform playerPrefab;
     public bool isInAngle;
     public bool isClear;
     public AIState aiState;
@@ -16,10 +15,10 @@ public class EnemyAI : MonoBehaviour {
     Vector3 rotDirection;
     float distance;
     [SerializeField] float strafeSpeed;
-    [SerializeField] float viewRadius = 20;
+    [SerializeField] float viewRadius = 50;
     [SerializeField] float attackRadius = 6;
     [SerializeField] float minAttackRadius = 4;
-    float maxDistance = 60;
+    float maxDistance = 120;
     float viewAngle = 210;
     bool attacking = false;
     bool preperedAttack = false;
@@ -55,7 +54,7 @@ public class EnemyAI : MonoBehaviour {
     }
 
     public void SetPrefab() {
-        playerTarget = playerPrefab;
+        playerTarget = GameObject.FindGameObjectWithTag(Tags.PLAYER).transform;
     }
 
     private void Update() {
@@ -89,7 +88,6 @@ public class EnemyAI : MonoBehaviour {
             attackFrame_counter = 0;
         }
         if (aiState != AIState.inAttackRange) {
-            Debug.Log("Animate");
             GetComponent<Animator>().SetFloat(EnemyAnimation.IDLE_BLEND, agent.velocity.magnitude);
         }
     }
@@ -113,8 +111,6 @@ public class EnemyAI : MonoBehaviour {
                     ChangeState(AIState.inView);
                 break;
             case AIState.inView:
-                if (distance > viewRadius)
-                    ChangeState(AIState.inRadius);
                 if (distance < attackRadius)
                     ChangeState(AIState.inAttackRange);
                 break;
@@ -294,6 +290,14 @@ public class EnemyAI : MonoBehaviour {
     void DeactivateFist() {
         fist.enabled = false;
         agent.isStopped = true;
+    }
+
+    public void AISpawn() {
+        Debug.Log("Reset AI");
+        ChangeState(AIState.inView);
+        SetPrefab();
+        FindDirection(playerTarget);
+        transform.rotation = Quaternion.LookRotation(direction);
     }
 
     public enum AIState {

@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class Attack : MonoBehaviour {
     
     public int damage;
+    public int baseDamage;
+    public int specialDamage;
     public bool canUse = false;
     public Vector3 colliderSize;
     [SerializeField] Collider AttackCollider;
@@ -16,6 +19,9 @@ public class Attack : MonoBehaviour {
     [SerializeField]bool clicked = false;
     [SerializeField]bool initialAttack = true;
     bool leftClick = false;
+    [SerializeField] string attackSound;
+
+    [SerializeField] PlayableDirector test;
 
     private void Update() {
         if (clickWait) {
@@ -28,44 +34,34 @@ public class Attack : MonoBehaviour {
             }
         }
         if (initialAttack && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Mouse1))) {
-                GetComponent<Animator>().SetTrigger(PlayerAnimation.ATTACK);
-                initialAttack = false;
+            test.Play();
+            //GetComponent<Animator>().SetTrigger(PlayerAnimation.ATTACK);
+            initialAttack = false;
             if (Input.GetKeyDown(KeyCode.Mouse0)) {
                 leftClick = true;
             } else if (Input.GetKeyDown(KeyCode.Mouse1)) {
                 leftClick = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Q)) {
-            if (PlayerManager.special) {
-                PlayerManager.special = false;
-            } else {
-                PlayerManager.special = true;
-            }
-        }
-//        if (PlayerManager.special) {
-//            PlayerManager.bloodMeter -= Time.deltaTime * bloodMeterDecrease;
-//            if (PlayerManager.bloodMeter <= 0) {
-//                PlayerManager.bloodMeter = 0;
-//                PlayerManager.special = false;
-//            }
-//        }
     }
 
     //Animation Events
-    public void Special(float addRot)
-    {
+    public void Special(float addRot) {
         int i = Random.Range(0, 2);
         AudioManager.instance.Play("SwordWhoosh" + i);
-        foreach (GameObject e in PlayerManager.enemies) {
-            e.GetComponent<EnemyDeathScript>().DealDamage(damage);
-        }
         if (PlayerManager.special) {
             if (leftClick) {
-                Debug.Log("Special Melee");
+                damage = specialDamage;
             } else {
-                Debug.Log("Special Range");
-            }
+                SpecialsManager.Instance.SpawnSpecial(specialIndex, addRot);
+                Debug.Log("Spawn Special");
+            }
+        } else {
+            damage = baseDamage;
+        }
+        Debug.Log(damage);
+        foreach (GameObject e in PlayerManager.enemies) {
+            e.GetComponent<EnemyDeathScript>().DealDamage(damage);
         }
 //        if (PlayerManager.special) {
 //            SpecialsManager.Instance.SpawnSpecial(specialIndex, addRot);
@@ -87,11 +83,10 @@ public class Attack : MonoBehaviour {
         GetComponentInParent<WeaponManager>().Unequip();
     }
 
-    public void HasClicked()
-    {
-        if (!clicked)
-        {
-            GetComponent<Animator>().SetTrigger(PlayerAnimation.STOP_ATTACK);
+    public void HasClicked() {
+        if (!clicked) {
+            test.Stop();
+            //GetComponent<Animator>().SetTrigger(PlayerAnimation.STOP_ATTACK);
             initialAttack = true;
         }
         clickWait = false;
