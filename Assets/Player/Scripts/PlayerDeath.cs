@@ -78,8 +78,7 @@ public class PlayerDeath : MonoBehaviour {
         CheckHealth();
         int i = Random.Range(0, 3);
         AudioManager.instance.Play("Grunt" + i);
-        int e = Random.Range(0, 2);
-        AudioManager.instance.Play("PlayerHit" + e);
+        
        
     }
 
@@ -115,8 +114,8 @@ public class PlayerDeath : MonoBehaviour {
         Cursor.lockState = CursorLockMode.None;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         PlayerManager.ResetStats();
-        int e = Random.Range(0, 2);
-        AudioManager.instance.Play("Death" + e);
+        
+        AudioManager.instance.Play("Death");
 
     }
 
