@@ -40,7 +40,7 @@ public class EnemeyManager : MonoBehaviour {
         tmp.transform.parent = null;
         tmp.GetComponent<SpawnAI>().AISpawn();
         tmp.GetComponent<EnemyDeathScript>().dead = false;
-        tmp.GetComponent<EnemyDeathScript>().health = 50;
+        //tmp.GetComponent<EnemyDeathScript>().health = 50;
         tmp.GetComponent<EnemyDeathScript>().spawned = script;
         tmp.GetComponent<Animator>().enabled = true;
         tmp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
