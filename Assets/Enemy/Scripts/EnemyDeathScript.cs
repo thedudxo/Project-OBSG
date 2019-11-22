@@ -30,19 +30,9 @@ public class EnemyDeathScript : MonoBehaviour {
         int i = Random.Range(0, 2);
         GetComponent<EnemyAudioManager>().Play("EnemyHitFist" + i);
         GetComponent<EnemyAudioManager>().Play("EnemyHit" + i);
-        if (!hit) {
-            StartCoroutine(Force());
-        }
         GetComponent<Animator>().SetTrigger("Damage");
-    }
-    
+        
 
-    IEnumerator Force() {
-        hit = true;
-        hitMat.color = new Color(255, 255, 255);
-        yield return new WaitForSeconds(1);
-        hitMat.color = new Color(173, 133, 97);
-        hit = false;
     }
 
     private void CheckHealth() {
