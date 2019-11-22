@@ -13,7 +13,7 @@ public class EnergyBlast : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        if(other.tag == Tags.PLAYER) { return; }
+        if(other.tag == Tags.PLAYER || other.tag == Tags.RESPAWN) { return; }
         GetComponentInChildren<VisualEffect>().SendEvent("Hit");
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
@@ -24,6 +24,8 @@ public class EnergyBlast : MonoBehaviour {
 
         if (other.tag == Tags.ENEMY) {
             other.GetComponent<EnemyDeathScript>().DealDamage(damage);
+        } else if(other.tag == Tags.BOSS) {
+            other.GetComponentInParent<BossScript>().DealDamage(damage);
         }
         StartCoroutine(Disable());
     }

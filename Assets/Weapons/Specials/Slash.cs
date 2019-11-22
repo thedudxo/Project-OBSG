@@ -16,6 +16,9 @@ public class Slash : MonoBehaviour {
             GetComponent<EnemyAudioManager>().Play("EnergyHit" + i);
 
         }
+        if (other.tag == Tags.BOSS) {
+            other.GetComponent<BossScript>().DealDamage(damage);
+        }
         if (other.gameObject.layer == 12) {
             StartCoroutine(Disable());
             

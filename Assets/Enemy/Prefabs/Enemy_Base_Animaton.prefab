@@ -1405,7 +1405,6 @@ MonoBehaviour:
   isClear: 0
   aiState: 0
   fist: {fileID: 4782646620535157882}
-  damage: 10
   strafeSpeed: 2
   viewRadius: 20
   attackRadius: 6
@@ -1924,11 +1923,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4079077599265111534}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
+  m_IsTrigger: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1.3469089, y: 0.25416526, z: 1.8522726}
-  m_Center: {x: -0.1734615, y: -0.08980987, z: 1.0057436}
+  m_Size: {x: 1.3469089, y: 0.25416526, z: 2.311303}
+  m_Center: {x: -0.17346211, y: -0.08980779, z: 0.7762181}
 --- !u!1 &4229888531779201429
 GameObject:
   m_ObjectHideFlags: 0

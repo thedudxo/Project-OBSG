@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.VFX;
 
 public class WeaponManager : MonoBehaviour {
 
     [SerializeField] Attack[] weapons;
     [SerializeField] BoxCollider AttackCollider;
     [SerializeField] Camera cam;
+    [SerializeField] VisualEffect specialEffect;
     int currentWeaponIndex;
     int newWeaponIndex;
+
 
     private void Start() {
         currentWeaponIndex = 0;
@@ -30,8 +33,10 @@ public class WeaponManager : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.Q)) {
             if (PlayerManager.special) {
+                specialEffect.SendEvent("Exit");
                 PlayerManager.special = false;
             } else {
+                specialEffect.SendEvent("Start");
                 PlayerManager.special = true;
             }
         }

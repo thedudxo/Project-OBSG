@@ -11,17 +11,22 @@ public class EnemyDeathScript : MonoBehaviour {
     [SerializeField] float force;
     [SerializeField] float ragdollForce;
     [SerializeField] int bloodMeterAdd;
-    [SerializeField] Shader hitMat;
     private NavMeshAgent agent;
     private Vector3 direction;
     private float maxSlope = 60;
     private bool grounded = false;
     private bool hit = false;
+    [HideInInspector] public LockDoorOnTriggerEnter spawned;
     [HideInInspector] public bool dead = false;
     public int health = 50;
 
     private void Start() {
         agent = GetComponent<NavMeshAgent>();
+        player = GameObject.FindGameObjectWithTag(Tags.PLAYER).transform;
+    }
+
+    private void Update() {
+        if (dead) { attackCol.enabled = false; }
     }
 
     public void DealDamage(int damage) {
@@ -37,8 +42,8 @@ public class EnemyDeathScript : MonoBehaviour {
 
     private void CheckHealth() {
         if (health <= 0) {
-            Ragdoll();
             PlayerManager.enemies.Remove(gameObject);
+            Ragdoll();
             //Destroy(gameObject);
         }
     }
@@ -54,7 +59,7 @@ public class EnemyDeathScript : MonoBehaviour {
         agent.enabled = true;
         attackCol.enabled = false;
         GetComponent<CapsuleCollider>().enabled = false;
-        GetComponent<EnemyAI>().enabled = false;
+        //GetComponent<EnemyAI>().enabled = false;
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         foreach(Rigidbody r in GetComponentsInChildren<Rigidbody>()) {
 
@@ -62,13 +67,27 @@ public class EnemyDeathScript : MonoBehaviour {
 
         }
         ragdoll.AddForce(direction * ragdollForce);
+        if(spawned != null) {
+            GetComponent<SpawnAI>().dead = true;
+            GetComponent<SpawnAI>().playerTarget = null;
+            spawned.enemies.Remove(GetComponent<SpawnAI>());
+            spawned.CheckEnemies();
+            StartCoroutine(Wait());
+        }
     }
 
-    void CheckMeter() {
-        if(PlayerManager.bloodMeter >= PlayerManager.maxBloodMeter) {
-            PlayerManager.bloodMeter = PlayerManager.maxBloodMeter;
-            PlayerManager.isFull = true;
-        }
+    IEnumerator Wait() {
+        yield return new WaitForSeconds(15);
+        EnemeyManager.Instance.Enemy.Push(gameObject);
+        spawned.enemiesSpawned--;
+        gameObject.SetActive(false);
+    }
+
+    void CheckMeter() {
+        if(PlayerManager.bloodMeter >= PlayerManager.maxBloodMeter) {
+            PlayerManager.bloodMeter = PlayerManager.maxBloodMeter;
+            PlayerManager.isFull = true;
+        }
     }
 
     private void OnCollisionExit(Collision collision) {
