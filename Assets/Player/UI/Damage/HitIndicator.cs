@@ -21,9 +21,9 @@ public class HitIndicator : MonoBehaviour {
     float angle;
     bool damage = false;
 
-    private void Awake() {
+    private void Awake() {
         image = gameObject.GetComponent<Image>();
-        player = GameObject.FindGameObjectWithTag(Tags.PLAYER).transform;
+        player = GameObject.FindGameObjectWithTag(Tags.PLAYER).transform;
     }
 
     private void Update() {
