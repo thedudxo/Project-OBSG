@@ -12,6 +12,7 @@ public class WeaponManager : MonoBehaviour {
     int currentWeaponIndex;
     int newWeaponIndex;
 
+    float bloodMeterDecrease = 10f;
 
     private void Start() {
         currentWeaponIndex = 0;
@@ -46,11 +47,12 @@ public class WeaponManager : MonoBehaviour {
             } else {
                 cam.fieldOfView = 65;
             }
-//            PlayerManager.bloodMeter -= Time.deltaTime * bloodMeterDecrease;
-//            if (PlayerManager.bloodMeter <= 0) {
-//                PlayerManager.bloodMeter = 0;
-//                PlayerManager.special = false;
-//            }
+            //PlayerManager.bloodMeter -= Time.deltaTime * bloodMeterDecrease;
+            //if (PlayerManager.bloodMeter <= 0)
+            //{
+            //    PlayerManager.bloodMeter = 0;
+            //    PlayerManager.special = false;
+            //}
         } else {
             if (cam.fieldOfView > 60) {
                 cam.fieldOfView -= 0.05f;

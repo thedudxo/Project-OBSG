@@ -22,7 +22,7 @@ public class EnemeyManager : MonoBehaviour {
         }
     }
     void Start() {
-        CreateEnemy(30);
+        CreateEnemy(50);
     }
 
     void CreateEnemy(int amount) {
