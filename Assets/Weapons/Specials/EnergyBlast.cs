@@ -19,11 +19,11 @@ public class EnergyBlast : MonoBehaviour {
         GetComponent<Collider>().enabled = false;
         GetComponent<Special>().active = false;
         GetComponentInChildren<Light>().intensity = 0;
-        int i = Random.Range(0, 2);
-        GetComponent<EnemyAudioManager>().Play("EnergyHit" + i);
 
         if (other.tag == Tags.ENEMY) {
             other.GetComponent<EnemyDeathScript>().DealDamage(damage);
+            int i = Random.Range(0, 2);
+            GetComponent<EnemyAudioManager>().Play("EnergyHit" + i);
         } else if(other.tag == Tags.BOSS) {
             other.GetComponentInParent<BossScript>().DealDamage(damage);
         }

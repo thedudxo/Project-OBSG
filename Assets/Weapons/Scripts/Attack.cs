@@ -11,6 +11,7 @@ public class Attack : MonoBehaviour {
     public bool canUse = false;
     public Vector3 colliderSize;
     [SerializeField] int specialIndex;
+    [SerializeField] int listSize;
     [SerializeField] float bloodMeterDecrease = 5;
     float samples = 45;
     float fps;
@@ -60,7 +61,7 @@ public class Attack : MonoBehaviour {
         Debug.Log(damage);
         foreach (GameObject e in PlayerManager.enemies) {
             e.GetComponent<EnemyDeathScript>().DealDamage(damage);
-            AudioManager.instance.Play(hitSound + i);
+            e.GetComponent<EnemyAudioManager>().Play(hitSound + i);
         }
 //        if (PlayerManager.special) {
 //            SpecialsManager.Instance.SpawnSpecial(specialIndex, addRot);
