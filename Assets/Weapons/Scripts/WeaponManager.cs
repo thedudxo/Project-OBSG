@@ -5,6 +5,8 @@ using UnityEngine.Experimental.VFX;
 
 public class WeaponManager : MonoBehaviour {
 
+    [SerializeField] readonly bool bloodMeterDebug = false;
+
     [SerializeField] Attack[] weapons;
     [SerializeField] BoxCollider AttackCollider;
     [SerializeField] Camera cam;
@@ -47,12 +49,15 @@ public class WeaponManager : MonoBehaviour {
             } else {
                 cam.fieldOfView = 65;
             }
-            //PlayerManager.bloodMeter -= Time.deltaTime * bloodMeterDecrease;
-            //if (PlayerManager.bloodMeter <= 0)
-            //{
-            //    PlayerManager.bloodMeter = 0;
-            //    PlayerManager.special = false;
-            //}
+            if (!bloodMeterDebug)
+            {
+                PlayerManager.bloodMeter -= Time.deltaTime * bloodMeterDecrease;
+                if (PlayerManager.bloodMeter <= 0)
+                {
+                    PlayerManager.bloodMeter = 0;
+                    PlayerManager.special = false;
+                }
+            }
         } else {
             if (cam.fieldOfView > 60) {
                 cam.fieldOfView -= 0.05f;
