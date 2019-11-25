@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float maxSlope = 60;
     [SerializeField] private float dashSpeed = 6000;
     [SerializeField] private List<Animator> animator = new List<Animator>();
-    [SerializeField] private VisualEffect dust;
     bool dashing = false;
     public bool frontDash = false;
     private bool stopDash = false;
