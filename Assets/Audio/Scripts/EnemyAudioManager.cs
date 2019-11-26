@@ -25,7 +25,7 @@ public class EnemyAudioManager : MonoBehaviour {
 	}
 
     void Start () {
-        Play("Theme");
+        //Play("Theme");
         //Play("SoundEffect");
 
     }
