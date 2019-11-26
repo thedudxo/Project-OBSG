@@ -397,7 +397,7 @@ PrefabInstance:
     - target: {fileID: 2017003905960027532, guid: b8c2e46cc3ee7ce45bbd1aac9acc04ca,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2017003905960027532, guid: b8c2e46cc3ee7ce45bbd1aac9acc04ca,
         type: 3}
@@ -736,7 +736,12 @@ PrefabInstance:
     - target: {fileID: 4782646621848809081, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
       propertyPath: health
-      value: 50
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782646621848809081, guid: 707f7607db061c94f83182c16d8195b6,
+        type: 3}
+      propertyPath: bloodMeterAdd
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4782646621848809080, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
@@ -1569,7 +1574,7 @@ PrefabInstance:
     - target: {fileID: 7595598010891567934, guid: e08464dbeaed4704797c653f7a7a6bc7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7595598010891567934, guid: e08464dbeaed4704797c653f7a7a6bc7,
         type: 3}
@@ -2767,7 +2772,7 @@ PrefabInstance:
     - target: {fileID: 5555922462750905036, guid: 5688adf7287c46f4fb9c450eebc83fed,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5555922462750905036, guid: 5688adf7287c46f4fb9c450eebc83fed,
         type: 3}
@@ -3143,7 +3148,12 @@ PrefabInstance:
     - target: {fileID: 4782646621848809081, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
       propertyPath: health
-      value: 50
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782646621848809081, guid: 707f7607db061c94f83182c16d8195b6,
+        type: 3}
+      propertyPath: bloodMeterAdd
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4782646621848809080, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
@@ -3215,7 +3225,7 @@ Transform:
   - {fileID: 2046573386}
   - {fileID: 685580255}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &175574576 stripped
 Transform:
@@ -3593,7 +3603,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: -2.0300002, z: 0}
 --- !u!1001 &212807058
 PrefabInstance:
@@ -3754,7 +3764,7 @@ Transform:
   m_LocalScale: {x: 0.75863, y: 0.75863, z: 0.75863}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 90.00001}
 --- !u!4 &221719573 stripped
 Transform:
@@ -3987,7 +3997,12 @@ PrefabInstance:
     - target: {fileID: 4782646621848809081, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
       propertyPath: health
-      value: 50
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782646621848809081, guid: 707f7607db061c94f83182c16d8195b6,
+        type: 3}
+      propertyPath: bloodMeterAdd
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4782646621848809080, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
@@ -5660,7 +5675,7 @@ PrefabInstance:
     - target: {fileID: 4782646621848809081, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
       propertyPath: bloodMeterAdd
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4782646621848809080, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
@@ -6536,6 +6551,11 @@ PrefabInstance:
       propertyPath: health
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4782646621848809081, guid: 707f7607db061c94f83182c16d8195b6,
+        type: 3}
+      propertyPath: bloodMeterAdd
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4782646621848809080, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
       propertyPath: playerTarget
@@ -6757,7 +6777,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &328358412
 PrefabInstance:
@@ -9596,7 +9616,12 @@ PrefabInstance:
     - target: {fileID: 4782646621848809081, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
       propertyPath: health
-      value: 50
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782646621848809081, guid: 707f7607db061c94f83182c16d8195b6,
+        type: 3}
+      propertyPath: bloodMeterAdd
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4782646621848809080, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
@@ -10009,7 +10034,7 @@ PrefabInstance:
     - target: {fileID: 782976707567050811, guid: e112c776a41bb294abb8510ec84092c5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 782976707567050811, guid: e112c776a41bb294abb8510ec84092c5,
         type: 3}
@@ -10123,7 +10148,7 @@ Transform:
   m_LocalScale: {x: 0.75863, y: 0.75863, z: 0.75863}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
 --- !u!1001 &538137878
 PrefabInstance:
@@ -10306,7 +10331,7 @@ Transform:
   - {fileID: 70782915}
   - {fileID: 461758779}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &553908138 stripped
 GameObject:
@@ -11213,7 +11238,12 @@ PrefabInstance:
     - target: {fileID: 4782646621848809081, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
       propertyPath: health
-      value: 50
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782646621848809081, guid: 707f7607db061c94f83182c16d8195b6,
+        type: 3}
+      propertyPath: bloodMeterAdd
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4782646621848809080, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
@@ -11473,6 +11503,11 @@ PrefabInstance:
         type: 3}
       propertyPath: health
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782646621848809081, guid: 707f7607db061c94f83182c16d8195b6,
+        type: 3}
+      propertyPath: bloodMeterAdd
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4782646621848809080, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
@@ -12230,7 +12265,7 @@ Transform:
   - {fileID: 2035032926}
   - {fileID: 306198474}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &667466290 stripped
 Transform:
@@ -13149,6 +13184,95 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 351843f88860d8b4caf8da41ae60d5b8, type: 3}
+--- !u!1001 &728398427
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -927199367670048503, guid: c035bfb3676fed94da545cad72882dc2,
+        type: 3}
+      propertyPath: m_Name
+      value: Meshtape (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c035bfb3676fed94da545cad72882dc2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 46.691
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c035bfb3676fed94da545cad72882dc2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.888093
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c035bfb3676fed94da545cad72882dc2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.323
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c035bfb3676fed94da545cad72882dc2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c035bfb3676fed94da545cad72882dc2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.70710653
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c035bfb3676fed94da545cad72882dc2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c035bfb3676fed94da545cad72882dc2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071071
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c035bfb3676fed94da545cad72882dc2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c035bfb3676fed94da545cad72882dc2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c035bfb3676fed94da545cad72882dc2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c035bfb3676fed94da545cad72882dc2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c035bfb3676fed94da545cad72882dc2,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c035bfb3676fed94da545cad72882dc2,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.6436
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c035bfb3676fed94da545cad72882dc2,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 20.963476
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: c035bfb3676fed94da545cad72882dc2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d6987707708375740ab0d03625ccbeee, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c035bfb3676fed94da545cad72882dc2, type: 3}
 --- !u!1001 &734590823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22779,7 +22903,7 @@ Transform:
   - {fileID: 1735139892}
   - {fileID: 836632095}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1421049911
 MonoBehaviour:
@@ -23973,6 +24097,11 @@ PrefabInstance:
       propertyPath: health
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4782646621848809081, guid: 707f7607db061c94f83182c16d8195b6,
+        type: 3}
+      propertyPath: bloodMeterAdd
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4782646621848809080, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
       propertyPath: playerTarget
@@ -25066,7 +25195,7 @@ PrefabInstance:
     - target: {fileID: 624191613690018151, guid: 911a289d67da43b4b9416e5fa3140315,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3663374539221078391, guid: 911a289d67da43b4b9416e5fa3140315,
         type: 3}
@@ -25106,7 +25235,7 @@ PrefabInstance:
     - target: {fileID: 3663374539221078391, guid: 911a289d67da43b4b9416e5fa3140315,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3663374539221078391, guid: 911a289d67da43b4b9416e5fa3140315,
         type: 3}
@@ -25185,7 +25314,7 @@ PrefabInstance:
     - target: {fileID: 7595598010891567934, guid: e08464dbeaed4704797c653f7a7a6bc7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 7595598010891567934, guid: e08464dbeaed4704797c653f7a7a6bc7,
         type: 3}
@@ -25444,7 +25573,12 @@ PrefabInstance:
     - target: {fileID: 4782646621848809081, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
       propertyPath: health
-      value: 50
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782646621848809081, guid: 707f7607db061c94f83182c16d8195b6,
+        type: 3}
+      propertyPath: bloodMeterAdd
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4782646621848809080, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
@@ -26263,7 +26397,7 @@ PrefabInstance:
     - target: {fileID: 4179994072712382970, guid: c52e97292ce089f4e893e790dcbe2fd8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4179994072712382970, guid: c52e97292ce089f4e893e790dcbe2fd8,
         type: 3}
@@ -26864,7 +26998,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: c035bfb3676fed94da545cad72882dc2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c035bfb3676fed94da545cad72882dc2,
         type: 3}
@@ -27745,7 +27879,7 @@ Transform:
   m_LocalScale: {x: 0.75863, y: 0.75863, z: 0.75863}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
 --- !u!64 &1770912750
 MeshCollider:
@@ -28097,7 +28231,7 @@ Transform:
   m_LocalScale: {x: 0.75863, y: 0.75863, z: 0.75863}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
 --- !u!1001 &1787002059
 PrefabInstance:
@@ -30197,7 +30331,7 @@ Transform:
   m_LocalScale: {x: 0.75863, y: 0.75863, z: 0.75863}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 90.00001}
 --- !u!1001 &1900732475
 PrefabInstance:
@@ -30742,7 +30876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4463555671306446, guid: 20194d581c43af240b16502e72751cc4, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4463555671306446, guid: 20194d581c43af240b16502e72751cc4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -30892,7 +31026,7 @@ PrefabInstance:
       objectReference: {fileID: 1655694765}
     - target: {fileID: 983858595, guid: 20194d581c43af240b16502e72751cc4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2688337971942662608, guid: 20194d581c43af240b16502e72751cc4,
         type: 3}
@@ -32862,7 +32996,7 @@ PrefabInstance:
     - target: {fileID: 4782646621848809081, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
       propertyPath: bloodMeterAdd
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4782646621848809080, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
@@ -34817,7 +34951,12 @@ PrefabInstance:
     - target: {fileID: 4782646621848809081, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
       propertyPath: health
-      value: 50
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782646621848809081, guid: 707f7607db061c94f83182c16d8195b6,
+        type: 3}
+      propertyPath: bloodMeterAdd
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4782646621848809080, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
@@ -36721,7 +36860,12 @@ PrefabInstance:
     - target: {fileID: 4782646621848809081, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
       propertyPath: health
-      value: 50
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782646621848809081, guid: 707f7607db061c94f83182c16d8195b6,
+        type: 3}
+      propertyPath: bloodMeterAdd
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4782646621848809080, guid: 707f7607db061c94f83182c16d8195b6,
         type: 3}
