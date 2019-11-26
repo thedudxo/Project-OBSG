@@ -17,7 +17,7 @@ public class Slash : MonoBehaviour {
 
         }
         if (other.tag == Tags.BOSS) {
-            other.GetComponent<BossScript>().DealDamage(damage);
+            other.GetComponentInParent<BossScript>().DealDamage(damage);
         }
         if (other.gameObject.layer == 12) {
             StartCoroutine(Disable());
