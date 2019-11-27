@@ -6,10 +6,13 @@ using UnityEngine.Experimental.VFX;
 public class EnergyBlast : MonoBehaviour {
 
     [SerializeField] int damage;
+    float intensity;
+    Light light;
 
     private void Start() {
         GetComponentInChildren<VisualEffect>().SendEvent("OnPlay");
-
+        light = GetComponentInChildren<Light>();
+        intensity = light.intensity;
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -35,7 +38,7 @@ public class EnergyBlast : MonoBehaviour {
         GetComponent<MeshRenderer>().enabled = true;
         GetComponent<Collider>().enabled = true;
         SpecialsManager.Instance.FistSpecial.Push(gameObject);
-        GetComponentInChildren<Light>().intensity = 500;
+        GetComponentInChildren<Light>().intensity = intensity;
         gameObject.SetActive(false);
     }
 
