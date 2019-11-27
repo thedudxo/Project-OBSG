@@ -25308,6 +25308,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4710694166261169735, guid: 911a289d67da43b4b9416e5fa3140315,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1241538170031446003, guid: 297a66a68df5d8d4cb03b3b02e3978f3,
+        type: 3}
+    - target: {fileID: 4710694166261169735, guid: 911a289d67da43b4b9416e5fa3140315,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackPause
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 911a289d67da43b4b9416e5fa3140315, type: 3}
 --- !u!1001 &1600939883
