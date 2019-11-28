@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.VFX;
 
 public class Locks : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class Locks : MonoBehaviour
     [SerializeField] GameObject[] preparedkeys = new GameObject[3];
 
     [SerializeField] int keyAmmount;
+
+    [SerializeField] VisualEffect leftDoor;
+    [SerializeField] VisualEffect rightDoor;
 
 
     int unlocked = 0;
@@ -56,6 +60,10 @@ public class Locks : MonoBehaviour
                 if (unlocked >= keyAmmount)
                 {
                     door.GetComponent<Animator>().SetTrigger("Open");
+                    foreach(AudioSource s in door.GetComponentsInChildren<AudioSource>()) {
+                        s.Play();
+                       
+                    }
                 }
             }
         }

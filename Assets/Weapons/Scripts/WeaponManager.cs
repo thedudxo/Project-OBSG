@@ -1,14 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.VFX;
 
 public class WeaponManager : MonoBehaviour {
+
+    [SerializeField] readonly bool bloodMeterDebug = false;
 
     [SerializeField] Attack[] weapons;
     [SerializeField] BoxCollider AttackCollider;
     [SerializeField] Camera cam;
+    [SerializeField] VisualEffect specialEffect;
     int currentWeaponIndex;
     int newWeaponIndex;
+
+    float bloodMeterDecrease = 10f;
 
     private void Start() {
         currentWeaponIndex = 0;
@@ -30,8 +36,10 @@ public class WeaponManager : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.Q)) {
             if (PlayerManager.special) {
+                specialEffect.SendEvent("Exit");
                 PlayerManager.special = false;
             } else {
+                specialEffect.SendEvent("Start");
                 PlayerManager.special = true;
             }
         }
@@ -41,11 +49,15 @@ public class WeaponManager : MonoBehaviour {
             } else {
                 cam.fieldOfView = 65;
             }
-//            PlayerManager.bloodMeter -= Time.deltaTime * bloodMeterDecrease;
-//            if (PlayerManager.bloodMeter <= 0) {
-//                PlayerManager.bloodMeter = 0;
-//                PlayerManager.special = false;
-//            }
+            if (!bloodMeterDebug)
+            {
+                PlayerManager.bloodMeter -= Time.deltaTime * bloodMeterDecrease;
+                if (PlayerManager.bloodMeter <= 0)
+                {
+                    PlayerManager.bloodMeter = 0;
+                    PlayerManager.special = false;
+                }
+            }
         } else {
             if (cam.fieldOfView > 60) {
                 cam.fieldOfView -= 0.05f;

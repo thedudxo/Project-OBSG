@@ -1,0 +1,154 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &782976707567050757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 782976707567050811}
+  - component: {fileID: 782976707567050810}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &782976707567050811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782976707567050757}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 967.29364, y: 355.81067, z: 15.180176}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &782976707567050810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782976707567050757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c7c45b071e2f94084621acc22629a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Grunt0
+    clip: {fileID: 8300000, guid: e0e4ee6f3e5ab804f900b4eb9438bb16, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    mute: 0
+    output: {fileID: -205476788242197271, guid: a05b8c17c237d064ca287219e861e59a,
+      type: 2}
+    source: {fileID: 0}
+  - name: Grunt1
+    clip: {fileID: 8300000, guid: e32ceafbe67c43646b3474d50a888d81, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    mute: 0
+    output: {fileID: -205476788242197271, guid: a05b8c17c237d064ca287219e861e59a,
+      type: 2}
+    source: {fileID: 0}
+  - name: Grunt2
+    clip: {fileID: 8300000, guid: 365a9af404d6b914294286970243326f, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    mute: 0
+    output: {fileID: -205476788242197271, guid: a05b8c17c237d064ca287219e861e59a,
+      type: 2}
+    source: {fileID: 0}
+  - name: SwordWhoosh0
+    clip: {fileID: 8300000, guid: 17f999b22b23aa04ebeffe2a716f9f7e, type: 3}
+    volume: 0.248
+    pitch: 1
+    loop: 0
+    mute: 0
+    output: {fileID: -205476788242197271, guid: a05b8c17c237d064ca287219e861e59a,
+      type: 2}
+    source: {fileID: 0}
+  - name: SwordWhoosh1
+    clip: {fileID: 8300000, guid: 17f999b22b23aa04ebeffe2a716f9f7e, type: 3}
+    volume: 0.246
+    pitch: 1.49
+    loop: 0
+    mute: 0
+    output: {fileID: -205476788242197271, guid: a05b8c17c237d064ca287219e861e59a,
+      type: 2}
+    source: {fileID: 0}
+  - name: Death
+    clip: {fileID: 8300000, guid: 6e7a303512a12074c9981835ab6ff400, type: 3}
+    volume: 0.8
+    pitch: 1.49
+    loop: 0
+    mute: 0
+    output: {fileID: -205476788242197271, guid: a05b8c17c237d064ca287219e861e59a,
+      type: 2}
+    source: {fileID: 0}
+  - name: Music
+    clip: {fileID: 8300000, guid: de4e184e12e9398419a5ad0d4d8a8853, type: 3}
+    volume: 0.15
+    pitch: 1
+    loop: 0
+    mute: 0
+    output: {fileID: -5603533913604194284, guid: a05b8c17c237d064ca287219e861e59a,
+      type: 2}
+    source: {fileID: 0}
+  - name: Cut0
+    clip: {fileID: 8300000, guid: b6956a7842fc6474ea26f8c4b3e77719, type: 3}
+    volume: 0.298
+    pitch: 1
+    loop: 0
+    mute: 0
+    output: {fileID: -205476788242197271, guid: a05b8c17c237d064ca287219e861e59a,
+      type: 2}
+    source: {fileID: 0}
+  - name: Cut1
+    clip: {fileID: 8300000, guid: 6efbb5f2e0bc64c4d8d914adf8e9d512, type: 3}
+    volume: 0.314
+    pitch: 1
+    loop: 0
+    mute: 0
+    output: {fileID: -205476788242197271, guid: a05b8c17c237d064ca287219e861e59a,
+      type: 2}
+    source: {fileID: 0}
+  - name: EnemyHitFist0
+    clip: {fileID: 8300000, guid: 2e4c8cefe42af374badbce744b7956c2, type: 3}
+    volume: 0.786
+    pitch: 0.83
+    loop: 0
+    mute: 0
+    output: {fileID: -205476788242197271, guid: a05b8c17c237d064ca287219e861e59a,
+      type: 2}
+    source: {fileID: 0}
+  - name: EnemyHitFist1
+    clip: {fileID: 8300000, guid: 6e2e7695f2503da4da90c9a8f810aeaa, type: 3}
+    volume: 0.77
+    pitch: 1
+    loop: 0
+    mute: 0
+    output: {fileID: -205476788242197271, guid: a05b8c17c237d064ca287219e861e59a,
+      type: 2}
+    source: {fileID: 0}
+  - name: Cut2
+    clip: {fileID: 8300000, guid: 0260006e09adeee41b189134a1673138, type: 3}
+    volume: 0.77
+    pitch: 1
+    loop: 0
+    mute: 0
+    output: {fileID: -205476788242197271, guid: a05b8c17c237d064ca287219e861e59a,
+      type: 2}
+    source: {fileID: 0}

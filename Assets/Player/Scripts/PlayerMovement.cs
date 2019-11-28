@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float maxSlope = 60;
     [SerializeField] private float dashSpeed = 6000;
     [SerializeField] private List<Animator> animator = new List<Animator>();
-    [SerializeField] private VisualEffect dust;
     bool dashing = false;
     public bool frontDash = false;
     private bool stopDash = false;
@@ -73,8 +72,6 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Update() {
         if (dashing || !PlayerManager.alive) { return; }
-        //Dust
-        dust.SetFloat("SpawnRate", 750 + ((horizontalMovement.magnitude * 1375) / 2));
         //Animation
         foreach (Animator anim in animator) {
             if (anim.enabled) {

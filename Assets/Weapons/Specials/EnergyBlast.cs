@@ -9,17 +9,23 @@ public class EnergyBlast : MonoBehaviour {
 
     private void Start() {
         GetComponentInChildren<VisualEffect>().SendEvent("OnPlay");
+
     }
 
     private void OnTriggerEnter(Collider other) {
-        if(other.tag == Tags.PLAYER) { return; }
+        if(other.tag == Tags.PLAYER || other.tag == Tags.RESPAWN) { return; }
         GetComponentInChildren<VisualEffect>().SendEvent("Hit");
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
         GetComponent<Special>().active = false;
         GetComponentInChildren<Light>().intensity = 0;
+
         if (other.tag == Tags.ENEMY) {
             other.GetComponent<EnemyDeathScript>().DealDamage(damage);
+            int i = Random.Range(0, 2);
+            other.GetComponent<EnemyAudioManager>().Play("EnergyHit" + i);
+        } else if(other.tag == Tags.BOSS) {
+            other.GetComponentInParent<BossScript>().DealDamage(damage);
         }
         StartCoroutine(Disable());
     }

@@ -22,6 +22,7 @@ public class Tags {
     public const string FINISH = "Finish";
     public const string RESPAWN = "Respawn";
     public const string MAIN_CAMERA = "MainCamera";
+    public const string BOSS = "Boss";
 }
 
 public class Layers {
