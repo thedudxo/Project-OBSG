@@ -6,7 +6,12 @@ ModelImporter:
   - first:
       74: 1827226128182048838
     second: Boss_EyeBeam_Attack
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Helmet_Material
+    second: {fileID: 2100000, guid: 0d0df2e69528e7d40baa31bb2c149c89, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
