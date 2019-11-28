@@ -50,9 +50,11 @@ public class EnemyDeathScript : MonoBehaviour {
 
     void Ragdoll() {
         PlayerManager.enemiesPlayerKilled++;
-        if (!PlayerManager.isFull && !PlayerManager.special) {
-            PlayerManager.bloodMeter = PlayerManager.bloodMeter + bloodMeterAdd;
+        if (!PlayerManager.special) {
+        
+            PlayerManager.bloodMeter = Mathf.Clamp(PlayerManager.bloodMeter + bloodMeterAdd,0, 100);
             CheckMeter();
+            Debug.Log("bloody");
         }
         dead = true;
         GetComponent<Animator>().enabled = false;
