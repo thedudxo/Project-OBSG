@@ -1930,7 +1930,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4710694165208338343
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2231,7 +2231,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -33.4}
+  m_AnchoredPosition: {x: 0, y: -33.399902}
   m_SizeDelta: {x: -50, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4710694165357641031
@@ -2674,12 +2674,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: PauseTo
-        m_Mode: 2
+      - m_Target: {fileID: 1241538170031446003, guid: 297a66a68df5d8d4cb03b3b02e3978f3,
+          type: 3}
+        m_MethodName: QuitToMenu
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 4710694166196974548}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3099,8 +3100,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: PauseTo
+      - m_Target: {fileID: 1241538170031446003, guid: 297a66a68df5d8d4cb03b3b02e3978f3,
+          type: 3}
+        m_MethodName: OptionsMenu
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 4710694166859294071}
@@ -5342,7 +5344,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -24.999939}
+  m_AnchoredPosition: {x: 0, y: -24.999756}
   m_SizeDelta: {x: 0, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5629482869649672656
