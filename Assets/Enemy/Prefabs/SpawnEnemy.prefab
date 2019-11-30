@@ -1386,7 +1386,7 @@ MonoBehaviour:
   bloodMeterAdd: 5
   spawned: {fileID: 0}
   dead: 0
-  health: 50
+  health: 1
 --- !u!114 &4336585052470132832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1402,7 +1402,7 @@ MonoBehaviour:
   playerTarget: {fileID: 0}
   aiState: 0
   fist: {fileID: 4782646620535157882}
-  damage: 10
+  damage: 0
   strafeSpeed: 0
   viewRadius: 50
   attackRadius: 6

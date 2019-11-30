@@ -26,7 +26,7 @@ public class EnergyBlast : MonoBehaviour {
         if (other.tag == Tags.ENEMY) {
             other.GetComponent<EnemyDeathScript>().DealDamage(damage);
             int i = Random.Range(0, 2);
-            GetComponent<EnemyAudioManager>().Play("EnergyHit" + i);
+            other.GetComponent<EnemyAudioManager>().Play("EnergyHit" + i);
         } else if(other.tag == Tags.BOSS) {
             other.GetComponentInParent<BossScript>().DealDamage(damage);
         }
