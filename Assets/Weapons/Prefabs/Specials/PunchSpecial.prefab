@@ -182,8 +182,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 2
-  m_Color: {r: 0.007823278, g: 0.5849056, b: 0, a: 1}
-  m_Intensity: 5.9683104
+  m_Color: {r: 1, g: 0, b: 0.9800458, a: 1}
+  m_Intensity: 7.957747
   m_Range: 3.6987762
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -273,7 +273,7 @@ MonoBehaviour:
   useVolumetric: 1
   featuresFoldout: 1
   showAdditionalSettings: 0
-  displayLightIntensity: 75
+  displayLightIntensity: 100
   displayAreaLightEmissiveMesh: 0
   areaLightCookie: {fileID: 0}
   areaLightShadowCone: 120
@@ -418,6 +418,7 @@ VFXRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   m_StaticBatchInfo:
