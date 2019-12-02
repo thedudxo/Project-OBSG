@@ -11,12 +11,16 @@ public class WeaponManager : MonoBehaviour {
     [SerializeField] BoxCollider AttackCollider;
     [SerializeField] Camera cam;
     [SerializeField] VisualEffect specialEffect;
+    [SerializeField] List<Material> specialMats = new List<Material>();
     int currentWeaponIndex;
     int newWeaponIndex;
 
     float bloodMeterDecrease = 10f;
 
     private void Start() {
+        foreach (Material m in specialMats) {
+            m.SetFloat("Vector1_6E014F53", 0);
+        }
         currentWeaponIndex = 0;
         weapons[currentWeaponIndex].gameObject.SetActive(true);
     }
@@ -36,34 +40,50 @@ public class WeaponManager : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.Q)) {
             if (PlayerManager.special) {
+                StartCoroutine(AnimateMaterials(0, 2));
                 specialEffect.SendEvent("Exit");
                 PlayerManager.special = false;
             } else {
                 specialEffect.SendEvent("Start");
+                StartCoroutine(AnimateMaterials(2, 0));
                 PlayerManager.special = true;
             }
         }
         if (PlayerManager.special) {
             if (cam.fieldOfView < 65) {
-                cam.fieldOfView += 0.05f;
+                cam.fieldOfView += 0.1f;
             } else {
                 cam.fieldOfView = 65;
             }
-            if (!bloodMeterDebug)
-            {
-                PlayerManager.bloodMeter -= Time.deltaTime * bloodMeterDecrease;
-                if (PlayerManager.bloodMeter <= 0)
-                {
-                    PlayerManager.bloodMeter = 0;
-                    PlayerManager.special = false;
-                }
-            }
+            //if (!bloodMeterDebug)
+            //{
+            //    PlayerManager.bloodMeter -= Time.deltaTime * bloodMeterDecrease;
+            //    if (PlayerManager.bloodMeter <= 0)
+            //    {
+            //        PlayerManager.bloodMeter = 0;
+            //        PlayerManager.special = false;
+            //    }
+            //}
         } else {
             if (cam.fieldOfView > 60) {
-                cam.fieldOfView -= 0.05f;
+                cam.fieldOfView -= 0.1f;
             } else {
                 cam.fieldOfView = 60;
             }
+        }
+    }
+
+    IEnumerator AnimateMaterials(float to, float from) {
+        float lerp = 0;
+        while (lerp <= 1) {
+            foreach(Material m in specialMats) {
+                m.SetFloat("Vector1_6E014F53", Mathf.Lerp(from, to, lerp));
+            }
+            lerp += Time.deltaTime * 0.5f;
+            yield return lerp;
+        }
+        foreach (Material m in specialMats) {
+            m.SetFloat("Vector1_6E014F53", to);
         }
     }
 

@@ -34,11 +34,11 @@ public class MenuScript : MonoBehaviour {
                 Cursor.visible = true;
                 playerCanvas.SetActive(false);
                 pauseCanvas.SetActive(true);
-                PlayerManager.pause = true;
                 Time.timeScale = 0;
                 sceneSettings.SetActive(false);
-            } else if (PlayerManager.pause)
-            {
+                Debug.Log("pause");
+                PlayerManager.pause = true;
+            } else {
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
                 pauseCanvas.SetActive(false);
@@ -46,6 +46,7 @@ public class MenuScript : MonoBehaviour {
                 PlayerManager.pause = false;
                 Time.timeScale = 1;
                 sceneSettings.SetActive(true);
+                Debug.Log("Unpause");
             }
         }
     }

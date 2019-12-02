@@ -31,11 +31,11 @@ public class EnemyDeathScript : MonoBehaviour {
 
     public void DealDamage(int damage) {
         health = health - damage;
-        CheckHealth();
         int i = Random.Range(0, 2);
         GetComponent<EnemyAudioManager>().Play("EnemyHitFist" + i);
         GetComponent<EnemyAudioManager>().Play("EnemyHit" + i);
         GetComponent<Animator>().SetTrigger("Damage");
+        CheckHealth();
         
 
     }
@@ -54,7 +54,6 @@ public class EnemyDeathScript : MonoBehaviour {
         
             PlayerManager.bloodMeter = Mathf.Clamp(PlayerManager.bloodMeter + bloodMeterAdd,0, 100);
             CheckMeter();
-            Debug.Log("bloody");
         }
         dead = true;
         GetComponent<Animator>().enabled = false;
@@ -70,11 +69,11 @@ public class EnemyDeathScript : MonoBehaviour {
         }
         ragdoll.AddForce(direction * ragdollForce);
         if(spawned != null) {
+            StartCoroutine(Wait());
             GetComponent<SpawnAI>().dead = true;
             GetComponent<SpawnAI>().playerTarget = null;
             spawned.enemies.Remove(GetComponent<SpawnAI>());
             spawned.CheckEnemies();
-            StartCoroutine(Wait());
         }
     }
 

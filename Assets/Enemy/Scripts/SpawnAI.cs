@@ -226,7 +226,6 @@ public class SpawnAI : MonoBehaviour {
     }
 
     public void AISpawn() {
-        Debug.Log("Reset AI");
         agent = GetComponent<NavMeshAgent>();
         attackFrame = Random.Range(0, 300);
         aiState = AIState.inView;

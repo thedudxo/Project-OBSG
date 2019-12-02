@@ -54,7 +54,6 @@ public class LockDoorOnTriggerEnter : MonoBehaviour {
     }
 
     public IEnumerator SpawnEnemies() {
-        Debug.Log(enemiesSpawned);
         yield return new WaitForSeconds(0.5f);
         if(enemiesSpawned != enemiesToSpawn) {
             enemiesSpawned++;

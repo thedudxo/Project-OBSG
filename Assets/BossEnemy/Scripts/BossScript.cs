@@ -121,6 +121,7 @@ public class BossScript : MonoBehaviour
     }
 
     void RotateTowardsTarget() {
+        if (dead) { return; }
         direction.y = direction.y + 1;
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         if (beam && attacking) {
@@ -177,6 +178,8 @@ public class BossScript : MonoBehaviour
 
     void Dead() {
         GetComponent<Animator>().SetTrigger("Die");
+        beamScript.gameObject.SetActive(false);
+        stopCounter = true;
     }
 
     public void AttackBool(string attack) {

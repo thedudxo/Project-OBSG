@@ -58,7 +58,7 @@ public class Attack : MonoBehaviour {
         } else {
             damage = baseDamage;
         }
-        Debug.Log(damage);
+        Debug.Log(damage);        Debug.Log(PlayerManager.enemies.Count);
         foreach (GameObject e in PlayerManager.enemies) {
             e.GetComponent<EnemyDeathScript>().DealDamage(damage);
             e.GetComponent<EnemyAudioManager>().Play(hitSound + i);
