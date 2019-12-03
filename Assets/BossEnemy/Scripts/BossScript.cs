@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossScript : MonoBehaviour
 {
@@ -25,6 +26,10 @@ public class BossScript : MonoBehaviour
     [Header("Eye Beam:")]
     [SerializeField] EyeBeam beamScript;
     [SerializeField] Transform beamTrigger;
+
+    [SerializeField] GameObject credits;
+    [SerializeField] Image fade;
+    float fadeCounter = 0;
 
     private Stack<GameObject> energyWaveStack = new Stack<GameObject>();
     public Stack<GameObject> EnergyWaveStack {
@@ -69,6 +74,25 @@ public class BossScript : MonoBehaviour
                     aFrame();
                 attackFrame = Random.Range(200, 400);
                 attackFrame_counter = 0;
+            }
+        }
+
+        //fade to black
+        if (dead)
+        {
+            fadeCounter += Time.deltaTime;
+
+            if(fadeCounter >= 10)
+            {
+                Color color = fade.color;
+                color.a += 0.1f;
+                fade.color = color;
+
+                if (color.a >= 1f)
+                {
+                    PlayerManager.alive = false;
+                    credits.SetActive(true);
+                }
             }
         }
     }
