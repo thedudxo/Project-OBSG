@@ -8,6 +8,7 @@ public class EnemyDeathScript : MonoBehaviour {
     [SerializeField] Transform player;
     [SerializeField] Collider attackCol;
     [SerializeField] Rigidbody ragdoll;
+    [SerializeField] Animator damageAnim;
     [SerializeField] float force;
     [SerializeField] float ragdollForce;
     [SerializeField] int bloodMeterAdd;
@@ -34,10 +35,8 @@ public class EnemyDeathScript : MonoBehaviour {
         int i = Random.Range(0, 2);
         GetComponent<EnemyAudioManager>().Play("EnemyHitFist" + i);
         GetComponent<EnemyAudioManager>().Play("EnemyHit" + i);
-        GetComponent<Animator>().SetTrigger("Damage");
+        damageAnim.SetTrigger("Damage");
         CheckHealth();
-        
-
     }
 
     private void CheckHealth() {

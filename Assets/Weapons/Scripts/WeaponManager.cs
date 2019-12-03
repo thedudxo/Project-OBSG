@@ -40,12 +40,14 @@ public class WeaponManager : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.Q)) {
             if (PlayerManager.special) {
-                StartCoroutine(AnimateMaterials(0, 2));
+                StopAllCoroutines();
+                StartCoroutine(AnimateMaterials(0, specialMats[0].GetFloat("Vector1_6E014F53")));
                 specialEffect.SendEvent("Exit");
                 PlayerManager.special = false;
             } else {
                 specialEffect.SendEvent("Start");
-                StartCoroutine(AnimateMaterials(2, 0));
+                StopAllCoroutines();
+                StartCoroutine(AnimateMaterials(2, specialMats[0].GetFloat("Vector1_6E014F53")));
                 PlayerManager.special = true;
             }
         }
@@ -79,7 +81,7 @@ public class WeaponManager : MonoBehaviour {
             foreach(Material m in specialMats) {
                 m.SetFloat("Vector1_6E014F53", Mathf.Lerp(from, to, lerp));
             }
-            lerp += Time.deltaTime * 0.5f;
+            lerp += Time.deltaTime * 0.8f;
             yield return lerp;
         }
         foreach (Material m in specialMats) {

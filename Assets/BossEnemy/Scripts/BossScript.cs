@@ -26,6 +26,7 @@ public class BossScript : MonoBehaviour
     [Header("Eye Beam:")]
     [SerializeField] EyeBeam beamScript;
     [SerializeField] Transform beamTrigger;
+    [SerializeField] GameObject beamBurnPrefab;
     [SerializeField] VisualEffect beamChargeL;
     [SerializeField] VisualEffect beamChargeR;
     [Header("Entry:")]
@@ -35,6 +36,12 @@ public class BossScript : MonoBehaviour
     public Stack<GameObject> EnergyWaveStack {
         get { return energyWaveStack; }
         set { energyWaveStack = value; }
+    }
+
+    private Stack<GameObject> beamBurnStack = new Stack<GameObject>();
+    public Stack<GameObject> BeamBurnStack {
+        get { return beamBurnStack; }
+        set { beamBurnStack = value; }
     }
 
     delegate void EveryFrame();
@@ -47,6 +54,7 @@ public class BossScript : MonoBehaviour
         ChangeState(BossState.longRange);
         SetPrefab();
         CreateEnergyWave(5);
+        CreateBeamBurn(100);
     }
 
     public void SetPrefab() {
@@ -58,6 +66,14 @@ public class BossScript : MonoBehaviour
             energyWaveStack.Push(Instantiate(energyWavePrefab));
             energyWaveStack.Peek().name = "Energy Wave";
             energyWaveStack.Peek().SetActive(false);
+        }
+    }
+
+    void CreateBeamBurn(int amount) {
+        for (int i = 0; i < amount; i++) {
+            beamBurnStack.Push(Instantiate(beamBurnPrefab));
+            beamBurnStack.Peek().name = "BeamBurn";
+            beamBurnStack.Peek().SetActive(false);
         }
     }
 
@@ -131,6 +147,7 @@ public class BossScript : MonoBehaviour
             if (Physics.Raycast(beamScript.transform.position, beamScript.transform.forward, out hit, Mathf.Infinity, layerMask)) {
                 beamScript.UpdateLength(hit);
                 beamTrigger.position = hit.point;
+                BeamBurn(hit.point);
             }
             beamScript.RotateTowardsPlayer();
             targetRotation.x = 0;
@@ -159,6 +176,13 @@ public class BossScript : MonoBehaviour
             bossHealth -= damage;
             CheckHealth();
         }
+    }
+
+    void BeamBurn(Vector3 hit) {
+        GameObject tmp = beamBurnStack.Pop();
+        tmp.GetComponent<BurnScript>().boss = gameObject;
+        tmp.transform.position = hit;
+        tmp.SetActive(true);
     }
 
     public void EnergyWave() {
