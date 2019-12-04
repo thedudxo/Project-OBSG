@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.VFX;
 
 public class BossScript : MonoBehaviour
 {
@@ -25,6 +26,10 @@ public class BossScript : MonoBehaviour
     [Header("Eye Beam:")]
     [SerializeField] EyeBeam beamScript;
     [SerializeField] Transform beamTrigger;
+    [SerializeField] VisualEffect beamChargeL;
+    [SerializeField] VisualEffect beamChargeR;
+    [Header("Entry:")]
+    [SerializeField] ParticleSystem ground;
 
     private Stack<GameObject> energyWaveStack = new Stack<GameObject>();
     public Stack<GameObject> EnergyWaveStack {
@@ -57,7 +62,6 @@ public class BossScript : MonoBehaviour
     }
 
     private void Update() {
-        Debug.Log(stopCounter);
         DistanceCheck(playerTarget);
         FindDirection(playerTarget);
         MonitorStates();
@@ -124,7 +128,6 @@ public class BossScript : MonoBehaviour
             //layerMask = ~layerMask;
             RaycastHit hit;
             if (Physics.Raycast(beamScript.transform.position, beamScript.transform.forward, out hit, Mathf.Infinity, layerMask)) {
-                Debug.Log(hit.distance);
                 beamScript.UpdateLength(hit);
                 beamTrigger.position = hit.point;
             }
@@ -146,7 +149,7 @@ public class BossScript : MonoBehaviour
     void AttackTarget(List<string> list) {
         stopCounter = true;
         int i = Random.Range(0, list.Count);
-        string attack = list[i];
+        string attack = list[1];
         GetComponent<Animator>().SetTrigger(attack);
     }
 
@@ -195,6 +198,15 @@ public class BossScript : MonoBehaviour
     public void resetBool() {
         attacking = false;
         stopCounter = false;
+    }
+
+    public void startVFX() {
+        beamChargeL.SendEvent("OnPlay");
+        beamChargeR.SendEvent("OnPlay");
+    }
+
+    public void Entry() {
+        ground.Play();
     }
 
     public enum BossState {
