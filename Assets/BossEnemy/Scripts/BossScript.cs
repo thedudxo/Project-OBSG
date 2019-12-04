@@ -31,6 +31,7 @@ public class BossScript : MonoBehaviour
     [SerializeField] VisualEffect beamChargeR;
     [Header("Entry:")]
     [SerializeField] ParticleSystem ground;
+    [SerializeField] VisualEffect sand;
 
     private Stack<GameObject> energyWaveStack = new Stack<GameObject>();
     public Stack<GameObject> EnergyWaveStack {
@@ -146,7 +147,9 @@ public class BossScript : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(beamScript.transform.position, beamScript.transform.forward, out hit, Mathf.Infinity, layerMask)) {
                 beamScript.UpdateLength(hit);
-                beamTrigger.position = hit.point;
+                var pos = hit.point;
+                pos.y = pos.y + 0.1f;
+                beamTrigger.position = pos;
                 BeamBurn(hit.point);
             }
             beamScript.RotateTowardsPlayer();
@@ -211,7 +214,8 @@ public class BossScript : MonoBehaviour
         if (attack != null) {
             beam = true;
             beamScript.gameObject.SetActive(true);
-            beamTrigger.gameObject.SetActive(true);
+            beamTrigger.GetComponent<Collider>().enabled = true;
+            beamTrigger.GetComponent<ParticleSystem>().Play();
         }
     }
 
@@ -219,7 +223,8 @@ public class BossScript : MonoBehaviour
         beam = false;
         beamScript.transform.localRotation = beamScript.rot;
         beamScript.gameObject.SetActive(false);
-        beamTrigger.gameObject.SetActive(false);
+        beamTrigger.GetComponent<Collider>().enabled = false;
+        beamTrigger.GetComponent<ParticleSystem>().Stop();
     }
 
     public void resetBool() {
@@ -228,11 +233,17 @@ public class BossScript : MonoBehaviour
     }
 
     public void startVFX() {
-        beamChargeL.SendEvent("OnPlay");
-        beamChargeR.SendEvent("OnPlay");
+        beamChargeL.SendEvent("Charge");
+        beamChargeR.SendEvent("Charge");
+    }
+
+    public void StopVFX() {
+        beamChargeL.SendEvent("StopCharge");
+        beamChargeR.SendEvent("StopCharge");
     }
 
     public void Entry() {
+        sand.SendEvent("sand");
         ground.Play();
     }
 
