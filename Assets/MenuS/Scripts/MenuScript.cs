@@ -7,10 +7,9 @@ using UnityEngine.Audio;
 public class MenuScript : MonoBehaviour {
     
     [Header("Pause:")]
-    [SerializeField]
-    bool menu;
-    [SerializeField]
-    GameObject 
+    [SerializeField] bool menu;
+    
+    [SerializeField] GameObject 
         pauseCanvas,
         playerCanvas,
         pause,
@@ -19,15 +18,20 @@ public class MenuScript : MonoBehaviour {
         AudioOptions,
         quit,
         sceneSettings;
+
     GameObject currentOption;
     
 
     private void Start() {
-        currentOption = GPOptions;
+        currentOption = pause;
+        
     }
 
     private void Update() {
         if (menu) { return; }
+
+        Debug.Log(currentOption);
+
         if (Input.GetKeyDown(KeyCode.Escape)) {
             if (!PlayerManager.pause) {
                 Cursor.lockState = CursorLockMode.None;
@@ -54,19 +58,23 @@ public class MenuScript : MonoBehaviour {
     public void BackPause(GameObject currentScreen) {
         pause.SetActive(true);
         currentScreen.SetActive(false);
+        currentOption = pause;
     }
 
     public void PauseTo(GameObject newScreen) {
         pause.SetActive(false);
         newScreen.SetActive(true);
+        
     }
 
     public void QuitToMenu() {
-        SceneManager.LoadScene(0);
+        //SceneManager.LoadScene(0);
+        LoadManager.loadScene(LoadManager.MAINMENU);
         Time.timeScale = 1;
     }
     // --------------------Options Menus---------------------- //
     public void OptionsMenu(GameObject to) {
+
         currentOption.SetActive(false);
         to.SetActive(true);
         currentOption = to;
