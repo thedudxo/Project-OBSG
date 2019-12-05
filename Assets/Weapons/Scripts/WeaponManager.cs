@@ -7,12 +7,12 @@ public class WeaponManager : MonoBehaviour {
 
     [SerializeField] readonly bool bloodMeterDebug = false;
 
-    [SerializeField] Attack[] weapons;
+    public Attack[] weapons;
     [SerializeField] BoxCollider AttackCollider;
     [SerializeField] Camera cam;
     [SerializeField] VisualEffect specialEffect;
     [SerializeField] List<Material> specialMats = new List<Material>();
-    int currentWeaponIndex;
+    [HideInInspector] public int currentWeaponIndex;
     int newWeaponIndex;
 
     float bloodMeterDecrease = 10f;
@@ -31,12 +31,6 @@ public class WeaponManager : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.Alpha2)) {
             SelectWeapon(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3)) {
-            SelectWeapon(2);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4)) {
-            SelectWeapon(3);
         }
         if (Input.GetKeyDown(KeyCode.Q)) {
             if (PlayerManager.special) {

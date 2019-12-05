@@ -170,7 +170,7 @@ public class BossScript : MonoBehaviour
     void AttackTarget(List<string> list) {
         stopCounter = true;
         int i = Random.Range(0, list.Count);
-        string attack = list[1];
+        string attack = list[i];
         GetComponent<Animator>().SetTrigger(attack);
     }
 
