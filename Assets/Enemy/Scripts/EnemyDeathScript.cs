@@ -32,9 +32,6 @@ public class EnemyDeathScript : MonoBehaviour {
 
     public void DealDamage(int damage) {
         health = health - damage;
-        int i = Random.Range(0, 2);
-        GetComponent<EnemyAudioManager>().Play("EnemyHitFist" + i);
-        GetComponent<EnemyAudioManager>().Play("EnemyHit" + i);
         damageAnim.SetTrigger("Damage");
         CheckHealth();
     }

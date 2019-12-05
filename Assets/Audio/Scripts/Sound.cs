@@ -14,6 +14,9 @@ public class Sound {
     public float pitch;
     public bool loop;
     public bool mute;
+    public bool playOnAwake;
+    [Range(0, 1)]
+    public float spatialBlend;
 
     public AudioMixerGroup output;
 

@@ -11,6 +11,8 @@ public class WeaponManager : MonoBehaviour {
     [SerializeField] BoxCollider AttackCollider;
     [SerializeField] Camera cam;
     [SerializeField] VisualEffect specialEffect;
+    [SerializeField] ParticleSystem l;
+    [SerializeField] ParticleSystem r;
     [SerializeField] List<Material> specialMats = new List<Material>();
     [HideInInspector] public int currentWeaponIndex;
     int newWeaponIndex;
@@ -34,11 +36,15 @@ public class WeaponManager : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.Q)) {
             if (PlayerManager.special) {
+                l.Stop();
+                r.Stop();
                 StopAllCoroutines();
                 StartCoroutine(AnimateMaterials(0, specialMats[0].GetFloat("Vector1_6E014F53")));
                 specialEffect.SendEvent("Exit");
                 PlayerManager.special = false;
             } else {
+                l.Play();
+                r.Play();
                 specialEffect.SendEvent("Start");
                 StopAllCoroutines();
                 StartCoroutine(AnimateMaterials(2, specialMats[0].GetFloat("Vector1_6E014F53")));
@@ -51,15 +57,16 @@ public class WeaponManager : MonoBehaviour {
             } else {
                 cam.fieldOfView = 65;
             }
-            //if (!bloodMeterDebug)
-            //{
-            //    PlayerManager.bloodMeter -= Time.deltaTime * bloodMeterDecrease;
-            //    if (PlayerManager.bloodMeter <= 0)
-            //    {
-            //        PlayerManager.bloodMeter = 0;
-            //        PlayerManager.special = false;
-            //    }
-            //}
+            if (!bloodMeterDebug) {
+                PlayerManager.bloodMeter -= Time.deltaTime * bloodMeterDecrease;
+                if (PlayerManager.bloodMeter <= 0) {
+                    l.Stop();
+                    r.Stop();
+                    StartCoroutine(AnimateMaterials(0, specialMats[0].GetFloat("Vector1_6E014F53")));
+                    PlayerManager.bloodMeter = 0;
+                    PlayerManager.special = false;
+                }
+            }
         } else {
             if (cam.fieldOfView > 60) {
                 cam.fieldOfView -= 0.1f;

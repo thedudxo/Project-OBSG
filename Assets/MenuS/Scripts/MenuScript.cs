@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine.Audio;
 
 public class MenuScript : MonoBehaviour {
@@ -18,13 +19,34 @@ public class MenuScript : MonoBehaviour {
         AudioOptions,
         quit,
         sceneSettings;
+    [Header("Reset Options:")]
+    [SerializeField] Toggle invert;
+    [SerializeField] Slider
+        sensitivity,
+        masterAudio,
+        soundEffects,
+        music;
+    [SerializeField] AudioMixerGroup
+        masterGroup,
+        soundEffectsGroup,
+        musicGroup;
 
     GameObject currentOption;
     
 
-    private void Start() {
+    private void Awake() {
         currentOption = pause;
-        
+        invert.isOn = PlayerManager.invert;
+        sensitivity.value = PlayerManager.sensitivity;
+        float masterVol;
+        float sEffectsVol;
+        float musicVol;
+        masterGroup.audioMixer.GetFloat("Master", out masterVol);
+        musicGroup.audioMixer.GetFloat("Music", out musicVol);
+        soundEffectsGroup.audioMixer.GetFloat("SEffects", out sEffectsVol);
+        masterAudio.value = masterVol;
+        soundEffects.value = sEffectsVol;
+        music.value = musicVol;
     }
 
     private void Update() {

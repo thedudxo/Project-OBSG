@@ -48,8 +48,9 @@ public class PlayerDeath : MonoBehaviour {
             PlayerManager.alive = true;
             PlayerManager.health = PlayerManager.maxHealth;
             PlayerManager.keys = 0;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             LoadManager.loadScene(LoadManager.LoadedScene);
-
         }
 
         if (Input.GetKeyDown(KeyCode.F)) {
@@ -114,6 +115,7 @@ public class PlayerDeath : MonoBehaviour {
     void killPlayer() {
         PlayerManager.health = 0;
         PlayerManager.alive = false;
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         deaths[GetComponent<WeaponManager>().currentWeaponIndex].gameObject.SetActive(true);
         GetComponent<WeaponManager>().weapons[GetComponent<WeaponManager>().currentWeaponIndex].gameObject.SetActive(false);
         main.enabled = false;

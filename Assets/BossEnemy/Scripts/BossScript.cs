@@ -33,8 +33,9 @@ public class BossScript : MonoBehaviour
     [Header("Entry:")]
     [SerializeField] ParticleSystem ground;
     [SerializeField] VisualEffect sand;
-
+    [Header("Finish:")]
     [SerializeField] GameObject credits;
+    [SerializeField] GameObject canvas;
     [SerializeField] Image fade;
     float fadeCounter = 0;
 
@@ -113,8 +114,18 @@ public class BossScript : MonoBehaviour
                 {
                     PlayerManager.alive = false;
                     credits.SetActive(true);
+                    credits.SetActive(false);
+                    fade.gameObject.SetActive(false);
                 }
             }
+        }
+        if(credits.transform.GetChild(1).transform.position.y >= 3700) {
+            PlayerManager.alive = true;
+            PlayerManager.health = PlayerManager.maxHealth;
+            PlayerManager.keys = 0;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            LoadManager.loadScene(LoadManager.LoadedScene);
         }
     }
 

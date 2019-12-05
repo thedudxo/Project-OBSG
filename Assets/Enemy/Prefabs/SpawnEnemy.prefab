@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9200162139394085020}
   - component: {fileID: 538585881615298804}
+  - component: {fileID: 1802180118463538965}
   m_Layer: 0
   m_Name: Enemy_Geo
   m_TagString: Untagged
@@ -172,7 +173,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 5f1641ba143ecdc438fb9dee8a416c6e, type: 2}
-  - {fileID: 2100000, guid: fb3037d3af47fa746baf34a18fe37489, type: 2}
+  - {fileID: 2100000, guid: 65a8ff94d340b0147b1de7ba9c371c42, type: 2}
   - {fileID: 2100000, guid: f03003d27bb489245ac1405189a5f72c, type: 2}
   - {fileID: 2100000, guid: 5f1641ba143ecdc438fb9dee8a416c6e, type: 2}
   - {fileID: 2100000, guid: f03003d27bb489245ac1405189a5f72c, type: 2}
@@ -253,6 +254,25 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.1016525, y: 0.18196446, z: -0.0017511845}
     m_Extent: {x: 1.3305379, y: 0.71246094, z: 0.9124392}
   m_DirtyAABB: 0
+--- !u!95 &1802180118463538965
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387124299140766142}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 063d48e74f6e2e5478bbe5f4d6a766f7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &569199465425647946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1382,6 +1402,7 @@ MonoBehaviour:
   player: {fileID: 0}
   attackCol: {fileID: 4782646620535157882}
   ragdoll: {fileID: 4782646621333458590}
+  damageAnim: {fileID: 1802180118463538965}
   force: 300
   ragdollForce: 5000
   bloodMeterAdd: 5
@@ -1450,6 +1471,8 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     mute: 0
+    playOnAwake: 0
+    spatialBlend: 1
     output: {fileID: -205476788242197271, guid: a05b8c17c237d064ca287219e861e59a,
       type: 2}
     source: {fileID: 0}
@@ -1459,6 +1482,8 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     mute: 0
+    playOnAwake: 0
+    spatialBlend: 1
     output: {fileID: -205476788242197271, guid: a05b8c17c237d064ca287219e861e59a,
       type: 2}
     source: {fileID: 0}
@@ -1468,6 +1493,8 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     mute: 0
+    playOnAwake: 0
+    spatialBlend: 1
     output: {fileID: -205476788242197271, guid: a05b8c17c237d064ca287219e861e59a,
       type: 2}
     source: {fileID: 0}
@@ -1477,6 +1504,8 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     mute: 0
+    playOnAwake: 0
+    spatialBlend: 1
     output: {fileID: -205476788242197271, guid: a05b8c17c237d064ca287219e861e59a,
       type: 2}
     source: {fileID: 0}
@@ -1486,6 +1515,8 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     mute: 0
+    playOnAwake: 0
+    spatialBlend: 1
     output: {fileID: -205476788242197271, guid: a05b8c17c237d064ca287219e861e59a,
       type: 2}
     source: {fileID: 0}
@@ -1495,6 +1526,8 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     mute: 0
+    playOnAwake: 0
+    spatialBlend: 1
     output: {fileID: -205476788242197271, guid: a05b8c17c237d064ca287219e861e59a,
       type: 2}
     source: {fileID: 0}
@@ -1504,6 +1537,8 @@ MonoBehaviour:
     pitch: 1.58
     loop: 0
     mute: 0
+    playOnAwake: 0
+    spatialBlend: 0
     output: {fileID: -205476788242197271, guid: a05b8c17c237d064ca287219e861e59a,
       type: 2}
     source: {fileID: 0}
@@ -3604,21 +3639,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.16700001
       objectReference: {fileID: 0}
-    - target: {fileID: 6080061633983895910, guid: e03b2dde99cc1854383e28e47441d0d6,
+    - target: {fileID: 6080061634640686116, guid: e03b2dde99cc1854383e28e47441d0d6,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6080061633983895910, guid: e03b2dde99cc1854383e28e47441d0d6,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6080061633983895910, guid: e03b2dde99cc1854383e28e47441d0d6,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f03003d27bb489245ac1405189a5f72c, type: 2}
     - target: {fileID: 6080061634640686116, guid: e03b2dde99cc1854383e28e47441d0d6,
         type: 3}
       propertyPath: m_AABB.m_Center.x
@@ -3649,11 +3674,6 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.z
       value: 0.25194693
       objectReference: {fileID: 0}
-    - target: {fileID: 6080061634640686116, guid: e03b2dde99cc1854383e28e47441d0d6,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f03003d27bb489245ac1405189a5f72c, type: 2}
     - target: {fileID: 5207535007498335943, guid: e03b2dde99cc1854383e28e47441d0d6,
         type: 3}
       propertyPath: m_LocalPosition.y

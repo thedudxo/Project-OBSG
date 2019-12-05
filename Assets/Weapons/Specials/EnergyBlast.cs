@@ -6,13 +6,11 @@ using UnityEngine.Experimental.VFX;
 public class EnergyBlast : MonoBehaviour {
 
     [SerializeField] int damage;
+    [SerializeField] AudioSource hit;
     float intensity;
-    Light light;
 
     private void Start() {
         GetComponentInChildren<VisualEffect>().SendEvent("OnPlay");
-        light = GetComponentInChildren<Light>();
-        intensity = light.intensity;
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -21,12 +19,9 @@ public class EnergyBlast : MonoBehaviour {
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
         GetComponent<Special>().active = false;
-        GetComponentInChildren<Light>().intensity = 0;
-
+        hit.Play();
         if (other.tag == Tags.ENEMY) {
             other.GetComponent<EnemyDeathScript>().DealDamage(damage);
-            int i = Random.Range(0, 2);
-            other.GetComponent<EnemyAudioManager>().Play("EnergyHit" + i);
         } else if(other.tag == Tags.BOSS) {
             other.GetComponentInParent<BossScript>().DealDamage(damage);
         }
@@ -38,7 +33,6 @@ public class EnergyBlast : MonoBehaviour {
         GetComponent<MeshRenderer>().enabled = true;
         GetComponent<Collider>().enabled = true;
         SpecialsManager.Instance.FistSpecial.Push(gameObject);
-        GetComponentInChildren<Light>().intensity = intensity;
         gameObject.SetActive(false);
     }
 
