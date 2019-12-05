@@ -114,7 +114,6 @@ public class BossScript : MonoBehaviour
                 {
                     PlayerManager.alive = false;
                     credits.SetActive(true);
-                    credits.SetActive(false);
                     fade.gameObject.SetActive(false);
                 }
             }
