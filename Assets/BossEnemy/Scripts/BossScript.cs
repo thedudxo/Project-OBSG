@@ -27,12 +27,15 @@ public class BossScript : MonoBehaviour
     [Header("Eye Beam:")]
     [SerializeField] EyeBeam beamScript;
     [SerializeField] Transform beamTrigger;
+    [SerializeField] GameObject beamBurnPrefab;
     [SerializeField] VisualEffect beamChargeL;
     [SerializeField] VisualEffect beamChargeR;
     [Header("Entry:")]
     [SerializeField] ParticleSystem ground;
-
+    [SerializeField] VisualEffect sand;
+    [Header("Finish:")]
     [SerializeField] GameObject credits;
+    [SerializeField] GameObject canvas;
     [SerializeField] Image fade;
     float fadeCounter = 0;
 
@@ -40,6 +43,12 @@ public class BossScript : MonoBehaviour
     public Stack<GameObject> EnergyWaveStack {
         get { return energyWaveStack; }
         set { energyWaveStack = value; }
+    }
+
+    private Stack<GameObject> beamBurnStack = new Stack<GameObject>();
+    public Stack<GameObject> BeamBurnStack {
+        get { return beamBurnStack; }
+        set { beamBurnStack = value; }
     }
 
     delegate void EveryFrame();
@@ -52,6 +61,7 @@ public class BossScript : MonoBehaviour
         ChangeState(BossState.longRange);
         SetPrefab();
         CreateEnergyWave(5);
+        CreateBeamBurn(100);
     }
 
     public void SetPrefab() {
@@ -63,6 +73,14 @@ public class BossScript : MonoBehaviour
             energyWaveStack.Push(Instantiate(energyWavePrefab));
             energyWaveStack.Peek().name = "Energy Wave";
             energyWaveStack.Peek().SetActive(false);
+        }
+    }
+
+    void CreateBeamBurn(int amount) {
+        for (int i = 0; i < amount; i++) {
+            beamBurnStack.Push(Instantiate(beamBurnPrefab));
+            beamBurnStack.Peek().name = "BeamBurn";
+            beamBurnStack.Peek().SetActive(false);
         }
     }
 
@@ -96,8 +114,18 @@ public class BossScript : MonoBehaviour
                 {
                     PlayerManager.alive = false;
                     credits.SetActive(true);
+                    credits.SetActive(false);
+                    fade.gameObject.SetActive(false);
                 }
             }
+        }
+        if(credits.transform.GetChild(1).transform.position.y >= 3700) {
+            PlayerManager.alive = true;
+            PlayerManager.health = PlayerManager.maxHealth;
+            PlayerManager.keys = 0;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            LoadManager.loadScene(LoadManager.LoadedScene);
         }
     }
 
@@ -145,6 +173,7 @@ public class BossScript : MonoBehaviour
     }
 
     void RotateTowardsTarget() {
+        if (dead) { return; }
         direction.y = direction.y + 1;
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         if (beam && attacking) {
@@ -153,7 +182,10 @@ public class BossScript : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(beamScript.transform.position, beamScript.transform.forward, out hit, Mathf.Infinity, layerMask)) {
                 beamScript.UpdateLength(hit);
-                beamTrigger.position = hit.point;
+                var pos = hit.point;
+                pos.y = pos.y + 0.1f;
+                beamTrigger.position = pos;
+                BeamBurn(hit.point);
             }
             beamScript.RotateTowardsPlayer();
             targetRotation.x = 0;
@@ -173,7 +205,7 @@ public class BossScript : MonoBehaviour
     void AttackTarget(List<string> list) {
         stopCounter = true;
         int i = Random.Range(0, list.Count);
-        string attack = list[1];
+        string attack = list[i];
         GetComponent<Animator>().SetTrigger(attack);
     }
 
@@ -182,6 +214,13 @@ public class BossScript : MonoBehaviour
             bossHealth -= damage;
             CheckHealth();
         }
+    }
+
+    void BeamBurn(Vector3 hit) {
+        GameObject tmp = beamBurnStack.Pop();
+        tmp.GetComponent<BurnScript>().boss = gameObject;
+        tmp.transform.position = hit;
+        tmp.SetActive(true);
     }
 
     public void EnergyWave() {
@@ -201,6 +240,8 @@ public class BossScript : MonoBehaviour
 
     void Dead() {
         GetComponent<Animator>().SetTrigger("Die");
+        beamScript.gameObject.SetActive(false);
+        stopCounter = true;
     }
 
     public void AttackBool(string attack) {
@@ -208,7 +249,8 @@ public class BossScript : MonoBehaviour
         if (attack != null) {
             beam = true;
             beamScript.gameObject.SetActive(true);
-            beamTrigger.gameObject.SetActive(true);
+            beamTrigger.GetComponent<Collider>().enabled = true;
+            beamTrigger.GetComponent<ParticleSystem>().Play();
         }
     }
 
@@ -216,7 +258,8 @@ public class BossScript : MonoBehaviour
         beam = false;
         beamScript.transform.localRotation = beamScript.rot;
         beamScript.gameObject.SetActive(false);
-        beamTrigger.gameObject.SetActive(false);
+        beamTrigger.GetComponent<Collider>().enabled = false;
+        beamTrigger.GetComponent<ParticleSystem>().Stop();
     }
 
     public void resetBool() {
@@ -225,11 +268,17 @@ public class BossScript : MonoBehaviour
     }
 
     public void startVFX() {
-        beamChargeL.SendEvent("OnPlay");
-        beamChargeR.SendEvent("OnPlay");
+        beamChargeL.SendEvent("Charge");
+        beamChargeR.SendEvent("Charge");
+    }
+
+    public void StopVFX() {
+        beamChargeL.SendEvent("StopCharge");
+        beamChargeR.SendEvent("StopCharge");
     }
 
     public void Entry() {
+        sand.SendEvent("sand");
         ground.Play();
     }
 

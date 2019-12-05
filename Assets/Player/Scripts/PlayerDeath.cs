@@ -28,23 +28,29 @@ public class PlayerDeath : MonoBehaviour {
     [SerializeField] int respawnObjectsCount = 0;
     public bool canRespawn = false;
 
+    [Header("Death:")]
+    [SerializeField] GameObject[] deaths;
+    [SerializeField] Camera main;
+    [SerializeField] Camera fps;
+
     private void Start() {
         Respawn.respawnPosition = transform.position;
         Respawn.respawnRotation = transform.rotation;
     }
 
-            //          if (canRespawn) {
-            //              Respawn.StartRespwn();
-            //          } else {
-            //              Debug.Log("Can't Respawn");
-            //          }
+//          if (canRespawn) {
+//              Respawn.StartRespwn();
+//          } else {
+//              Debug.Log("Can't Respawn");
+//          }
     private void Update() {
         if (Input.GetKeyDown(KeyCode.R)) {
             PlayerManager.alive = true;
             PlayerManager.health = PlayerManager.maxHealth;
             PlayerManager.keys = 0;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             LoadManager.loadScene(LoadManager.LoadedScene);
-
         }
 
         if (Input.GetKeyDown(KeyCode.F)) {
@@ -84,7 +90,7 @@ public class PlayerDeath : MonoBehaviour {
     void CheckHealth() { 
         if(PlayerManager.health <= 0) {
             killPlayer();
-            SetStats();
+            //SetStats();
         } else {
             startHealthDelay = Time.time;
         }
@@ -109,6 +115,11 @@ public class PlayerDeath : MonoBehaviour {
     void killPlayer() {
         PlayerManager.health = 0;
         PlayerManager.alive = false;
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        deaths[GetComponent<WeaponManager>().currentWeaponIndex].gameObject.SetActive(true);
+        GetComponent<WeaponManager>().weapons[GetComponent<WeaponManager>().currentWeaponIndex].gameObject.SetActive(false);
+        main.enabled = false;
+        fps.enabled = false;
         deathScreen.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         GetComponent<Rigidbody>().velocity = Vector3.zero;

@@ -19,6 +19,8 @@ public class EnemyAudioManager : MonoBehaviour {
             s.source.loop = s.loop;
             s.source.mute = s.mute;
             s.source.outputAudioMixerGroup = s.output;
+            s.source.playOnAwake = s.playOnAwake;
+            s.source.spatialBlend = s.spatialBlend;
 
         }
 

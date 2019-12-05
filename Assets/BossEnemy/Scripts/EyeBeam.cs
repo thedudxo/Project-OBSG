@@ -26,8 +26,8 @@ public class EyeBeam : MonoBehaviour {
     }
 
     public void UpdateLength(RaycastHit hit) {
-        leftEye.SetPosition(1, new Vector3(0, 0, hit.distance + 20));
-        rightEye.SetPosition(1, new Vector3(0, 0, hit.distance + 20));
+        leftEye.SetPosition(1, new Vector3(0, 0, hit.distance + 10));
+        rightEye.SetPosition(1, new Vector3(0, 0, hit.distance + 10));
     }
 
     void RotateEyes(RaycastHit hit) {
