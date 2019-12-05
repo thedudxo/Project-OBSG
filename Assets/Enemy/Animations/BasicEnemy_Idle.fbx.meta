@@ -6,7 +6,32 @@ ModelImporter:
   - first:
       74: 1827226128182048838
     second: BasicEnemy_Idle
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cloth_Material1
+    second: {fileID: 2100000, guid: f03003d27bb489245ac1405189a5f72c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gold_Material1
+    second: {fileID: 2100000, guid: 5f1641ba143ecdc438fb9dee8a416c6e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sash1
+    second: {fileID: 2100000, guid: e82695b3f24b23c47b4a4fa8ef198e9c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skin_Material1
+    second: {fileID: 2100000, guid: fb3037d3af47fa746baf34a18fe37489, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skull_Material1
+    second: {fileID: 2100000, guid: f62915d6a999fd2409e24b632e6e65e3, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -112,7 +137,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.29999998
+    globalScale: 30
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
