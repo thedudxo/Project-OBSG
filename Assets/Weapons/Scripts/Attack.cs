@@ -21,6 +21,10 @@ public class Attack : MonoBehaviour {
     bool leftClick = false;
     [SerializeField] string hitSound;
 
+    private void Start() {
+        PlayerManager.enemies.Clear();
+    }
+
     private void Update() {
         if (clickWait) {
             if (Input.GetKeyDown(KeyCode.Mouse0)) {
